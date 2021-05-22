@@ -92,6 +92,17 @@
     text-decoration: none;
     outline:none;
 }
+.AuthInputTwo{
+    margin-top:5%;
+    border:none;
+    width:50%;
+    border-bottom:1px solid;
+    padding-bottom: 10px;
+    font-size:15px;
+    font-weight:500;
+    text-decoration: none;
+    outline:none;
+}
 .AuthEleven{
     width:100%;
     display: flex;
