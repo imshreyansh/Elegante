@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import './App.css'
 import Authorization from './components/authorization/Authorization'
 import SnackBar from './components/utils/SnackBar'
+import {getItemFromStorage} from './components/utils/localStorage'
 class App extends Component {
   render(){
     return (
@@ -14,9 +15,9 @@ class App extends Component {
   }
 }
 
-function mapStateToProps(authedId){
+function mapStateToProps(token){
   return{
-    authedId
+    token:getItemFromStorage('authedId')
   }
 }
 export default connect(mapStateToProps)(App)

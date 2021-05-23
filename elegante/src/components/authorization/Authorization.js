@@ -5,6 +5,7 @@ import logoWhite from "../../assets/images/logoWhite.png"
 import {loginUser,signUpUser} from '../../actions/authorizations'
 import {handleError} from '../../actions/handleError'
 import {validation} from '../../utils/validation'
+import {storeItem} from '../utils/localStorage'
 class Authorization extends Component {
     constructor(props){
         super(props)
@@ -29,21 +30,34 @@ class Authorization extends Component {
     Auth =()=>{
         if(this.state.display===true){
             const obj={
-                username:this.state.username,
+                email:this.state.username,
                 password:this.state.password
             }
             this.props.dispatch(loginUser(obj))
+            this.setState({
+                username:'',
+                password:'',
+            })
         }else{
-            const {email, password,mobile,address,name}=this.state
-            if(name!==''&&email!==''&&mobile!==''&&address!==''&&password!==''){
+            const {email, passwordSignUP,mobile,address,name}=this.state
+            if(name!==''&&email!==''&&mobile!==''&&address!==''&&passwordSignUP!==''){
                 const obj={
                     name:this.state.name,
                     email:this.state.email,
                     mobile:this.state.mobile,
                     address:this.state.address,
                     password:this.state.passwordSignUP,
+                    designation:'User'
                 }
                 this.props.dispatch(signUpUser(obj))
+                this.setState({
+                    name:'',
+                    email:'',
+                    mobile:'',
+                    address:'',
+                    passwordSignUP:'',
+                    display:true
+                })
             }else{
                 const obj={
                     error:'Some fields are empty',
@@ -75,7 +89,7 @@ class Authorization extends Component {
                     </div>
                    {this.state.display===true ?
                    <div className="AuthTen">
-                        <input type="text" className="AuthInputOne" placeholder="Username" value={this.state.username} onChange={(e)=>this.setState({username:e.target.value})}/>
+                        <input type="text" className="AuthInputOne" placeholder="Email" value={this.state.username} onChange={(e)=>this.setState({username:e.target.value})}/>
                         <input type="password" className="AuthInputOne" placeholder="Password" value={this.state.password} onChange={(e)=>this.setState({password:e.target.value})}/>
                     </div> :
                     <div className="AuthTen">
@@ -83,7 +97,7 @@ class Authorization extends Component {
                     <input type="text" className="AuthInputTwo" style={{borderBottomWidth:1,borderBottomColor:this.state.emailE ==='' ? '#333' :'red'}} placeholder="Email" value={this.state.email} onChange={(e)=>this.setState(validation(e,'email','email',['Email is reuired','Incorrect Email']))}/>
                     <input type="text" className="AuthInputTwo" style={{borderBottomWidth:1,borderBottomColor:this.state.mobileE ==='' ? '#333' :'red'}} placeholder="Mobile" value={this.state.mobile} onChange={(e)=>this.setState(validation(e,'mobile','text',['Email is reuired','Incorrect Email']))}/>
                     <input type="text" className="AuthInputTwo" style={{borderBottomWidth:1,borderBottomColor:this.state.addressE ==='' ? '#333' :'red'}} placeholder="Address" value={this.state.address} onChange={(e)=>this.setState(validation(e,'address','text',['name is reuired','ds']))}/>
-                    <input type="text" className="AuthInputTwo" style={{borderBottomWidth:1,borderBottomColor:this.state.passwordSignUPE ==='' ? '#333' :'red'}} placeholder="Password" value={this.state.passwordSignUP} onChange={(e)=>this.setState(validation(e,'passwordSignUP','text',['name is reuired','ds']))}/>
+                    <input type="password" className="AuthInputTwo" style={{borderBottomWidth:1,borderBottomColor:this.state.passwordSignUPE ==='' ? '#333' :'red'}} placeholder="Password" value={this.state.passwordSignUP} onChange={(e)=>this.setState(validation(e,'passwordSignUP','text',['name is reuired','ds']))}/>
                 </div>
                     } 
                     <div className="AuthEleven" onClick={()=>this.Auth()}>
@@ -98,7 +112,7 @@ class Authorization extends Component {
 
 function mapStateToProps(authedId){
     return {
-        authedId
+        loginToken:authedId.loginToken !==undefined ? storeItem('authedId',authedId.authorization):''
     }
 }
 
