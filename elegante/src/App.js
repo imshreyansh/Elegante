@@ -1,7 +1,8 @@
 import React,{Component,Fragment} from 'react'
 import {connect} from 'react-redux'
 import './App.css'
-import Authorization from './components/authorization/Authorization'
+import SideMenu from './components/common/SideMenu'
+import TopBar from './components/common/TopBar'
 import SnackBar from './components/utils/SnackBar'
 import {getItemFromStorage} from './components/utils/localStorage'
 class App extends Component {
@@ -9,7 +10,8 @@ class App extends Component {
     return (
       <div>
         <SnackBar />
-       <Authorization/>
+        <TopBar/>
+       <SideMenu/>
       </div>
     );
   }
