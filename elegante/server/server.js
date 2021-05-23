@@ -26,8 +26,8 @@ app.use(bodyParser.json());
 app.use("/uploads", express.static("uploads"))
 
 
-mongoose.connect('mongodb://localhost/handleyourshaadi',
-    { useNewUrlParser: true },{ useFindAndModify: false }
+mongoose.connect('mongodb://localhost/elegante',
+    { useNewUrlParser: true },{ useFindAndModify: false },{useUnifiedTopology: true }
 ).then(() =>
     console.log('connected to mongodb'))
     .catch((err) =>
