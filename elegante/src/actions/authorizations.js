@@ -1,5 +1,6 @@
-import {LOGIN_USER,SIGN_UP} from './actionTypes'
+import {LOGIN_USER,SIGN_UP,LOGOUT} from './actionTypes'
 import {handleError} from './handleError'
+import {storeItem,removeItemFromStorage} from '../components/utils/localStorage'
 import {IP} from '../config/config'
 import axios from 'axios'
 
@@ -7,6 +8,7 @@ export const loginUser=(data)=>dispatch=>{
     axios.post(`${IP}/api/userAuth/loginUser`,data)
     .then(res=>{
         if(res){
+            storeItem('authedId',res.data.response)
             dispatch({type: LOGIN_USER,payload:res.data.response})
         }
     })
@@ -14,6 +16,14 @@ export const loginUser=(data)=>dispatch=>{
         dispatch(handleError({type:'error',error:err.message})),
         dispatch({type: LOGIN_USER,payload:null})
     )
+}
+
+export const logout=()=>dispatch=>{
+    removeItemFromStorage('authedId')
+    dispatch({
+        type: LOGOUT,
+        payload: {}
+    })
 }
 
 export const signUpUser=(data)=>dispatch=>{

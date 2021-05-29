@@ -6,6 +6,7 @@ import {loginUser,signUpUser} from '../../actions/authorizations'
 import {handleError} from '../../actions/handleError'
 import {validation} from '../../utils/validation'
 import {storeItem} from '../utils/localStorage'
+import { CodeSharp } from '@material-ui/icons'
 class Authorization extends Component {
     constructor(props){
         super(props)
@@ -112,7 +113,7 @@ class Authorization extends Component {
 
 function mapStateToProps(authedId){
     return {
-        loginToken:authedId.loginToken !==undefined ? storeItem('authedId',authedId.authorization):''
+        authedId
     }
 }
 

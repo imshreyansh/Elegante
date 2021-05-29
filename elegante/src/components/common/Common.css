@@ -29,3 +29,42 @@
     width:30%;
     height:12%;
 }
+.sideMenuItems{
+    margin-top:30%;
+    padding-bottom:10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sideMenuItemFormat{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    width:70%;
+    cursor: pointer;
+}
+.sideMenuItemText{
+    font-size:25px;
+    font-weight: 500;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color:#fff;
+}
+.topBarThree{
+    padding-bottom:10px;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+}
+.topBarFour{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    cursor: pointer;
+    width:8%;
+}
+.topBarFive{
+    font-size:25px;
+    font-weight: 500;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color:#fff;
+}
