@@ -5,23 +5,23 @@ const { SECRET } = require('../config')
 
 const userAuth = new Schema({
     name:{
-        type:'String'
+        type:String
     },
     email:{
-        type:'String'
+        type:String
     },
     mobile:{
-        type:'String'
+        type:String
     },
     designation:{
-        type:'String',
+        type:String,
         enum:['Admin','User']
     },
     address:{
-        type:'String'
+        type:String
     },
     password:{
-        type:'String'
+        type:String
     },
     status:{
         type: String,

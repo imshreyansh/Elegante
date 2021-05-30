@@ -4,13 +4,9 @@ const uuid = require("uuid")
 const shell = require('shelljs');
 
 
-/**   
- * multer disk storage settings for uploading the canteen images   
-*/
-
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        let path = `./uploads/avatar/${uuid()}/`;
+        let path = `./uploads/avatar/`;
         fs.exists(path, function (exists) {
             if (exists) {
                 cb(null, path)
@@ -24,6 +20,7 @@ var storage = multer.diskStorage({
         cb(null, file.originalname);
     },
 });
+
 
 
 

@@ -4,9 +4,9 @@ export default function stocks(state=null,action){
     const {type,payload} = action
     switch (type){
         case ADD_STOCK:
-            if(payload !==null){
-                return [...state,payload]
-            }
+            
+                return payload
+            
         default:
             return state
     }

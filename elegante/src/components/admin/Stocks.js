@@ -12,7 +12,7 @@ class Stocks extends Component {
         this.default={
             itemName:'',
             itemNameE:'',
-            photos:[],
+            thumbnail:[],
             cost:'',
             costE:'',
             selling:'',
@@ -33,7 +33,7 @@ class Stocks extends Component {
             arr.push(d[1])
         })
     this.setState({
-    photos:arr
+    thumbnail:arr
     })  
   }
 
@@ -49,8 +49,10 @@ class Stocks extends Component {
               category:this.state.category ==='' ? this.props.categories[0]._id : this.state.category
           }
           const formData = new FormData()
-          formData.append('data',JSON.parse(obj))
-          formData.append('thumbnail',this.state.photos)
+          this.state.thumbnail.map(d=>{
+            formData.append('thumbnail', d)
+          })
+          formData.append('data',JSON.stringify(obj))
           this.props.dispatch(addStock(formData))
         }else{
         const obj={
@@ -99,7 +101,7 @@ class Stocks extends Component {
             </div>
             <div className="stocksOne">
                 <div className="stocksTwo">
-                    <input type="file" multiple="multiple" className="stocksInputLast" placeholder="Photos" value={this.state.photos}  style={{borderBottomColor:this.state.itemNameE ==='' ? '#333' :'red'}} onChange={(e)=>this.onImage(e)}/>
+                    <input type="file" multiple="multiple" name="thumbnail" className="stocksInputLast" placeholder="Photos"  onChange={(e)=>this.onImage(e)}/>
                 </div>
                 
             </div>

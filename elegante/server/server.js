@@ -21,8 +21,8 @@ app.use(cors())
 // Use above cors before routes are setup
 mountRoutes(app)
 
-app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use("/uploads", express.static("uploads"))
 
 
