@@ -24,7 +24,7 @@ const stock=new Schema({
 
     category:{
         type:Schema.Types.ObjectId,
-        ref:'category'
+        ref:'Category'
     },
 
     thumbnail:Array

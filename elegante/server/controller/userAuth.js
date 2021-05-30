@@ -14,8 +14,8 @@ exports.createUser = async (req, res)=>{
         const user =await addUser.save()
         successResponseHandler(res,user,'Successfully Created User')
     }
-    catch{
-    errorResponseHandler(res, 'Error','Error While Creating User')
+    catch(error){
+        errorResponseHandler(res, error,'Error While getting stocks')
     }
 }
 
@@ -29,7 +29,7 @@ exports.loginUser = async (req, res)=>{
        else
        return errorResponseHandler(res, 'Error', 'Incorrect Password')
     }
-    catch{
-    errorResponseHandler(res, 'Error','Error While Login In')
+    catch(error){
+        errorResponseHandler(res, error,'Error While getting stocks')
     }
 }

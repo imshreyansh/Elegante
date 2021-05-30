@@ -7,8 +7,8 @@ exports.addCategory = async (req,res)=>{
         await category.save()
         successResponseHandler(res,category,'Successfully added category')
     }
-    catch{
-        errorResponseHandler(res, 'Error','Error While adding category')
+    catch(error){
+        errorResponseHandler(res, error,'Error While getting stocks')
     }
 }
 
@@ -18,8 +18,8 @@ exports.editCategory = async (req,res)=>{
         successResponseHandler(res,getCategory,'Successfully updated category')
 
     }
-    catch{
-        errorResponseHandler(res, 'Error','Error While updating category')
+    catch(error){
+        errorResponseHandler(res, error,'Error While getting stocks')
     }
 }
 
@@ -28,8 +28,8 @@ exports.deleteCategory = async (req,res)=>{
         const getCategory = await Category.findOneAndDelete({_id:req.params.id})
         successResponseHandler(res,getCategory,'Successfully deleted category')
     }
-    catch{
-        errorResponseHandler(res, 'Error','Error While deleting category')
+    catch(error){
+        errorResponseHandler(res, error,'Error While getting stocks')
     }
 }
 
@@ -38,7 +38,7 @@ exports.getAllCategory = async (req, res)=>{
         const getCategory = await Category.find()
         successResponseHandler(res,getCategory,'Successfully deleted category')
     }
-    catch{
-        errorResponseHandler(res, 'Error','Error While deleting category')
+    catch(error){
+        errorResponseHandler(res, error,'Error While getting stocks')
     }
 }

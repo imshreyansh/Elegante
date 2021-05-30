@@ -13,3 +13,36 @@ export const addStock = (data)=>dispatch=>{
         dispatch({type: ADD_STOCK,payload:null})
     )
 }
+
+export const getStock = ()=>dispatch=>{
+    axios.get(`${IP}/api/stock/getAllStocks`)
+    .then(res=>{
+        dispatch({type: GET_STOCK,payload:res.data.response})
+    })
+    .catch(err=>
+        dispatch(handleError({type:'error',error:err.message})),
+        dispatch({type: GET_STOCK,payload:null})
+    )
+}
+
+export const deleteStock = (id)=>dispatch=>{
+    axios.post(`${IP}/api/stock/deleteStock/${id}`)
+    .then(res=>{
+        dispatch({type: DELETE_STOCK,payload:res.data.response})
+    })
+    .catch(err=>
+        dispatch(handleError({type:'error',error:err.message})),
+        dispatch({type: DELETE_STOCK,payload:null})
+    )
+}
+
+export const editStock = (id,data)=>dispatch=>{
+    axios.post(`${IP}/api/stock/editStock/${id}`,data)
+    .then(res=>{
+        dispatch({type: EDIT_STOCK,payload:res.data.response})
+    })
+    .catch(err=>
+        dispatch(handleError({type:'error',error:err.message})),
+        dispatch({type: EDIT_STOCK,payload:null})
+    )
+}

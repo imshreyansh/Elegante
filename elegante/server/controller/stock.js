@@ -16,3 +16,38 @@ exports.addStock =  (req, res)=>{
         }
     })
 }
+
+exports.getAllStocks = async (req,res)=>{
+    try{
+        const all = await Stock.find({}).populate('category')
+        successResponseHandler(res,all,'Successfully Got all Stock')
+    }
+    catch(error){
+        errorResponseHandler(res, error,'Error While getting stocks')
+    }
+}
+
+exports.deleteStock = async(req,res)=>{
+    try{
+        const deleteItem = await Stock.findOneAndDelete({_id:req.params.id})
+        successResponseHandler(res,deleteItem,'Successfully Deleted Stock')
+    }
+    catch(error){
+        errorResponseHandler(res, error,'Error While getting stocks')
+    }
+}
+
+exports.editStock = (req,res)=>{
+    uploadAvatar(req,res,async(err)=>{
+        if(err) return errorResponseHandler(res,err,'Error while updating stock')
+        try{
+            const data = JSON.parse(req.body.data)
+            const find = await Stock.findOneAndUpdate({_id:req.params.id},data,{new:true})
+            find['thumbnail'] = req.files
+            successResponseHandler(res,find,'Successfully Updated Stock')
+        }
+        catch(error){
+            errorResponseHandler(res, error,'Error While getting stocks')
+        }
+    })
+}
