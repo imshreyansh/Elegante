@@ -13,7 +13,7 @@ class Stocks extends Component {
     constructor(props){
         super(props)
         this.default={
-            state:'add',
+            state:'',
             itemName:'',
             itemNameE:'',
             thumbnail:[],

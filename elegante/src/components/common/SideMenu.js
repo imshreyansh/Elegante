@@ -2,7 +2,8 @@ import React,{Component} from 'react'
 import {connect} from 'react-redux'
 import './Common.css'
 import logoWhite from "../../assets/images/logoWhite.png"
-import { Dashboard,Category,Accessible} from '@material-ui/icons';
+import { Dashboard,Category} from '@material-ui/icons';
+import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import AccountBalanceWalletIcon from '@material-ui/icons/AccountBalanceWallet';
 import {NavLink} from 'react-router-dom'
 class SideMenu extends Component {
@@ -40,11 +41,12 @@ class SideMenu extends Component {
                     <NavLink to="/formatting" style={{textDecoration:'none'}}>
                     <div className="sideMenuItems">
                         <div className="sideMenuItemFormat">
-                            <Accessible style={{color:'#fff',marginTop:'auto',marginBottom:'auto'}}/>
-                            <span className="sideMenuItemText">Formatting</span>
+                            <AttachMoneyIcon style={{color:'#fff',marginTop:'auto',marginBottom:'auto'}}/>
+                            <span className="sideMenuItemText">Currency</span>
                         </div>
                     </div>
                     </NavLink>
+                    
                 </div>
             </div>
         )

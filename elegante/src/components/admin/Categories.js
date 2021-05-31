@@ -58,7 +58,7 @@ class Categories extends Component {
         return(
             <div className="dashboardOne"> 
                 <div className='categoryOne'>
-                    <span className="categorySpanOne">Category Name</span>
+                    <span className="categorySpanOne">Add Category</span>
                 </div>
                 <div className="categoryTwo">
                         <input type="text" className="categoryInputOne" placeholder="Name" value={this.state.category}  style={{borderBottomColor:this.state.categoryE ==='' ? '#333' :'red'}} onChange={(e)=>this.setState(validation(e,'category','text',['name is reuired','ds']))}/>
