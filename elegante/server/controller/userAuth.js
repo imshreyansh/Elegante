@@ -33,3 +33,13 @@ exports.loginUser = async (req, res)=>{
         errorResponseHandler(res, error,'Error While getting stocks')
     }
 }
+
+exports.updateUser=async(req,res)=>{
+    try{
+        const getUser = await UserAuth.findOneAndUpdate({_id:req.params.id},req.body.data,{new:true})
+        successResponseHandler(res,getUser,'Successfully Updated User Details')
+    }
+    catch(error){
+        errorResponseHandler(res, error,'Error While getting stocks')
+    }
+}

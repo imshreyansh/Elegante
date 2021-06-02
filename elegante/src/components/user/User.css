@@ -1,0 +1,158 @@
+.userTopBarOne{
+    width:100%;
+    padding:1%;
+    background-color:#333;
+}
+.userTopBarTwo{
+    width:95%;
+    display: flex;
+    flex-direction:row;
+    justify-content: flex-end;
+}
+.userTopBarThree{
+    display: flex;
+    flex-direction:row;
+    margin-left: 2%;
+    cursor: pointer;
+}
+.userTopBarText{
+    font-size:20px;
+    font-weight: 500;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color:#fff;
+    padding-left: 15px;
+}
+.logoUserTopBar{
+    width:2%;
+    position:absolute;
+}
+
+.userLandingTwo{
+    margin-top:2%;
+    width:95%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    flex-wrap: wrap;
+}
+.userLandingCategory{
+    margin-top:2%;
+    width:15%;
+    padding:1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius:10px;
+    background-color:#bdbdbd;
+    cursor: pointer;
+}
+.userLandingSpan{
+    font-size:20px;
+    font-weight: 500;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color:#fff;
+    width:80%
+}
+.userLandingProducts{
+    margin-top:2%;
+    width:95%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    flex-wrap: wrap;
+}
+.userLandingEachProduct{
+    margin-top:2%;
+    width:15%;
+    padding:1%;
+    display: flex;
+    justify-content: center;
+    flex-direction:column;
+    align-items: center;
+    border-radius:5px;
+    background-color:#616161;
+}
+.userLandingProductImages{
+    width:80%;
+    height:100%;
+    border-radius:5px;
+}
+.userLandingSpanTwo{
+    font-size:20px;
+    font-weight: 500;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color:#fff;
+    width:80%
+}
+.userLandingAdd{
+    margin-top:5%;
+    width:80%;
+    padding:1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius:10px;
+    background-color:#fff;
+    cursor: pointer;
+}
+.userLandingThree{
+    font-size:20px;
+    font-weight: 500;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color:#333;
+    text-align: center;
+    width:80%
+}
+.userCartOne{
+    margin-top:2%;
+    width:95%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.userCartTwo{
+    margin-top:2%;
+    width:50%;
+    padding:1%;
+    background-color:#ddd;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius:5px;
+    display: flex;
+    flex-direction: row;
+}
+.userCartImage{
+    width:10%;
+    height:10%;
+    border-radius:5px;
+}
+.userCartThree{
+    margin-left:2%;
+    display: flex;
+    flex-direction: column;
+}
+.userCartText{
+    font-size:20px;
+    font-weight: 500;
+    margin-left:2%;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color:#333;
+    text-align: center;
+    width:30%
+}
+.userCartTextTwo{
+    font-size:25px;
+    font-weight: 500;
+    margin-left:10%;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color:#333;
+}
+.userCartFour{
+    margin-left:2%;
+    display: flex;
+    flex-direction: row;
+    margin-top:20%;
+}
