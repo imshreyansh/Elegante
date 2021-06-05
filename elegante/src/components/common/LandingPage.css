@@ -1,0 +1,331 @@
+.landingPageOne{
+    background-size: 100% 100%;
+    background-color:#C3E4FD;
+    padding-top:0.5%;
+    padding-bottom: 1%;
+}
+
+.landingPageCategory{
+    width:80%;
+    background-color:#F4AFB3;
+    padding:1%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius:20px;
+    display: flex;
+    flex-direction: row;
+    overflow: auto;
+    white-space: nowrap;
+    box-shadow: 2px 2px 2px;
+}
+
+.landingPageMenuTop{
+    width:80%;
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-end;
+    padding:2%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+    .landingPageMenuItems{
+        display: flex;
+        flex-direction: row;
+        justify-content:flex-end;
+        width:100%;
+        padding-bottom: 2%;
+    }
+    .landingPageSpan{
+        font-size:10px;
+        font-weight: 500;
+        color: #fff;
+        padding-left: 5%;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        cursor: pointer;
+    }
+    .landingPageMenuCategory{
+        width:60%;
+        border:2px solid #fff;
+        border-radius:50%;
+    }
+  
+    .landingPageCatgeoryNameAndImage{
+      width:20%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-left: 5%;
+    }
+  
+    .landingPageSpanTwo{
+      font-size:8px;
+      font-weight: 500;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding-top: 5%;
+    }
+    .landingPageProductOne{
+        width:80%;
+        margin-left:auto;
+        margin-right: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+  
+    .landingPageProductTwo{
+        width:80%;
+        background-color: #fff;
+        border:2px solid #fff;
+        box-shadow: 5px 5px 5px;
+        padding:1%;
+        border-radius: 8px;
+        display: flex;
+        flex-direction:column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 5%;
+  
+    }
+  
+    .landingPageProductImage{
+        width:100%;
+        border:0.5px solid #F4AFB3;
+        border-radius: 5px;
+  
+    }
+  
+    .landingPageSpanThree{
+      font-size:15px;
+      font-weight: 500;
+      color: #ff6d00;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding-top: 2%;
+    }
+  
+    .landingPageAddToCartButton{
+        width:80%;
+        padding:2%;
+        background-color: #F4AFB3;
+        border-radius:20px;
+        margin-top: 5%;
+        display: flex;
+        justify-content:center;
+        align-items:center;
+    }
+  
+    .landingPageSpanFour{
+      font-size:18px;
+      font-weight: 500;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+  
+  }
+
+  @media only screen and (min-width: 768px) {
+    .landingPageMenuItems{
+        display: flex;
+        flex-direction: row;
+        justify-content:flex-end;
+        width:45%;
+    }
+    .landingPageSpan{
+        font-size:15px;
+        font-weight: 500;
+        color: #fff;
+        padding-left: 8%;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        cursor: pointer;
+    }
+    .landingPageMenuCategory{
+        width:60%;
+        border:2px solid #fff;
+        border-radius:50%;
+    }
+  
+    .landingPageCatgeoryNameAndImage{
+      width:20%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-left: 5%;
+    }
+  
+    .landingPageSpanTwo{
+      font-size:12px;
+      font-weight: 500;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding-top: 5%;
+    }
+    .landingPageProductOne{
+        width:80%;
+        margin-left:auto;
+        margin-right: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+  
+    .landingPageProductTwo{
+        width:20%;
+        background-color: #fff;
+        border:2px solid #fff;
+        box-shadow: 5px 5px 5px;
+        padding:1%;
+        border-radius: 8px;
+        display: flex;
+        flex-direction:column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 5%;
+  
+    }
+  
+    .landingPageProductImage{
+        width:100%;
+        border:0.5px solid #F4AFB3;
+        border-radius: 5px;
+  
+    }
+  
+    .landingPageSpanThree{
+      font-size:15px;
+      font-weight: 500;
+      color: #ff6d00;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding-top: 2%;
+    }
+  
+    .landingPageAddToCartButton{
+        width:80%;
+        padding:2%;
+        background-color: #F4AFB3;
+        border-radius:20px;
+        margin-top: 5%;
+        display: flex;
+        justify-content:center;
+        align-items:center;
+    }
+  
+    .landingPageSpanFour{
+      font-size:18px;
+      font-weight: 500;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+  }
+
+  @media only screen and (min-width: 1100px) {
+    .landingPageMenuItems{
+        display: flex;
+        flex-direction: row;
+        justify-content:flex-end;
+        width:40%;
+    }
+    .landingPageSpan{
+        font-size:20px;
+        font-weight: 500;
+        color: #fff;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        cursor: pointer;
+    }
+    .landingPageMenuCategory{
+        width:60%;
+        border:2px solid #fff;
+        border-radius:50%;
+    }
+  
+    .landingPageCatgeoryNameAndImage{
+      width:10%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-left: 5%;
+    }
+  
+    .landingPageSpanTwo{
+      font-size:20px;
+      font-weight: 500;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding-top: 5%;
+    }
+    .landingPageProductOne{
+        width:80%;
+        margin-left:auto;
+        margin-right: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content:space-between;
+        flex-wrap: wrap;
+    }
+  
+    .landingPageProductTwo{
+        width:20%;
+        background-color: #fff;
+        border:2px solid #fff;
+        box-shadow: 5px 5px 5px;
+        padding:1%;
+        border-radius: 8px;
+        display: flex;
+        flex-direction:column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 5%;
+  
+    }
+  
+    .landingPageProductImage{
+        width:100%;
+        border:0.5px solid #F4AFB3;
+        border-radius: 5px;
+  
+    }
+  
+    .landingPageSpanThree{
+      font-size:18px;
+      font-weight: 500;
+      color: #F4AFB3;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding-top: 2%;
+    }
+  
+    .landingPageAddToCartButton{
+        width:80%;
+        padding:2%;
+        background-color: #F4AFB3;
+        border-radius:20px;
+        margin-top: 5%;
+        display: flex;
+        justify-content:center;
+        align-items:center;
+    }
+  
+    .landingPageSpanFour{
+      font-size:18px;
+      font-weight: 500;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+  
+  }
+
+  .logoMainLandingPage{
+    width:5%;
+    position:absolute;
+    padding-left: 20px;
+    padding-top:5px;
+  }
+
+

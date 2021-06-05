@@ -6,6 +6,8 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import {addCurrency,getAllCurrency,deleteCurrency,setDefaultCurrency} from '../../actions/currency'
+import {handleError} from '../../actions/handleError'
+
 class Formatting extends Component {
     constructor(props){
         super(props)
@@ -18,11 +20,19 @@ class Formatting extends Component {
     }
 
     addCurrency=()=>{
-        const obj = {
-            currency: this.state.currency
+        if(this.state.currency!==''&&this.state.currencyE===''){
+            const obj = {
+                currency: this.state.currency
+            }
+            this.props.dispatch(addCurrency(obj))
+            this.setState({currency:'',currencyE:''})
+        }else{
+            const obj={
+                error:'Some fields are empty',
+                type:'error'
+            }
+            this.props.dispatch(handleError(obj))
         }
-        this.props.dispatch(addCurrency(obj))
-        this.setState({currency:'',currencyE:''})
     }
 
     deleteData=(id)=>{

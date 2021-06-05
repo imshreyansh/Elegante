@@ -150,9 +150,70 @@
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color:#333;
 }
+.userCartTextFour{
+    font-size:15px;
+    font-weight: 500;
+    margin-left:10%;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color:#333;
+    margin-top: 10%;
+}
 .userCartFour{
     margin-left:2%;
     display: flex;
     flex-direction: row;
     margin-top:20%;
+}
+.userAddress{
+    margin-top:2%;
+    width:95%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.tick{
+    width:15%;
+    margin-left:auto;
+    margin-right:auto;
+    display: flex;
+    align-items: center;
+}
+.userAdressSpan{
+    font-size:30px;
+    font-weight: 500;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color:#333;
+    text-align: center;
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:3%;
+}
+.userOrder{
+    margin-top:2%;
+    width:95%;
+    margin-left: auto;
+    margin-right: auto; 
+}
+.userOrderOne{
+    width:60%;
+    padding:1%;
+    background-color:#ddd;
+    border-radius:20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content:space-between;
+    flex-direction:row;
+}
+.userOrderTwo{
+    width:20%;
+    padding:1%;
+}
+.userOrderImg{
+    width:50%;
+    border-radius:8px;
+}
+.userOrderThree{
+    width:20%;
 }

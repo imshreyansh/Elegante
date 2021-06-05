@@ -11,7 +11,7 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import DragIndicatorIcon from '@material-ui/icons/DragIndicator';
 import {getItemFromStorage} from '../utils/localStorage'
-import {NavLink} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 class UserTopBar extends Component {
     constructor(props){
@@ -56,17 +56,21 @@ class UserTopBar extends Component {
         onClose={()=>this.handleClose()}
       >
         <MenuItem>Hello, {this.props.jwtToken.name}</MenuItem>
-<NavLink to="/" style={{textDecoration:'none'}}>
+<Link to="/" style={{textDecoration:'none'}}>
  <MenuItem onClick={()=>this.handleClose()}>Home</MenuItem>
- </NavLink>
-        <MenuItem onClick={()=>this.handleClose()}>Profile</MenuItem>
+ </Link>
+ <Link to={{pathname:`/profile/${this.props.jwtToken.id}`}} style={{textDecoration:'none'}}>
+        <MenuItem onClick={()=>this.handleClose()}>Update Password</MenuItem>
+        </Link>
+        <Link to="/orders" style={{textDecoration:'none'}}>
         <MenuItem onClick={()=>this.handleClose()}>My Orders</MenuItem>
+        </Link>
       </Menu>
                 <img src={logoWhite} className="logoUserTopBar" />
                 <div className='userTopBarTwo'>
-                <NavLink to="/cart" style={{textDecoration:'none'}}>
+                <Link to="/cart" style={{textDecoration:'none'}}>
                 <ShoppingCartIcon style={{color:'#fff',marginTop:'auto',marginBottom:'auto',cursor:"pointer"}} />
-                </NavLink>
+                </Link>
                 <div className="userTopBarThree" onClick={()=>this.onLogout()}>
                 <PowerSettingsNewIcon style={{color:'#fff',marginTop:'auto',marginBottom:'auto'}}/>
                 <span className="userTopBarText">LOGOUT</span>

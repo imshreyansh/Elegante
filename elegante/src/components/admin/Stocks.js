@@ -169,10 +169,10 @@ class Stocks extends Component {
                 <span className="stockSpanThree">{d.sellingPrice}</span>
                 <span className="stockSpanThree">{d.qty}</span>
                 <span className="stockSpanThree">{d.discount}</span>
-                <div className="stockTableData">
+                <div className="stockTableDataIcon">
                 <EditIcon onClick={()=>this.onEdit(d)}/>
                 </div>
-                <div className="stockTableData">
+                <div className="stockTableDataIcon">
                 <DeleteIcon onClick={()=>this.onDelete(d._id)}/>
                 </div>
         </div>

@@ -2,7 +2,6 @@ import React,{Component,Fragment} from 'react'
 import {connect} from 'react-redux'
 import {HashRouter as Router,Route,Switch,Redirect} from 'react-router-dom'
 import jwt from 'jsonwebtoken'
-import './App.css'
 import Authorization from './components/authorization/Authorization'
 import SideMenu from './components/common/SideMenu'
 import TopBar from './components/common/TopBar'
@@ -13,6 +12,10 @@ import Stocks from './components/admin/Stocks'
 import UserTopBar from './components/user/UserTopBar'
 import UserLandingPage from './components/user/UserLandingPage'
 import UserCart from './components/user/UserCart'
+import UserAddress from './components/user/UserAddress'
+import UserProfile from './components/user/UserProfile'
+import UserOrder from './components/user/UserOrder'
+import LandingPage from './components/common/LandingPage'
 import SnackBar from './components/utils/SnackBar'
 import {getItemFromStorage,removeItemFromStorage} from './components/utils/localStorage'
 
@@ -36,23 +39,14 @@ loggedInUser = () => {
         </Switch> :
         this.loggedInUser() && this.loggedInUser() === 'Admin' ?
         <Fragment>
-        <TopBar/>
-        <div className="sideMenuandComp">
-        <SideMenu/>
         <Switch>
-        <Route exact path="/" component={Dashboard} />
-        <Route path="/categories" component={Categories} />
-        <Route path="/stocks" component={Stocks} />
-        <Route path="/formatting" component={Formatting} />
+        <Route exact path="/" component={LandingPage} />
         </Switch>
-          </div>
         </Fragment> :
         this.loggedInUser() && this.loggedInUser()==='User'?
         <Fragment>
-          <UserTopBar/>
           <Switch>
-        <Route exact path="/" component={UserLandingPage} />
-        <Route exact path="/cart" component={UserCart} />
+        <Route exact path="/" component={LandingPage} />
         </Switch>
         </Fragment>:
         <Switch>
