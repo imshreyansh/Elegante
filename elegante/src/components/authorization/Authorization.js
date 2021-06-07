@@ -1,7 +1,8 @@
 import React,{Component} from 'react'
 import {connect} from 'react-redux'
 import './Authorization.css'
-import logoWhite from "../../assets/images/logoWhite.png"
+import logo from "../../assets/images/logo.png"
+import developerLogo from "../../assets/images/developerLogo.png"
 import {loginUser,signUpUser} from '../../actions/authorizations'
 import {handleError} from '../../actions/handleError'
 import {validation} from '../../utils/validation'
@@ -34,15 +35,19 @@ class Authorization extends Component {
     }
     Auth =()=>{
         if(this.state.display===true){
-            const obj={
-                email:this.state.username,
-                password:this.state.password
-            }
-            this.props.dispatch(loginUser(obj))
-            this.setState({
-                username:'',
-                password:'',
-            })
+            this.props.history.push('/')
+            setTimeout(() => {
+                const obj={
+                    email:this.state.username,
+                    password:this.state.password
+                }
+                this.props.dispatch(loginUser(obj))
+                this.setState({
+                    username:'',
+                    password:'',
+                })
+              }, 100)
+           
         }else{
             const {email, passwordSignUP,mobile,address,name}=this.state
             if(name!==''&&email!==''&&mobile!==''&&address!==''&&passwordSignUP!==''){
@@ -80,7 +85,7 @@ class Authorization extends Component {
 
                     </div>
                     <div className="AuthFour">
-                        <img src={logoWhite} className="AuthLogo"/>
+                        <img src={logo} className="AuthLogo"/>
                         <div className="loginAuthForm">
                         {this.state.display===true ?
                       <div className="AuthFive">
@@ -123,6 +128,12 @@ class Authorization extends Component {
                     <div className="AuthSeven">
                         <span className="AuthSpanTwo" onClick={()=>this.setState({display:!this.state.display})}>{this.state.display ? `Don't have an account ? Sign Up` : `Already have an account ? Login In` }</span>
                     </div>
+                        </div>
+                        <div className="AuthEight">
+                        <div className="AuthNine">
+                        <span className="AuthSpanThree">Powered By</span>
+                            <img src={developerLogo} className="developerLogo"/>
+                        </div>
                         </div>
                     </div>
                 </div>

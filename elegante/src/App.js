@@ -5,7 +5,6 @@ import jwt from 'jsonwebtoken'
 import Authorization from './components/authorization/Authorization'
 import SideMenu from './components/common/SideMenu'
 import TopBar from './components/common/TopBar'
-import Dashboard from './components/admin/Dashboard'
 import Categories from './components/admin/Categories'
 import Formatting from './components/admin/Formatting'
 import Stocks from './components/admin/Stocks'
@@ -35,12 +34,15 @@ loggedInUser = () => {
         <SnackBar />
         {!this.loggedInUser() ?
         <Switch>
-          <Route exact path="/" component={Authorization} />
+          <Route exact path="/" component={LandingPage} />
+          <Route path="/login" component={Authorization} />
         </Switch> :
         this.loggedInUser() && this.loggedInUser() === 'Admin' ?
         <Fragment>
         <Switch>
         <Route exact path="/" component={LandingPage} />
+        <Route path="/category" component={Categories}/>
+        <Route path="/stocks" component={Stocks}/>
         </Switch>
         </Fragment> :
         this.loggedInUser() && this.loggedInUser()==='User'?
@@ -50,7 +52,8 @@ loggedInUser = () => {
         </Switch>
         </Fragment>:
         <Switch>
-        <Route exact path="/" component={Authorization} />
+        <Route exact path="/" component={LandingPage} />
+        <Route path="/login" component={Authorization} />
       </Switch>
       }     
       </Router>

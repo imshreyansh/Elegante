@@ -1,4 +1,4 @@
-import React,{Component} from 'react'
+import React,{Component,Fragment} from 'react'
 import {connect} from 'react-redux'
 import {logout} from '../../actions/authorizations'
 import './LandingPage.css'
@@ -10,6 +10,7 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import jwt from 'jsonwebtoken'
 import {getItemFromStorage} from '../utils/localStorage'
 import logo from '../../assets/images/logo.png'
+import {Link} from 'react-router-dom'
 
 class LandingPage extends Component {
     constructor(props){
@@ -56,17 +57,43 @@ class LandingPage extends Component {
         open={this.state.menuOpen}
         onClose={()=>this.handleClose()}
       >
-        <MenuItem onClick={()=>this.handleClose()}>Update Password</MenuItem>
-        <MenuItem onClick={()=>this.handleClose()}>My Orders</MenuItem>
-        <MenuItem onClick={()=>this.onLogout()}>LOGOUT</MenuItem>
+        {this.props.jwtToken !==null && 
+        this.props.jwtToken.designation==='Admin' ? 
+    <Fragment>
+ <Link to="/category" style={{textDecoration:'none',color: '#F4AFB3'}}><MenuItem onClick={()=>this.handleClose()}>Update Password</MenuItem></Link>
+ <Link to="/category" style={{textDecoration:'none',color: '#F4AFB3'}}><MenuItem onClick={()=>this.handleClose()}>Orders</MenuItem></Link>
+    <Link to="/category" style={{textDecoration:'none',color: '#F4AFB3'}}><MenuItem onClick={()=>this.handleClose()}>Add Category</MenuItem></Link>
+    <Link to="/stocks" style={{textDecoration:'none',color: '#F4AFB3'}}><MenuItem onClick={()=>this.handleClose()}>Add Stocks</MenuItem></Link>
+    <Link to="/stocks" style={{textDecoration:'none',color: '#F4AFB3'}}><MenuItem onClick={()=>this.onLogout()}>About</MenuItem></Link>
+    <MenuItem style={{textDecoration:'none',color: '#F4AFB3'}} onClick={()=>this.onLogout()}>LOGOUT</MenuItem>
+    </Fragment>
+    :
+    <Fragment>
+         <MenuItem onClick={()=>this.handleClose()}>Update Password</MenuItem>
+    <MenuItem onClick={()=>this.handleClose()}>My Orders</MenuItem>
+    <MenuItem onClick={()=>this.onLogout()}>About</MenuItem>
+    <MenuItem onClick={()=>this.onLogout()}>LOGOUT</MenuItem>
+    </Fragment>
+   }
       </Menu>
                 <div className="landingPageMenuTop">
-                    <div className="landingPageMenuItems">
-                    <ShoppingCartIcon className="landingPageSpan"/>
+                {this.props.jwtToken === null ?
+                <div className="landingPageMenuItems">
                     <span className="landingPageSpan">Home</span>
+                    <span className="landingPageSpan">About</span>
+                    <Link to="/login" style={{textDecoration:'none'}} className="landingPageSpan">
+                    <span>Login/Sign Up</span>
+                    </Link>
+                    </div> :
+                <div className="landingPageMenuItems">
+                    <ShoppingCartIcon className="landingPageSpan"/>
+                    <Link to="/" style={{textDecoration:'none'}} className="landingPageSpan">
+                    <span>Home</span>
+                    </Link>
                     <span className="landingPageSpan">Hey, {this.props.jwtToken.name}</span>
                     <MenuIcon className="landingPageSpan" onClick={()=>this.handleClick()}/>
                     </div>
+                    }
                 </div>
                 <div className="landingPageCategory">
                     <div className="landingPageCatgeoryNameAndImage">
@@ -79,9 +106,15 @@ class LandingPage extends Component {
                     <img src={categorySample} className="landingPageProductImage"/>
                     <span className="landingPageSpanThree">Bechne Ka Saaman</span>
                     <span className="landingPageSpanThree">Rs 24</span>
-                    <div className="landingPageAddToCartButton">
+                    {this.props.jwtToken === null ?
+                    <Link to="/login" style={{textDecoration:'none'}} className="landingPageAddToCartButton">
+                    <div>
                     <span className="landingPageSpanFour">Add to Cart</span>
                     </div>
+                    </Link>
+                    :<div className="landingPageAddToCartButton">
+                    <span className="landingPageSpanFour">Add to Cart</span>
+                    </div>}
                     </div>
 
                 </div>

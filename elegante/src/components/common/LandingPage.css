@@ -1,6 +1,6 @@
 .landingPageOne{
     background-size: 100% 100%;
-    background-color:#C3E4FD;
+    background-color:#e3f2fd;
     padding-top:0.5%;
     padding-bottom: 1%;
 }
@@ -42,7 +42,7 @@
     .landingPageSpan{
         font-size:10px;
         font-weight: 500;
-        color: #fff;
+        color: #F4AFB3;
         padding-left: 5%;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         cursor: pointer;
@@ -125,6 +125,7 @@
       font-weight: 500;
       color: #fff;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      cursor: pointer;
     }
   
   }
@@ -139,7 +140,7 @@
     .landingPageSpan{
         font-size:15px;
         font-weight: 500;
-        color: #fff;
+        color: #F4AFB3;
         padding-left: 8%;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         cursor: pointer;
@@ -222,6 +223,7 @@
       font-weight: 500;
       color: #fff;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      cursor: pointer;
     }
   }
 
@@ -235,7 +237,7 @@
     .landingPageSpan{
         font-size:20px;
         font-weight: 500;
-        color: #fff;
+        color: #F4AFB3;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         cursor: pointer;
     }
@@ -317,6 +319,7 @@
       font-weight: 500;
       color: #fff;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      cursor: pointer;
     }
   
   }
