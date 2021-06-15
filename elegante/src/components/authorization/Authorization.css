@@ -28,7 +28,7 @@
        padding:2%;
        border:1px solid #fff;
        border-radius: 8px;
-       box-shadow:5px 5px 5px #42a5f5;
+       box-shadow:5px 5px 5px #FFC5BF;
        background-color:#fff;
        margin-top: 10%;
        overflow: auto;
@@ -49,7 +49,7 @@
    }
    .AuthInputIcon{
        margin-top: 8%;
-       color:#42a5f5;
+       color:#FFC5BF;
    }
    .AuthInputOne{
        width:70%;
@@ -64,7 +64,7 @@
    .AuthButton{
        width:40%;
        padding:2%;
-       background-color: #42a5f5;
+       background-color: #FFC5BF;
        margin-left: auto;
        margin-right: auto;
        border-radius:8px;
@@ -92,7 +92,7 @@
    .AuthSpanTwo{
        font-size:12px;
        font-weight: 500;
-       color: #42a5f5;
+       color: #FFC5BF;
    }
    .AuthEight{
        margin-top: 30px;
@@ -120,7 +120,7 @@
     }   
    .AuthThree{
        width:35%;
-       background-image: url('../../assets/images/phaseTwo.jpg');
+       background-image: url('../../assets/images/phaseTwo.png');
        background-size: 100% 100%;
        background-repeat: no-repeat;
        height:100vh;
@@ -140,7 +140,7 @@
        padding:2%;
        border:1px solid #fff;
        border-radius: 8px;
-       box-shadow:5px 5px 5px #42a5f5;
+       box-shadow:5px 5px 5px #FFC5BF;
        background-color:#fff;
        margin-top: 5%;
        overflow: auto;
@@ -161,7 +161,7 @@
    }
    .AuthInputIcon{
        margin-top: 3%;
-       color:#42a5f5;
+       color:#FFC5BF;
    }
    .AuthInputOne{
        width:70%;
@@ -176,7 +176,7 @@
    .AuthButton{
        width:40%;
        padding:2%;
-       background-color: #42a5f5;
+       background-color: #FFC5BF;
        margin-left: auto;
        margin-right: auto;
        border-radius:8px;
@@ -204,7 +204,7 @@
    .AuthSpanTwo{
        font-size:15px;
        font-weight: 500;
-       color: #42a5f5;
+       color: #FFC5BF;
    }
    .AuthEight{
     position:absolute;
