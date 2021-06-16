@@ -91,34 +91,34 @@ class Authorization extends Component {
                       <div className="AuthFive">
                         <div className="AuthSix">
                             <PersonIcon className="AuthInputIcon"/>
-                            <input type="text" className="AuthInputOne" style={{borderBottomColor:'#FFC5BF'}} placeholder="Email" value={this.state.username} onChange={(e)=>this.setState({username:e.target.value})}/>
+                            <input type="text" className="AuthInputOne" style={{borderBottomColor:'#5c6bc0'}} placeholder="Email" value={this.state.username} onChange={(e)=>this.setState({username:e.target.value})}/>
                         </div>
                         <div className="AuthSix">
                         <LockIcon className="AuthInputIcon"/>
-                        <input type="password" className="AuthInputOne" style={{borderBottomColor:'#FFC5BF'}} placeholder="Password" value={this.state.password} onChange={(e)=>this.setState({password:e.target.value})}/>
+                        <input type="password" className="AuthInputOne" style={{borderBottomColor:'#5c6bc0'}} placeholder="Password" value={this.state.password} onChange={(e)=>this.setState({password:e.target.value})}/>
                     </div>
                     </div>
                     :
                     <div className="AuthFive">
                          <div className="AuthSix">
                         <PersonIcon className="AuthInputIcon"/>
-                    <input type="text" className="AuthInputOne" style={{borderBottomColor:this.state.nameE ==='' ? '#FFC5BF' :'red'}} placeholder="Name" value={this.state.name} onChange={(e)=>this.setState(validation(e,'name','text',['name is reuired','ds']))}/>
+                    <input type="text" className="AuthInputOne" style={{borderBottomColor:this.state.nameE ==='' ? '#5c6bc0' :'red'}} placeholder="Name" value={this.state.name} onChange={(e)=>this.setState(validation(e,'name','text',['name is reuired','ds']))}/>
                     </div>
                     <div className="AuthSix">
                         <EmailIcon className="AuthInputIcon"/>
-                    <input type="text" className="AuthInputOne" style={{borderBottomColor:this.state.emailE ==='' ? '#FFC5BF' :'red'}} placeholder="Email" value={this.state.email} onChange={(e)=>this.setState(validation(e,'email','email',['Email is reuired','Incorrect Email']))}/>
+                    <input type="text" className="AuthInputOne" style={{borderBottomColor:this.state.emailE ==='' ? '#5c6bc0' :'red'}} placeholder="Email" value={this.state.email} onChange={(e)=>this.setState(validation(e,'email','email',['Email is reuired','Incorrect Email']))}/>
                     </div>
                     <div className="AuthSix">
                         <PhoneAndroidIcon className="AuthInputIcon"/>
-                    <input type="text" className="AuthInputOne" style={{borderBottomColor:this.state.mobileE ==='' ? '#FFC5BF' :'red'}} placeholder="Mobile" value={this.state.mobile} onChange={(e)=>this.setState(validation(e,'mobile','text',['Email is reuired','Incorrect Email']))}/>
+                    <input type="text" className="AuthInputOne" style={{borderBottomColor:this.state.mobileE ==='' ? '#5c6bc0' :'red'}} placeholder="Mobile" value={this.state.mobile} onChange={(e)=>this.setState(validation(e,'mobile','text',['Email is reuired','Incorrect Email']))}/>
                     </div>
                     <div className="AuthSix">
                         <PersonPinIcon className="AuthInputIcon"/>
-                    <input type="text" className="AuthInputOne" style={{borderBottomColor:this.state.addressE ==='' ? '#FFC5BF' :'red'}} placeholder="Address" value={this.state.address} onChange={(e)=>this.setState(validation(e,'address','text',['name is reuired','ds']))}/>
+                    <input type="text" className="AuthInputOne" style={{borderBottomColor:this.state.addressE ==='' ? '#5c6bc0' :'red'}} placeholder="Address" value={this.state.address} onChange={(e)=>this.setState(validation(e,'address','text',['name is reuired','ds']))}/>
                     </div>
                     <div className="AuthSix">
                         <LockIcon className="AuthInputIcon"/>
-                    <input type="password" className="AuthInputOne" style={{borderBottomColor:this.state.passwordSignUPE ==='' ? '#FFC5BF' :'red'}} placeholder="Password" value={this.state.passwordSignUP} onChange={(e)=>this.setState(validation(e,'passwordSignUP','text',['name is reuired','ds']))}/>
+                    <input type="password" className="AuthInputOne" style={{borderBottomColor:this.state.passwordSignUPE ==='' ? '#5c6bc0' :'red'}} placeholder="Password" value={this.state.passwordSignUP} onChange={(e)=>this.setState(validation(e,'passwordSignUP','text',['name is reuired','ds']))}/>
                         </div>
                 </div>
     }
