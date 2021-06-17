@@ -17,6 +17,12 @@ import logo from '../../assets/images/logo.png'
 import logoTwo from '../../assets/images/logoTwo.png'
 import logoWhite from '../../assets/images/logoWhite.png'
 import {Link} from 'react-router-dom'
+import Drawer from '@material-ui/core/Drawer';
+import HomeIcon from '@material-ui/icons/Home';
+import PersonPinIcon from '@material-ui/icons/PersonPin';
+import VpnKeyIcon from '@material-ui/icons/VpnKey';
+import InstagramIcon from '@material-ui/icons/Instagram';
+import FacebookIcon from '@material-ui/icons/Facebook';
 
 class LandingPage extends Component {
     constructor(props){
@@ -25,7 +31,9 @@ class LandingPage extends Component {
             menuOpen:false,
             slideShowArray:[sample,sampleOne,phaseTwo],
             slideImage:'',
-            indexImage:0
+            indexImage:0,
+            openDrawer:false,
+            mobile:true
         }
         this.state = this.default
 
@@ -41,6 +49,15 @@ class LandingPage extends Component {
                })
            })
         },5000)
+        if(window.matchMedia("(max-width: 768px)").matches){
+        this.setState({
+            mobile:true
+        })
+        }else{
+            this.setState({
+                mobile:false
+            })
+        }
     }
 
     onLogout = ()=>{
@@ -66,7 +83,7 @@ class LandingPage extends Component {
             return(
                 <div className="landingPageMenuTop">
                 <div className="landingPageMenuItems">                  
-                   <MenuIcon className="landingPageSpan" onClick={()=>this.handleClick()}/>
+                   <MenuIcon className="landingPageSpan" onClick={()=>this.handleDrawer()}/>
                    </div>
                 </div>
                 
@@ -85,7 +102,7 @@ class LandingPage extends Component {
                 <div className="landingPageMenuItems">
                    <ShoppingCartIcon className="landingPageSpan"/>
                    <Link to="/" style={{textDecoration:'none'}} className="landingPageSpan">
-                   <span>Home</span>
+                   <span className="landingPageSpan">Home</span>
                    </Link>
                    <span className="landingPageSpan">Hey, {this.props.jwtToken.name}</span>
                    <MenuIcon className="landingPageSpan" onClick={()=>this.handleClick()}/>
@@ -98,9 +115,32 @@ class LandingPage extends Component {
           
       }
 
+      handleDrawer = ()=>{
+          this.setState({
+              openDrawer:true
+          })
+      }
+
     render(){
         return(
             <div className="landingPageOne">
+                 <Drawer anchor={'right'} open={this.state.openDrawer} onClose={()=>this.setState({openDrawer:false})} className="drawer">
+                 <img src={logoTwo} className="logoDrawer"/>
+                 <div className="drawerUl">
+                <Link to="/" style={{textDecoration:'none'}} className="drawerEach">
+                    <HomeIcon className="drawerIcon"/>
+                <span className="drawerLi" onClick={()=>this.handleClose()}>Home</span>
+                </Link>
+                <Link to="/" style={{textDecoration:'none'}} className="drawerEach">
+                    <PersonPinIcon className="drawerIcon"/>
+                    <span className="drawerLi" onClick={()=>this.handleClose()}>Contact</span>
+                </Link>
+                <Link to="/login" style={{textDecoration:'none'}} className="drawerEach">
+                    <VpnKeyIcon className="drawerIcon"/>
+                    <span className="drawerLi">Login/Sign Up</span>
+                </Link>
+                 </div>
+          </Drawer>
             <div className="navbar">
             <img src={logoTwo} className="logoMainLandingPage"/>
 
@@ -172,6 +212,32 @@ this.props.jwtToken.designation==='Admin' ?
        <div className="categoryHeadingLanding">
             <span className="headingLanding">Categories</span>
        </div>
+       <div className="categoryItemsDiv">
+            <div className="categoryItems">
+                <div className="categoryItemsEach">
+                <img src={sample} className="landingCategoryImage"/>
+                <div className="LandingCategoryBack">
+                <span className="landingCategoryName">Necklaces</span>
+                </div>
+                </div>
+            </div>
+            <div className="categoryItems">
+                <div className="categoryItemsEach">
+                <img src={sample} className="landingCategoryImage"/>
+                <div className="LandingCategoryBack">
+                <span className="landingCategoryName">Necklaces</span>
+                </div>
+                </div>
+            </div>
+            <div className="categoryItems">
+                <div className="categoryItemsEach">
+                <img src={sample} className="landingCategoryImage"/>
+                <div className="LandingCategoryBack">
+                <span className="landingCategoryName">Necklaces</span>
+                </div>
+                </div>
+            </div>
+            </div>
        </div>
        <div className="categoriesLandingOne">
        <div className="categoryHeadingLanding">
@@ -179,7 +245,19 @@ this.props.jwtToken.designation==='Admin' ?
        </div>
        </div>
        <div className="LandingBottom">
-
+            <div className="landingBottomDataContainer">
+            <img src={logoWhite} className="landingBottomDataOne"/>
+            <div className="landingBottomDataTwo">
+            <InstagramIcon className="landingBottomIcon"/>
+            <FacebookIcon className="landingBottomIcon"/>
+            </div>
+            <div className="landingBottomDataThree">
+            <span className="landingBottomTexts">Shipping & Returns</span>
+            <span className="landingBottomTexts">Terms & Conditions</span>
+            <span className="landingBottomTexts">Contact Us</span>
+            <span className="landingBottomTexts">Policy</span>
+            </div>
+            </div>
        </div>
             </div>
         )

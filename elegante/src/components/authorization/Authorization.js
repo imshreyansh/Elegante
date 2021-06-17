@@ -129,12 +129,12 @@ class Authorization extends Component {
                         <span className="AuthSpanTwo" onClick={()=>this.setState({display:!this.state.display})}>{this.state.display ? `Don't have an account ? Sign Up` : `Already have an account ? Login In` }</span>
                     </div>
                         </div>
-                        <div className="AuthEight">
+                        {/* <div className="AuthEight">
                         <div className="AuthNine">
                         <span className="AuthSpanThree">Powered By</span>
                             <img src={developerLogo} className="developerLogo"/>
                         </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

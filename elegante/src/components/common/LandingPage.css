@@ -199,6 +199,132 @@
   opacity:1;
   border-left: 1px solid #333;
 }
+.drawer{
+  width:100%;
+}
+.drawerUl{
+  width:100%;
+  display: flex;
+  flex-direction: column;
+}
+.drawerLi{
+  font-size:20px;
+  font-weight: 500;
+  color: #fff;
+  font-family: Georgia, serif;
+  cursor: pointer;
+  margin-top: 5%;
+  margin-top: auto;
+  margin-bottom:auto;
+  margin-left:3%;
+}
+.logoDrawer{
+  width:50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:5%;
+}
+.drawerEach{
+  display: flex;
+  flex-direction: row;
+  background-color: #c5cae9;
+  padding:2%;
+  margin-top:5%;
+}
+.drawerIcon{
+  margin-left:5%;
+  margin-top: auto;
+  margin-bottom:auto;
+  color:#fff;
+  font-size:20px;
+}
+.MuiDrawer-paperAnchorRight{
+  width:70%;
+}
+.landingBottomDataContainer{
+  width:90%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction:row;
+  justify-content: space-between;
+  padding-bottom: 5%;
+}
+.landingBottomDataOne{
+  width:0%;
+}
+.landingBottomDataTwo{
+  display: flex;
+  flex-direction:row;
+  justify-content: center;
+  align-items: center;
+  margin-top:5%;
+  width:50%;
+}
+.landingBottomIcon{
+  font-size:20px;
+  color:#fff;
+  margin-left:5%;
+  cursor: pointer;
+}
+.landingBottomDataThree{
+  display: flex;
+  flex-direction: column;
+}
+.landingBottomTexts{
+  font-size:12px;
+  color: #fff;
+  font-family: Georgia, serif;
+  cursor: pointer;
+  margin-top: 5%;
+}
+.categoryItemsDiv{
+  width:90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding:2%;
+  margin-top:1%;
+  display: flex;
+  flex-direction:row;
+  justify-content:space-between;
+}
+.categoryItems{
+  display: flex;
+  flex-direction:column;
+  width:30%;
+  margin-left: 2%;
+}
+.categoryItemsEach{
+  display: flex;
+  flex-direction:column;
+  width:100%;
+}
+.landingCategoryImage{
+  width:100%;
+  border-radius:2%;
+}
+.landingCategoryName{
+  font-size:12px;
+  font-weight:500;
+      color:#fff;
+      font-family: Georgia, serif;
+      cursor: pointer;
+      margin-top:5%;
+      text-align: center;
+      padding-bottom: 3%;
+}
+.LandingCategoryBack{
+  background-color: #333;
+    width:100%;
+    padding:1%;
+  margin-left: auto;
+  margin-right: auto;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  margin-top:5%;
+  border-radius:8px;
+}
 }
 
 @media only screen and (min-width: 768px) {
@@ -367,6 +493,87 @@
   opacity:1;
   border-left: 1px solid #333;
 }
+.landingBottomDataContainer{
+  width:80%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction:row;
+  justify-content:space-between;
+}
+.landingBottomDataOne{
+  width:15%;
+}
+.landingBottomDataTwo{
+  width:8%;
+  margin-top:auto;
+  margin-bottom:auto;
+}
+.landingBottomIcon{
+  font-size:20px;
+  color:#fff;
+  margin-left:5%;
+  cursor: pointer;
+}
+.landingBottomDataThree{
+  display: flex;
+  flex-direction: column;
+  margin-top:auto;
+  margin-bottom:auto;
+}
+.landingBottomTexts{
+  font-size:18px;
+      color: #fff;
+      font-family: Georgia, serif;
+      cursor: pointer;
+      margin-top:5%;
+}
+.categoryItemsDiv{
+  width:90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding:2%;
+  margin-top:1%;
+  display: flex;
+  flex-direction:row;
+  justify-content:space-between;
+}
+.categoryItems{
+  display: flex;
+  flex-direction:column;
+  width:15%;
+  margin-left: 2%;
+}
+.categoryItemsEach{
+  display: flex;
+  flex-direction:column;
+  width:100%;
+}
+.landingCategoryImage{
+  width:100%;
+  border-radius:2%;
+}
+.landingCategoryName{
+  font-size:18px;
+  font-weight:500;
+      color:#fff;
+      font-family: Georgia, serif;
+      cursor: pointer;
+      margin-top:5%;
+      text-align: center;
+      padding-bottom: 3%;
+}
+.LandingCategoryBack{
+  background-color: #333;
+    width:90%;
+  margin-left: auto;
+  margin-right: auto;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  margin-top:5%;
+  border-radius:8px;
+}
 }
 
 @media only screen and (min-width: 1100px) {
@@ -532,6 +739,87 @@
   font-family: Georgia, serif;
   opacity:1;
   border-left: 1px solid #333;
+}
+.landingBottomDataContainer{
+  width:80%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction:row;
+  justify-content:space-between;
+}
+.landingBottomDataOne{
+  width:8%;
+}
+.landingBottomDataTwo{
+  width:8%;
+  margin-top:auto;
+  margin-bottom:auto;
+}
+.landingBottomIcon{
+  font-size:20px;
+  color:#fff;
+  margin-left:5%;
+  cursor: pointer;
+}
+.landingBottomDataThree{
+  display: flex;
+  flex-direction: column;
+  margin-top:auto;
+  margin-bottom:auto;
+}
+.landingBottomTexts{
+  font-size:18px;
+      color: #fff;
+      font-family: Georgia, serif;
+      cursor: pointer;
+      margin-top:5%;
+}
+.categoryItemsDiv{
+  width:90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding:2%;
+  margin-top:1%;
+  display: flex;
+  flex-direction:row;
+  justify-content:space-between;
+}
+.categoryItems{
+  display: flex;
+  flex-direction:column;
+  width:15%;
+  margin-left: 2%;
+}
+.categoryItemsEach{
+  display: flex;
+  flex-direction:column;
+  width:100%;
+}
+.landingCategoryImage{
+  width:100%;
+  border-radius:2%;
+}
+.landingCategoryName{
+  font-size:22px;
+  font-weight:500;
+      color:#fff;
+      font-family: Georgia, serif;
+      cursor: pointer;
+      margin-top:5%;
+      text-align: center;
+      padding-bottom: 3%;
+}
+.LandingCategoryBack{
+  background-color: #333;
+    width:90%;
+  margin-left: auto;
+  margin-right: auto;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  margin-top:5%;
+  border-radius:8px;
 }
 }
 
