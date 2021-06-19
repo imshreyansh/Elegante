@@ -45,6 +45,7 @@
       padding-left: 5%;
       font-family: Georgia, serif;
       cursor: pointer;
+      
   }
   .allAdsOnLanding{
     width:100%;
@@ -325,6 +326,271 @@
   margin-top:5%;
   border-radius:8px;
 }
+.arrowForLandingCategory{
+  width:90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+  display:flex;
+  justify-content:center;
+  align-items: center;
+}
+.arrowForLandingCategoryTwo{
+  width:100%;
+  display: flex;
+  flex-direction:row;
+  justify-content:space-between;
+}
+.arrowIconOne{
+  color:#333;
+  margin-top: auto;
+  margin-bottom:auto;
+  cursor: pointer;
+}
+.arrowIconTwo{
+  color:#333;
+  margin-top: auto;
+  margin-bottom:auto;
+  cursor: pointer;
+}
+.arrowSpan{
+  font-size:30px;
+  color:#333;
+  margin-top: auto;
+  margin-bottom:auto;
+}
+.topSellersDiv{
+  width:90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding:2%;
+  margin-top:1%;
+  display: flex;
+  flex-direction:column;
+}
+.topSellersItems{
+  display: flex;
+  flex-direction:column;
+  width:100%;
+  margin-left: 2%;
+}
+.topSellersItemsEach{
+  display: flex;
+  flex-direction:column;
+  width:100%;
+}
+.topSellersImage{
+  width:100%;
+  height:50vh;
+  border-radius: 8px;
+}
+.topSellersName{
+  font-size:20px;
+  font-weight:500;
+      color:#333;
+      font-family: Georgia, serif;
+      cursor: pointer;
+      margin-top:5%;
+      text-align: center;
+      padding-bottom: 3%;
+      border-bottom: 0.8px solid #ddd
+}
+.topSellersBack{
+  background-color: #333;
+    width:90%;
+  margin-left: auto;
+  margin-right: auto;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  margin-top:5%;
+  border-radius:8px;
+}
+.topSellersNameTwo{
+  font-size:15px;
+  font-weight:500;
+      color:#fff;
+      font-family: Georgia, serif;
+      cursor: pointer;
+      margin-top:5%;
+      text-align: center;
+      padding-bottom: 3%;
+}
+.topSellersNameThree{
+  font-size:18px;
+  font-weight:500;
+      color:#333;
+      font-family: Georgia, serif;
+      cursor: pointer;
+      margin-top:5%;
+      text-align: center;
+      padding-bottom: 3%;
+}
+.topSellersTag{
+  width:30%;
+  padding:2%;
+  background-color: goldenrod;
+  position: absolute;
+  opacity:0.8;
+  border-bottom-right-radius: 5px;
+}
+.topSellersNameFour{
+  font-size:15px;
+  font-weight:500;
+      color:#fff;
+      font-family: Georgia, serif;
+}
+
+.customerFeedbackDiv{
+  width:90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding:2%;
+  margin-top:1%;
+  display: flex;
+  flex-direction:row;
+  justify-content:center;
+  align-items: center;
+}
+.customerFeedbackCard{
+  width:90%;
+  padding:2%;
+  background-color:goldenrod;
+  opacity: 0.8;
+  border-radius:8px;
+  display:flex;
+  justify-content:space-between;
+}
+.feedbackIcon{
+  color:#fff;
+  margin-top: auto;
+  margin-bottom:auto;
+}
+.feedbackText{
+  width:100%;
+  font-size:15px;
+  color:#fff;
+  font-weight:500;
+  text-align: left;
+}
+.customerFeedbackText{
+  display: flex;
+  width:70%;
+  flex-direction: column;
+  justify-content:center;
+  align-items:center;
+}
+.feedbackByName{
+  width:100%;
+  font-size:15px;
+  color:#fff;
+  font-weight:500;
+  text-align: right;
+}
+.dotsOnFeedback{
+  width:70%;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content:space-between;
+  align-items:center;
+  display: flex;
+  flex-direction: row;
+}
+.dotsManual{
+  color:#fff;
+  margin-top:5%;
+  margin-left:0.5%;
+  cursor: pointer;
+}
+.covidSafetyDiv{
+  width:90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding:2%;
+  margin-top:1%;
+  display: flex;
+  flex-direction:column;
+  justify-content:space-between;
+
+}
+.covidSafetySpan{
+  width:100%;
+  margin-top: auto;
+  margin-bottom:auto;
+}
+.covidSafetySpanText{
+  display: flex;
+  width:100%;
+  flex-direction: column;
+  justify-content:center;
+  align-items:center;
+  color:#333;
+  font-size:15px;
+  font-weight: 500;
+  padding-bottom: 2%;
+}
+.videoCovid{
+  border-top: 1px solid #ddd;
+  padding-top:4%;
+  width:100%;
+  height:50%;
+}
+.connectedInfo{
+  width:90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding:2%;
+  margin-top:1%;
+  display: flex;
+  flex-direction:row;
+  justify-content:center;
+  align-items:center;
+}
+.connectedImage{
+  width:30%;
+  cursor: pointer;
+}
+.offerDivModal{
+  width:90%;
+  padding-bottom:5%;
+  margin-top: 20vh;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fff;
+  border:5px solid goldenrod;
+  border-radius:2px;
+}
+.closeModalCross{
+  width:90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top:5%;
+  display: flex;
+  justify-content:flex-end;
+}
+.closeModalCrossIcon{
+  color:goldenrod;
+}
+.offerDivModalInside{
+  width:80%;
+  margin-left: auto;
+  margin-right:auto;
+  justify-content:center;
+  align-items:center;
+  display: flex;
+  flex-direction:column;
+  margin-top:5%
+}
+.offerSpanText{
+  font-size:25px;
+  color:goldenrod;
+  font-weight: 500;
+}
+.offerSpanTextTwo{
+  font-size:35px;
+  color:goldenrod;
+  font-weight: 800;
+}
 }
 
 @media only screen and (min-width: 768px) {
@@ -574,6 +840,230 @@
   margin-top:5%;
   border-radius:8px;
 }
+.arrowForLandingCategory{
+  width:90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.5%;
+  display:flex;
+  justify-content:center;
+  align-items: center;
+}
+.arrowForLandingCategoryTwo{
+  width:20%;
+  display: flex;
+  flex-direction:row;
+  justify-content:space-between;
+}
+.arrowIconOne{
+  color:#333;
+  margin-top: auto;
+  margin-bottom:auto;
+  cursor: pointer;
+}
+.arrowIconTwo{
+  color:#333;
+  margin-top: auto;
+  margin-bottom:auto;
+  cursor: pointer;
+}
+.arrowSpan{
+  font-size:30px;
+  color:#333;
+  margin-top: auto;
+  margin-bottom:auto;
+}
+.topSellersDiv{
+  width:90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding:2%;
+  margin-top:1%;
+  display: flex;
+  flex-direction:row;
+  justify-content:space-between;
+}
+.topSellersItems{
+  display: flex;
+  flex-direction:column;
+  width:18%;
+  margin-left: 2%;
+}
+.topSellersItemsEach{
+  display: flex;
+  flex-direction:column;
+  width:100%;
+}
+.topSellersImage{
+  width:100%;
+  height:30vh;
+  border-radius: 8px;
+}
+.topSellersName{
+  font-size:22px;
+  font-weight:500;
+      color:#333;
+      font-family: Georgia, serif;
+      cursor: pointer;
+      margin-top:5%;
+      text-align: center;
+      padding-bottom: 3%;
+      border-bottom: 0.8px solid #ddd
+}
+.topSellersBack{
+  background-color: #333;
+    width:90%;
+  margin-left: auto;
+  margin-right: auto;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  margin-top:5%;
+  border-radius:8px;
+}
+.topSellersNameTwo{
+  font-size:18px;
+  font-weight:500;
+      color:#fff;
+      font-family: Georgia, serif;
+      cursor: pointer;
+      margin-top:5%;
+      text-align: center;
+      padding-bottom: 3%;
+}
+.topSellersNameThree{
+  font-size:20px;
+  font-weight:500;
+      color:#333;
+      font-family: Georgia, serif;
+      cursor: pointer;
+      margin-top:5%;
+      text-align: center;
+      padding-bottom: 3%;
+}
+.topSellersTag{
+  width:10%;
+  padding:0.6%;
+  background-color: goldenrod;
+  position: absolute;
+  opacity:0.8;
+  border-bottom-right-radius: 5px;
+}
+.topSellersNameFour{
+  font-size:15px;
+  font-weight:500;
+      color:#fff;
+      font-family: Georgia, serif;
+}
+
+.customerFeedbackDiv{
+  width:90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding:2%;
+  margin-top:1%;
+  display: flex;
+  flex-direction:row;
+  justify-content:center;
+  align-items: center;
+}
+.customerFeedbackCard{
+  width:60%;
+  padding:2%;
+  background-color:goldenrod;
+  opacity: 0.8;
+  border-radius:8px;
+  display:flex;
+  justify-content:space-between;
+}
+.feedbackIcon{
+  color:#fff;
+  margin-top: auto;
+  margin-bottom:auto;
+}
+.feedbackText{
+  width:100%;
+  font-size:15px;
+  color:#fff;
+  font-weight:500;
+  text-align: right;
+}
+.customerFeedbackText{
+  display: flex;
+  width:70%;
+  flex-direction: column;
+  justify-content:center;
+  align-items:center;
+}
+.feedbackByName{
+  width:100%;
+  font-size:15px;
+  color:#fff;
+  font-weight:500;
+  text-align: right;
+}
+.dotsOnFeedback{
+  width:70%;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content:center;
+  align-items:center;
+  display: flex;
+  flex-direction: row;
+}
+.dotsManual{
+  color:#fff;
+  margin-top:1%;
+  margin-left:0.5%;
+  cursor: pointer;
+}
+.covidSafetyDiv{
+  width:90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding:2%;
+  margin-top:1%;
+  display: flex;
+  flex-direction:row;
+  justify-content:space-between;
+
+}
+.covidSafetySpan{
+  width:60%;
+  margin-top: auto;
+  margin-bottom:auto;
+}
+.covidSafetySpanText{
+  display: flex;
+  width:100%;
+  flex-direction: column;
+  justify-content:center;
+  align-items:center;
+  color:#333;
+  font-size:15px;
+  font-weight: 500;
+}
+.videoCovid{
+  border-left: 1px solid #333;
+  padding-left:8%;
+  width:30%;
+  height:50%;
+}
+.connectedInfo{
+  width:90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding:2%;
+  margin-top:1%;
+  display: flex;
+  flex-direction:row;
+  justify-content:center;
+  align-items:center;
+}
+.connectedImage{
+  width:20%;
+  cursor: pointer;
+}
 }
 
 @media only screen and (min-width: 1100px) {
@@ -820,6 +1310,229 @@
   justify-content: center;
   margin-top:5%;
   border-radius:8px;
+}
+.arrowForLandingCategory{
+  width:90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.5%;
+  display:flex;
+  justify-content:center;
+  align-items: center;
+}
+.arrowForLandingCategoryTwo{
+  width:8%;
+  display: flex;
+  flex-direction:row;
+  justify-content:space-between;
+}
+.arrowIconOne{
+  color:#333;
+  margin-top: auto;
+  margin-bottom:auto;
+  cursor: pointer;
+}
+.arrowIconTwo{
+  color:#333;
+  margin-top: auto;
+  margin-bottom:auto;
+  cursor: pointer;
+}
+.arrowSpan{
+  font-size:30px;
+  color:#333;
+  margin-top: auto;
+  margin-bottom:auto;
+}
+.topSellersDiv{
+  width:90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding:2%;
+  margin-top:1%;
+  display: flex;
+  flex-direction:row;
+  justify-content:space-between;
+}
+.topSellersItems{
+  display: flex;
+  flex-direction:column;
+  width:15%;
+  margin-left: 2%;
+}
+.topSellersItemsEach{
+  display: flex;
+  flex-direction:column;
+  width:100%;
+}
+.topSellersImage{
+  width:100%;
+  height:40vh;
+  border-radius: 8px;
+}
+.topSellersName{
+  font-size:22px;
+  font-weight:500;
+      color:#333;
+      font-family: Georgia, serif;
+      cursor: pointer;
+      margin-top:5%;
+      text-align: center;
+      padding-bottom: 3%;
+      border-bottom: 0.8px solid #ddd
+}
+.topSellersBack{
+  background-color: #333;
+    width:90%;
+  margin-left: auto;
+  margin-right: auto;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  margin-top:5%;
+  border-radius:8px;
+}
+.topSellersNameTwo{
+  font-size:20px;
+  font-weight:500;
+      color:#fff;
+      font-family: Georgia, serif;
+      cursor: pointer;
+      margin-top:5%;
+      text-align: center;
+      padding-bottom: 3%;
+}
+.topSellersNameThree{
+  font-size:20px;
+  font-weight:500;
+      color:#333;
+      font-family: Georgia, serif;
+      cursor: pointer;
+      margin-top:5%;
+      text-align: center;
+      padding-bottom: 3%;
+}
+.topSellersTag{
+  width:8%;
+  padding:0.6%;
+  background-color: goldenrod;
+  position: absolute;
+  opacity:0.8;
+  border-bottom-right-radius: 5px;
+}
+.topSellersNameFour{
+  font-size:18px;
+  font-weight:500;
+      color:#fff;
+      font-family: Georgia, serif;
+}
+.customerFeedbackDiv{
+  width:90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding:2%;
+  margin-top:1%;
+  display: flex;
+  flex-direction:row;
+  justify-content:center;
+  align-items: center;
+}
+.customerFeedbackCard{
+  width:60%;
+  padding:2%;
+  background-color:goldenrod;
+  opacity: 0.8;
+  border-radius:8px;
+  display:flex;
+  justify-content:space-between;
+}
+.feedbackIcon{
+  color:#fff;
+  margin-top: auto;
+  margin-bottom:auto;
+}
+.feedbackText{
+  width:100%;
+  font-size:15px;
+  color:#fff;
+  font-weight:500;
+  text-align: right;
+}
+.customerFeedbackText{
+  display: flex;
+  width:70%;
+  flex-direction: column;
+  justify-content:center;
+  align-items:center;
+}
+.feedbackByName{
+  width:100%;
+  font-size:15px;
+  color:#fff;
+  font-weight:500;
+  text-align: right;
+}
+.dotsOnFeedback{
+  width:70%;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content:center;
+  align-items:center;
+  display: flex;
+  flex-direction: row;
+}
+.dotsManual{
+  color:#fff;
+  margin-top:1%;
+  margin-left:0.5%;
+  cursor: pointer;
+}
+.covidSafetyDiv{
+  width:90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding:2%;
+  margin-top:1%;
+  display: flex;
+  flex-direction:row;
+  justify-content:space-between;
+
+}
+.covidSafetySpan{
+  width:60%;
+  margin-top: auto;
+  margin-bottom:auto;
+}
+.covidSafetySpanText{
+  display: flex;
+  width:100%;
+  flex-direction: column;
+  justify-content:center;
+  align-items:center;
+  color:#333;
+  font-size:20px;
+  font-weight: 500;
+}
+.videoCovid{
+  border-left: 1px solid #333;
+  padding-left:8%;
+  width:30%;
+  height:50%;
+}
+.connectedInfo{
+  width:90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding:2%;
+  margin-top:1%;
+  display: flex;
+  flex-direction:row;
+  justify-content:center;
+  align-items:center;
+}
+.connectedImage{
+  width:20%;
+  cursor: pointer;
 }
 }
 

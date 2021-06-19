@@ -1,0 +1,239 @@
+.mainPolicy{
+    background-size: 100% 100%;
+    background-color:#fff;
+    margin-top:10%;
+    padding:0;
+    overflow-x:hidden;
+    height:100vh;
+}
+
+  
+  @media only screen and (max-width: 768px) {
+    .headingPolicy{
+        margin-top:8%;
+        width:90%;
+        margin-left: auto;
+        margin-right: auto;
+        padding:1%;
+        background-color:#3f51b5;
+        justify-content:center;
+        align-items:center;
+        display: flex;
+    }  
+    .headingSpan{
+        font-size:20px;
+        color:#fff;
+        text-align:center;
+        font-weight:500;
+     }
+     .divPolicyText{
+        margin-left: auto;
+        margin-right: auto;
+        width:80%;
+        justify-content:center;
+        align-items:center;
+        display: flex;
+        padding:2%;
+        margin-top:1%;
+    }
+    .policySpan{
+        font-size:15px;
+        font-weight: 500;
+        color: #333;
+        font-family: Georgia, serif;
+    }
+    .contactFirstDiv{
+        width:80%;
+        margin-top:2%;
+        padding:2%;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content:center;
+        align-items:center;
+    }
+    .contactSpan{
+        width:80%;
+        display: flex;
+        justify-content:center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .contactSpanTextHeading{
+        font-size:22px;
+        font-weight: 500;
+        color: #333;
+        font-family: Georgia, serif;
+    }
+    .contactSpanText{
+        margin-top:1%;
+        font-size:15px;
+        font-weight: 500;
+        color: #333;
+        font-family: Georgia, serif;
+        padding-bottom:5%;
+    }
+    .inputForm{
+        width:80%;
+        display: flex;
+        justify-content:center;
+        align-items: center;
+        flex-direction: column;
+        border-top: 0.8px solid #ddd;
+        padding-top:1%;
+    }
+  }
+  
+  @media only screen and (min-width: 768px) {
+    .headingPolicy{
+        margin-top:2%;
+        width:90%;
+        margin-left: auto;
+        margin-right: auto;
+        padding:1%;
+        background-color:#3f51b5;
+        justify-content:center;
+        align-items:center;
+        display: flex;
+    }  
+    .headingSpan{
+        font-size:40px;
+        color:#fff;
+        text-align:center;
+        font-weight:500;
+     }
+     .divPolicyText{
+        margin-left: auto;
+        margin-right: auto;
+        width:80%;
+        justify-content:center;
+        align-items:center;
+        display: flex;
+        padding:2%;
+        margin-top:1%;
+    }
+    .policySpan{
+        font-size:18px;
+        font-weight: 500;
+        color: #333;
+        font-family: Georgia, serif;
+    }
+    .contactFirstDiv{
+        width:80%;
+        margin-top:2%;
+        padding:2%;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content:space-between;
+    }
+    .contactSpan{
+        width:40%;
+        display: flex;
+        justify-content:center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .contactSpanTextHeading{
+        font-size:25px;
+        font-weight: 500;
+        color: #333;
+        font-family: Georgia, serif;
+    }
+    .contactSpanText{
+        margin-top:1%;
+        font-size:15px;
+        font-weight: 500;
+        color: #333;
+        font-family: Georgia, serif;
+    }
+    .inputForm{
+        width:50%;
+        display: flex;
+        justify-content:center;
+        align-items: center;
+        flex-direction: column;
+        border-left: 1px solid #333;
+        padding-left:2%;
+    }
+  }
+  
+  @media only screen and (min-width: 1100px) {
+    .headingPolicy{
+        margin-top:2%;
+        width:90%;
+        margin-left: auto;
+        margin-right: auto;
+        padding:1%;
+        background-color:#3f51b5;
+        justify-content:center;
+        align-items:center;
+        display: flex;
+    }  
+   .headingSpan{
+       font-size:40px;
+       color:#fff;
+       text-align:center;
+       font-weight:500;
+    }
+    .divPolicyText{
+        margin-left: auto;
+        margin-right: auto;
+        width:80%;
+        justify-content:center;
+        align-items:center;
+        display: flex;
+        padding:2%;
+        margin-top:1%;
+    }
+    .policySpan{
+        font-size:20px;
+        font-weight: 500;
+        color: #333;
+        font-family: Georgia, serif;
+    }
+    .contactFirstDiv{
+        width:80%;
+        margin-top:2%;
+        padding:2%;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content:space-between;
+    }
+    .contactSpan{
+        width:40%;
+        display: flex;
+        justify-content:center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .contactSpanTextHeading{
+        font-size:30px;
+        font-weight: 500;
+        color: #333;
+        font-family: Georgia, serif;
+    }
+    .contactSpanText{
+        margin-top:1%;
+        font-size:20px;
+        font-weight: 500;
+        color: #333;
+        font-family: Georgia, serif;
+    }
+    .inputForm{
+        width:50%;
+        display: flex;
+        justify-content:center;
+        align-items: center;
+        flex-direction: column;
+        border-left: 1px solid #333;
+        padding-left:2%;
+    }
+  }
+  
+  
+  

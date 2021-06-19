@@ -3,19 +3,17 @@ import {connect} from 'react-redux'
 import {HashRouter as Router,Route,Switch,Redirect} from 'react-router-dom'
 import jwt from 'jsonwebtoken'
 import Authorization from './components/authorization/Authorization'
-import SideMenu from './components/common/SideMenu'
-import TopBar from './components/common/TopBar'
+import TopMenu from './components/common/TopMenu'
+import BottomInfo from './components/common/BottomInfo'
 import Categories from './components/admin/Categories'
-import Formatting from './components/admin/Formatting'
 import Stocks from './components/admin/Stocks'
-import UserTopBar from './components/user/UserTopBar'
-import UserLandingPage from './components/user/UserLandingPage'
-import UserCart from './components/user/UserCart'
-import UserAddress from './components/user/UserAddress'
-import UserProfile from './components/user/UserProfile'
-import UserOrder from './components/user/UserOrder'
 import LandingPage from './components/common/LandingPage'
 import SnackBar from './components/utils/SnackBar'
+import Contact from './components/policies/Contact'
+import Policy from './components/policies/Policy'
+import Shipping from './components/policies/Shipping'
+import Terms from './components/policies/Terms'
+import Category from './components/common/category/Category'
 import {getItemFromStorage,removeItemFromStorage} from './components/utils/localStorage'
 
 class App extends Component {
@@ -33,10 +31,19 @@ loggedInUser = () => {
       <Router>
         <SnackBar />
         {!this.loggedInUser() ?
-        <Switch>
+        <Fragment>
+          <TopMenu />
+                  <Switch>
           <Route exact path="/" component={LandingPage} />
-          <Route path="/login" component={Authorization} />
-        </Switch> :
+          <Route  path="/login" component={Authorization} />
+          <Route  path="/shipping" component={Shipping} />
+          <Route  path="/terms" component={Terms} />
+          <Route  path="/contact" component={Contact} />
+          <Route  path="/policy" component={Policy} />
+          <Route  path="/category" component={Category} />
+        </Switch>
+        <BottomInfo/>
+        </Fragment> :
         this.loggedInUser() && this.loggedInUser() === 'Admin' ?
         <Fragment>
         <Switch>
@@ -51,10 +58,18 @@ loggedInUser = () => {
         <Route exact path="/" component={LandingPage} />
         </Switch>
         </Fragment>:
-        <Switch>
-        <Route exact path="/" component={LandingPage} />
-        <Route path="/login" component={Authorization} />
-      </Switch>
+          <Fragment>
+          <TopMenu />
+                  <Switch>
+          <Route exact path="/" component={LandingPage} />
+          <Route exact path="/login" component={Authorization} />
+          <Route  path="/shipping" component={Shipping} />
+          <Route  path="/terms" component={Terms} />
+          <Route  path="/contact" component={Contact} />
+          <Route  path="/policy" component={Policy} />
+          <Route  path="/category" component={Category} />
+        </Switch>
+        </Fragment>
       }     
       </Router>
     );
