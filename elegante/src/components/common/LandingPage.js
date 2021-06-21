@@ -59,9 +59,9 @@ class LandingPage extends Component {
        <div className="upperBodyLanding" >
        <div className="upperBodyLandingInside">
             <img src={logoWhite} className="landingLogoBuy"/>
-            <div className="buyNowLandingPage">
+            <Link to="/category" style={{textDecoration:'none'}} className="buyNowLandingPage">
                 <span className="buyNowText">Buy Now</span>
-            </div>
+            </Link>
        </div>
             </div>
             <img src={this.state.slideImage ==='' || this.state.slideImage ===undefined ? sample : this.state.slideImage} className="sampleAds"/>
