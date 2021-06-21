@@ -1,0 +1,414 @@
+.CartMain{
+    background-size: 100% 100%;
+    background-color:#fff;
+    margin-top:10%;
+    padding:0;
+    overflow-x:hidden;
+    height:100vh;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .shoppingCartHeading{
+        width:90%;
+        margin-left:auto;
+        margin-right:auto;
+        margin-top: 8%;
+     }
+     .shoppingCartHeadingSpan{
+         font-size:18px;
+         font-weight:500;
+             color:#333;
+             font-family: Georgia, serif;
+             padding-bottom: 3%;
+             border-bottom: 1px solid #ddd
+     }
+     .CartMainDiv{
+         margin-top: 5%;
+         padding:2%;
+         width:90%;
+         margin-left: auto;
+         margin-right: auto;
+         display: flex;
+         flex-direction:column;
+     }
+     .CartProductsDiv{
+         width:90%;
+         margin-left: auto;
+         margin-right: auto;
+         padding:1%;
+     }
+     .CartPaymentDiv{
+         width:90%;
+         padding:1%;
+         background-color: #00695c;
+         border-radius:5px;
+         border:5px solid #ddd;
+         margin-left: auto;
+         margin-right: auto;
+         margin-top:5%;
+     }
+     .CartProductEach{
+         width:95%;
+         padding:1%;
+         margin-left: auto;
+         margin-right: auto;
+         display: flex;
+         flex-direction:column;
+         justify-content:space-between;
+         border-bottom:0.8px solid #00695c;
+         padding-bottom: 3%;
+     }
+     .ProductImageCartAndItsName{
+         width:90%;
+         padding:1%;
+         display: flex;
+         flex-direction:row;
+     }
+     .ProductNameDivAndMoney{
+         width:80%;
+         display: flex;
+         flex-direction:column;
+         margin-left:3%;
+         margin-top:2%;
+     }
+     .ProductEachImage{
+         width:8vh;
+         height:8vh;
+         border-radius: 50px;
+     }
+     .ProductNameSpanCart{
+         font-size:15px;
+         font-weight:500;
+             color:#333;
+             font-family: Georgia, serif;
+     }
+     .ProductMoneySpanCart{
+         font-size:13px;
+         font-weight:500;
+             color:#333;
+             font-family: Georgia, serif;
+             margin-top:1%;
+     }
+     .QuantityAndMoneyCart{
+        width:90%;
+        display: flex;
+        flex-direction:row;
+        justify-content:space-between;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top:5%;
+    }
+    .QuantityProductEachCart{
+        width:50%;
+        display: flex;
+        justify-content:center;
+        align-items: center;
+    }
+    .QuantityProductEachCartIcon{
+        width:90%;
+        display: flex;
+        justify-content:center;
+        align-items: center;
+        margin-top:3%;
+        
+    }
+     .QuantityProductEachCartSpan{
+         font-size:15px;
+         font-weight:500;
+             color:#333;
+             font-family: Georgia, serif;
+     }
+     .QuantityProductEachCartIconIcon{
+         font-weight:500;
+             color:#00695c;
+             font-family: Georgia, serif;
+             cursor: pointer;
+     }
+  }
+
+  @media only screen and (min-width: 768px) {
+    .shoppingCartHeading{
+        width:30%;
+        margin-left:5%;
+        margin-top: 2%;
+     }
+     .shoppingCartHeadingSpan{
+         font-size:25px;
+         font-weight:500;
+             color:#333;
+             font-family: Georgia, serif;
+             padding-bottom: 3%;
+             border-bottom: 1px solid #ddd
+     }
+     .CartMainDiv{
+         margin-top: 5%;
+         padding:2%;
+         width:90%;
+         margin-left: auto;
+         margin-right: auto;
+         display: flex;
+         flex-direction:row;
+     }
+     .CartProductsDiv{
+         width:65%;
+         padding:1%;
+     }
+     .CartPaymentDiv{
+         width:30%;
+         padding:1%;
+         background-color: #00695c;
+         border-radius:5px;
+         border:5px solid #ddd;
+     }
+     .CartProductEach{
+         width:95%;
+         padding:1%;
+         margin-left: auto;
+         margin-right: auto;
+         display: flex;
+         flex-direction:row;
+         justify-content:space-between;
+         border-bottom:0.8px solid #00695c;
+     }
+     .ProductImageCartAndItsName{
+         width:40%;
+         padding:1%;
+         display: flex;
+         flex-direction:row;
+     }
+     .ProductNameDivAndMoney{
+         width:60%;
+         display: flex;
+         flex-direction:column;
+         margin-left:3%;
+         margin-top:2%;
+     }
+     .ProductEachImage{
+         width:10vh;
+         height:10vh;
+         border-radius: 50px;
+     }
+     .ProductNameSpanCart{
+         font-size:15px;
+         font-weight:500;
+             color:#333;
+             font-family: Georgia, serif;
+     }
+     .ProductMoneySpanCart{
+         font-size:13px;
+         font-weight:500;
+             color:#333;
+             font-family: Georgia, serif;
+             margin-top:1%;
+     }
+     .QuantityAndMoneyCart{
+        width:30%;
+        display: flex;
+        flex-direction:row;
+        justify-content:space-between;
+    }
+    .QuantityProductEachCart{
+        width:50%;
+        display: flex;
+        justify-content:center;
+        align-items: center;
+        margin-top:auto;
+        margin-bottom:auto;
+    }
+    .QuantityProductEachCartIcon{
+        width:20%;
+        display: flex;
+        justify-content:center;
+        align-items: center;
+        margin-top:auto;
+        margin-bottom:auto;
+    }
+     .QuantityProductEachCartSpan{
+         font-size:15px;
+         font-weight:500;
+             color:#333;
+             font-family: Georgia, serif;
+     }
+     .QuantityProductEachCartIconIcon{
+         font-weight:500;
+             color:#00695c;
+             font-family: Georgia, serif;
+             cursor: pointer;
+     }
+    
+    }
+  
+  @media only screen and (min-width: 1100px) {
+.shoppingCartHeading{
+   width:30%;
+   margin-left:5%;
+   margin-top: 2%;
+}
+.shoppingCartHeadingSpan{
+    font-size:25px;
+    font-weight:500;
+        color:#333;
+        font-family: Georgia, serif;
+        padding-bottom: 3%;
+        border-bottom: 1px solid #ddd
+}
+.CartMainDiv{
+    margin-top: 5%;
+    padding:2%;
+    width:90%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction:row;
+}
+.CartProductsDiv{
+    width:65%;
+    padding:1%;
+}
+.CartProductEach{
+    width:95%;
+    padding:1%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction:row;
+    justify-content:space-between;
+    border-bottom:0.8px solid #00695c;
+}
+.ProductImageCartAndItsName{
+    width:40%;
+    padding:1%;
+    display: flex;
+    flex-direction:row;
+}
+.ProductNameDivAndMoney{
+    width:60%;
+    display: flex;
+    flex-direction:column;
+    margin-left:3%;
+    margin-top:2%;
+}
+.ProductEachImage{
+    width:10vh;
+    height:10vh;
+    border-radius: 50px;
+}
+.ProductNameSpanCart{
+    font-size:20px;
+    font-weight:500;
+        color:#333;
+        font-family: Georgia, serif;
+}
+.ProductMoneySpanCart{
+    font-size:18px;
+    font-weight:500;
+        color:#333;
+        font-family: Georgia, serif;
+        margin-top:1%;
+}
+.QuantityAndMoneyCart{
+    width:30%;
+    display: flex;
+    flex-direction:row;
+    justify-content:space-between;
+}
+.QuantityProductEachCart{
+    width:50%;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    margin-top:auto;
+    margin-bottom:auto;
+}
+.QuantityProductEachCartIcon{
+    width:20%;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    margin-top:auto;
+    margin-bottom:auto;
+}
+.QuantityProductEachCartSpan{
+    font-size:18px;
+    font-weight:500;
+        color:#333;
+        font-family: Georgia, serif;
+}
+.QuantityProductEachCartIconIcon{
+    font-weight:500;
+        color:#00695c;
+        font-family: Georgia, serif;
+        cursor: pointer;
+}
+.CartPaymentDiv{
+    width:30%;
+    padding:1%;
+    background-color: #00695c;
+    border-radius:5px;
+    border:5px solid #ddd;
+}
+.offerToAskDiv{
+    width:95%;
+    margin-left:auto;
+    margin-right:auto;
+    display: flex;
+    flex-direction:row;
+    justify-content:space-between;
+    margin-top:2%;
+}
+.offerImageAndTextCart{
+    width:40%;
+    display: flex;
+    flex-direction:row;
+}
+.offerImageOnCart{
+    width:18%;
+}
+.offerSpanOnCart{
+    font-size:18px;
+    font-weight:500;
+        color:#fff;
+        font-family: Georgia, serif;
+        margin-top:auto;
+        margin-bottom:auto;
+        margin-left: 5%;
+}
+.offerInputAndGo{
+    width:50%;
+    display: flex;
+    flex-direction:row;
+}
+.inputFormCartOffer{
+    width:60%;
+    border: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: 1px solid #fff;
+    background-color: #fff;
+    padding:2%;
+    text-decoration: none;
+    outline: none;
+    color:#333;
+    font-size:15px;
+}
+.offerGoButtonCart{
+    width:20%;
+    border:1px solid #fff;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: goldenrod;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    cursor: pointer;
+}
+.offerButtonArrowCart{
+    margin-top: auto;
+    margin-bottom: auto;
+    color:#fff;
+}
+  }
+  
+  
+  

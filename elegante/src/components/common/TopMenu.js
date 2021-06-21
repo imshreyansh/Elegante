@@ -81,7 +81,7 @@ class TopMenu extends Component {
        }else{
             return(
                 <div className="landingPageMenuTop">
-                {this.props.jwtToken === null ?
+                {this.props.jwtToken !== null ?
                 <div className="landingPageMenuItems">
                    <Link to="/" style={{textDecoration:'none'}}  className="landingPageSpan" ><span onClick={()=>this.onScrollToTop()}>Home</span></Link>
                    <Link to="/category" style={{textDecoration:'none'}} className="landingPageSpan">
@@ -110,9 +110,11 @@ class TopMenu extends Component {
        }else{
             return(
                 <div className="cartAndOrderShowDiv">
-                {this.props.jwtToken !== null ?
+                {this.props.jwtToken === null ?
                 <div className="cartAndOrderDisplay">
-                   <ShoppingCartIcon style={{fontSize:"20px"}} className="shopCartOrderRecieptIcon"/>
+                              <Link to="/cart" style={{textDecoration:'none'}}>
+<ShoppingCartIcon style={{fontSize:"20px"}} className="shopCartOrderRecieptIcon"/>
+</Link>
                    <ReceiptIcon style={{fontSize:"20px",paddingLeft:"10px"}} className="shopCartOrderRecieptIcon"/>
                    </div> :null
                    }
@@ -164,7 +166,7 @@ if(this.props.location.pathname!=='/login'){
         <div className="landingPageOne">
              <Drawer anchor={'right'} open={this.state.openDrawer} onClose={()=>this.setState({openDrawer:false})} className="drawer">
              <img src={logoTwo} className="logoDrawer"/>
-           {this.props.jwtToken !==null ?
+           {this.props.jwtToken ===null ?
            <div className="drawerUl">
            <Link to="/" style={{textDecoration:'none'}} className="drawerEach">
                <HomeIcon className="drawerIcon"/>

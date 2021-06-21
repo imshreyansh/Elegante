@@ -16,6 +16,7 @@ import Terms from './components/policies/Terms'
 import Category from './components/common/category/Category'
 import CategoryDetails from './components/common/category/CategoryDetails'
 import StockDetails from './components/common/stock/StockDetails'
+import Cart from './components/common/cart/Cart'
 import {getItemFromStorage,removeItemFromStorage} from './components/utils/localStorage'
 
 class App extends Component {
@@ -45,6 +46,7 @@ loggedInUser = () => {
           <Route  path="/category" component={Category} />
           <Route  path="/categoryDetails/:id" component={CategoryDetails} />
           <Route  path="/stockDetails/:id" component={StockDetails} />
+          <Route  path="/cart" component={Cart} /> //remove
         </Switch>
         <BottomInfo/>
         </Fragment> :
@@ -52,26 +54,44 @@ loggedInUser = () => {
         <Fragment>
         <Switch>
         <Route exact path="/" component={LandingPage} />
-        <Route path="/category" component={Categories}/>
-        <Route path="/stocks" component={Stocks}/>
+          <Route  path="/login" component={Authorization} />
+          <Route  path="/shipping" component={Shipping} />
+          <Route  path="/terms" component={Terms} />
+          <Route  path="/contact" component={Contact} />
+          <Route  path="/policy" component={Policy} />
+          <Route  path="/category" component={Category} />
+          <Route  path="/categoryDetails/:id" component={CategoryDetails} />
+          <Route  path="/stockDetails/:id" component={StockDetails} />
+          <Route  path="/cart" component={Cart} />
         </Switch>
         </Fragment> :
         this.loggedInUser() && this.loggedInUser()==='User'?
         <Fragment>
           <Switch>
-        <Route exact path="/" component={LandingPage} />
+          <Route exact path="/" component={LandingPage} />
+          <Route  path="/login" component={Authorization} />
+          <Route  path="/shipping" component={Shipping} />
+          <Route  path="/terms" component={Terms} />
+          <Route  path="/contact" component={Contact} />
+          <Route  path="/policy" component={Policy} />
+          <Route  path="/category" component={Category} />
+          <Route  path="/categoryDetails/:id" component={CategoryDetails} />
+          <Route  path="/stockDetails/:id" component={StockDetails} />
+          <Route  path="/cart" component={Cart} />
         </Switch>
         </Fragment>:
           <Fragment>
           <TopMenu />
                   <Switch>
           <Route exact path="/" component={LandingPage} />
-          <Route exact path="/login" component={Authorization} />
+          <Route  path="/login" component={Authorization} />
           <Route  path="/shipping" component={Shipping} />
           <Route  path="/terms" component={Terms} />
           <Route  path="/contact" component={Contact} />
           <Route  path="/policy" component={Policy} />
           <Route  path="/category" component={Category} />
+          <Route  path="/categoryDetails/:id" component={CategoryDetails} />
+          <Route  path="/stockDetails/:id" component={StockDetails} />
         </Switch>
         </Fragment>
       }     
