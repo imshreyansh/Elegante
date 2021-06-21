@@ -24,6 +24,8 @@ import VpnKeyIcon from '@material-ui/icons/VpnKey';
 import CategoryIcon from '@material-ui/icons/Category';
 import Modal from '@material-ui/core/Modal';
 import CancelIcon from '@material-ui/icons/Cancel';
+import ReceiptIcon from '@material-ui/icons/Receipt';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 class TopMenu extends Component {
     constructor(props){
         super(props)
@@ -89,13 +91,11 @@ class TopMenu extends Component {
                    </Link>
                    </div> :
                 <div className="landingPageMenuItems">
-                   <ShoppingCartIcon className="landingPageSpan"/>
-                   <Link to="/" style={{textDecoration:'none'}} className="landingPageSpan">
-                   <span className="landingPageSpan" onClick={()=>this.onScrollToTop()}>Home</span>
-                   </Link>
-                   <span className="landingPageSpan">Hey, {this.props.jwtToken.name}</span>
-                   <MenuIcon className="landingPageSpan" onClick={()=>this.handleClick()}/>
-                   </div>
+                <Link to="/" style={{textDecoration:'none'}}  className="landingPageSpan" ><span onClick={()=>this.onScrollToTop()}>Home</span></Link>
+                <Link to="/category" style={{textDecoration:'none'}} className="landingPageSpan">
+                    <span onClick={()=>this.onScrollToTop()}>Categories</span></Link>
+                <AccountCircleIcon style={{fontSize:"20px"}} className="landingPageSpan" onClick={()=>this.setState({menuOpen:true})}/>
+                </div>
                    }
                 </div>
                 
@@ -103,6 +103,25 @@ class TopMenu extends Component {
           }
           
       }
+
+      renderCartAndOrder = () =>{
+        if(window.matchMedia("(max-width: 768px)").matches){
+            return null
+       }else{
+            return(
+                <div className="cartAndOrderShowDiv">
+                {this.props.jwtToken !== null ?
+                <div className="cartAndOrderDisplay">
+                   <ShoppingCartIcon style={{fontSize:"20px"}} className="shopCartOrderRecieptIcon"/>
+                   <ReceiptIcon style={{fontSize:"20px",paddingLeft:"10px"}} className="shopCartOrderRecieptIcon"/>
+                   </div> :null
+                   }
+                </div>
+                
+              )
+          }
+      }
+      
 
       renderOffer = () => {
         if(window.matchMedia("(max-width: 768px)").matches){
@@ -124,11 +143,12 @@ class TopMenu extends Component {
             </Modal>
             )
         }else{
-           return(
-            <div className="offerPermanent">
-            <span className="offerText">USE CODE "2021" AND GET 20% OFF </span>
-            </div>
-           )
+            return(
+                <div className="offerPermanent">
+                <span className="offerText">USE CODE "2021" AND GET 20% OFF </span>
+                </div>
+            )
+            
         }
     }
 
@@ -144,7 +164,30 @@ if(this.props.location.pathname!=='/login'){
         <div className="landingPageOne">
              <Drawer anchor={'right'} open={this.state.openDrawer} onClose={()=>this.setState({openDrawer:false})} className="drawer">
              <img src={logoTwo} className="logoDrawer"/>
-             <div className="drawerUl">
+           {this.props.jwtToken !==null ?
+           <div className="drawerUl">
+           <Link to="/" style={{textDecoration:'none'}} className="drawerEach">
+               <HomeIcon className="drawerIcon"/>
+           <span className="drawerLi" onClick={()=>this.handleClose()}>Home</span>
+           </Link>
+           <Link to="/category" style={{textDecoration:'none'}} className="drawerEach">
+               <CategoryIcon className="drawerIcon"/>
+               <span className="drawerLi" onClick={()=>this.handleClose()}>Categories</span>
+           </Link>
+           <Link to="/cart" style={{textDecoration:'none'}} className="drawerEach">
+               <ShoppingCartIcon className="drawerIcon"/>
+               <span className="drawerLi" onClick={()=>this.handleClose()}>Cart</span>
+           </Link>
+           <Link to="/myOrders" style={{textDecoration:'none'}} className="drawerEach">
+               <ReceiptIcon className="drawerIcon"/>
+               <span className="drawerLi" onClick={()=>this.handleClose()}>My Orders</span>
+           </Link>
+           <Link to="/updatePassword" style={{textDecoration:'none'}} className="drawerEach">
+               <AccountCircleIcon className="drawerIcon"/>
+               <span className="drawerLi" onClick={()=>this.handleClose()}>Update Password</span>
+           </Link>
+           </div>
+            :  <div className="drawerUl">
             <Link to="/" style={{textDecoration:'none'}} className="drawerEach">
                 <HomeIcon className="drawerIcon"/>
             <span className="drawerLi" onClick={()=>this.handleClose()}>Home</span>
@@ -157,7 +200,7 @@ if(this.props.location.pathname!=='/login'){
                 <VpnKeyIcon className="drawerIcon"/>
                 <span className="drawerLi">Login/Sign Up</span>
             </Link>
-             </div>
+             </div>}
       </Drawer>
         <div className="navbar">
         <img src={logoTwo} className="logoMainLandingPage"/>
@@ -182,23 +225,22 @@ onClose={()=>this.handleClose()}
 this.props.jwtToken.designation==='Admin' ? 
 <div>
 <Link to="/category" style={{textDecoration:'none',color: '#F4AFB3'}}><MenuItem onClick={()=>this.handleClose()}>Update Password</MenuItem></Link>
-<Link to="/category" style={{textDecoration:'none',color: '#F4AFB3'}}><MenuItem onClick={()=>this.handleClose()}>Orders</MenuItem></Link>
 <Link to="/category" style={{textDecoration:'none',color: '#F4AFB3'}}><MenuItem onClick={()=>this.handleClose()}>Add Category</MenuItem></Link>
 <Link to="/stocks" style={{textDecoration:'none',color: '#F4AFB3'}}><MenuItem onClick={()=>this.handleClose()}>Add Stocks</MenuItem></Link>
-<Link to="/stocks" style={{textDecoration:'none',color: '#F4AFB3'}}><MenuItem onClick={()=>this.onLogout()}>About</MenuItem></Link>
 <MenuItem style={{textDecoration:'none',color: '#F4AFB3'}} onClick={()=>this.onLogout()}>LOGOUT</MenuItem>
 </div>
 :
 <div>
 <MenuItem onClick={()=>this.handleClose()}>Update Password</MenuItem>
-<MenuItem onClick={()=>this.handleClose()}>My Orders</MenuItem>
-<MenuItem onClick={()=>this.onLogout()}>Contact</MenuItem>
 <MenuItem onClick={()=>this.onLogout()}>LOGOUT</MenuItem>
 </div>
 }
 </Menu>
+{this.renderCartAndOrder()}
+
 {this.renderMenu()}
         </div>
+
         {this.renderOffer()}
 
         </div>

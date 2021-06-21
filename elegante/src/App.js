@@ -14,6 +14,8 @@ import Policy from './components/policies/Policy'
 import Shipping from './components/policies/Shipping'
 import Terms from './components/policies/Terms'
 import Category from './components/common/category/Category'
+import CategoryDetails from './components/common/category/CategoryDetails'
+import StockDetails from './components/common/stock/StockDetails'
 import {getItemFromStorage,removeItemFromStorage} from './components/utils/localStorage'
 
 class App extends Component {
@@ -41,6 +43,8 @@ loggedInUser = () => {
           <Route  path="/contact" component={Contact} />
           <Route  path="/policy" component={Policy} />
           <Route  path="/category" component={Category} />
+          <Route  path="/categoryDetails/:id" component={CategoryDetails} />
+          <Route  path="/stockDetails/:id" component={StockDetails} />
         </Switch>
         <BottomInfo/>
         </Fragment> :

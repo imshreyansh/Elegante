@@ -28,9 +28,12 @@ class Category extends Component {
                     <span className="categorySpanHeadingCommon">Categories</span>
                 </div>
                 <div className="categoryCommonOne">
-                    <div className="categoryCardMain">
+                   <Link to={{pathname:`/categoryDetails/${1234}`}} style={{textDecoration:'none'}} className="categoryCardMain">
                         <img className="categoryImageCommon" src={phaseTwo} />
-                    </div>
+                        <div className="categoryNameSpanCommon">
+                            <span className="categoryNameSpanName">Necklace</span>
+                        </div>
+                    </Link>
                 </div>
             </div>
         )

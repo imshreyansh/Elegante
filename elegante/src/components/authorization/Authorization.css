@@ -3,6 +3,14 @@
     height: 100vh;
 }
 
+.AuthFacebookAndGoogle{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    margin-top: 5%;
+    flex-direction: column;
+}
+
 
 @media only screen and (max-width: 1090px) {
     .AuthTwo{
@@ -48,7 +56,7 @@
    }
    .AuthInputIcon{
        margin-top: 8%;
-       color:#5c6bc0;
+       color:#00695c;
    }
    .AuthInputOne{
        width:70%;
@@ -63,7 +71,7 @@
    .AuthButton{
        width:40%;
        padding:2%;
-       background-color: #5c6bc0;
+       background-color: #00695c;
        margin-left: auto;
        margin-right: auto;
        border-radius:8px;
@@ -92,7 +100,7 @@
    .AuthSpanTwo{
        font-size:12px;
        font-weight: 500;
-       color: #5c6bc0;
+       color: #00695c;
        font-family: Georgia, serif;
    }
    .AuthEight{
@@ -162,7 +170,7 @@
    }
    .AuthInputIcon{
        margin-top: 3%;
-       color:#5c6bc0;
+       color:#00695c;
    }
    .AuthInputOne{
        width:70%;
@@ -177,7 +185,7 @@
    .AuthButton{
        width:40%;
        padding:2%;
-       background-color: #5c6bc0;
+       background-color: #00695c;
        margin-left: auto;
        margin-right: auto;
        border-radius:8px;
@@ -206,7 +214,7 @@
    .AuthSpanTwo{
        font-size:15px;
        font-weight: 500;
-       color: #5c6bc0;
+       color: #00695c;
        font-family: Georgia, serif;
    }
    .AuthEight{

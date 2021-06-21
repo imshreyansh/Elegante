@@ -41,7 +41,7 @@
   .landingPageSpan{
       font-size:8px;
       font-weight: 500;
-      color: #283593;
+      color:#004d40;
       padding-left: 5%;
       font-family: Georgia, serif;
       cursor: pointer;
@@ -65,7 +65,7 @@
   .upperBodyLanding{
     width:80%;
     padding:2%;
-    background-color: #5c6bc0;
+    background-color: #00695c;
     margin-left: auto;
     margin-right: auto;
     position: absolute;
@@ -99,7 +99,7 @@
 }
 .buyNowLandingPage:hover{
   width:30%;
-  background-color:#283593;
+  background-color:#00796b;
   padding:1%;
   margin-top:5%;
  cursor: pointer;
@@ -118,7 +118,7 @@
   padding-top:2%;
   padding-bottom:0.5%;
   border: 1px solid #333;
-  background-color: #5c6bc0;
+  background-color: #00695c;
   position:fixed;
   display: flex;
   justify-content:center;
@@ -136,7 +136,7 @@
   width:100%;
   bottom:0;
   padding-top:2%;
-  background-color: #5c6bc0;
+  background-color: #00695c;
   margin-top: 2%;
 }
 .aboutUsLanding{
@@ -228,7 +228,7 @@
 .drawerEach{
   display: flex;
   flex-direction: row;
-  background-color: #c5cae9;
+  background-color: #00796b;
   padding:2%;
   margin-top:5%;
 }
@@ -603,7 +603,7 @@
   .landingPageSpan{
       font-size:12px;
       font-weight: 500;
-      color: #283593;
+      color:#004d40;
       padding-left: 8%;
       font-family: Georgia, serif;
       cursor: pointer;
@@ -625,7 +625,7 @@
   .upperBodyLanding{
     width:50%;
     padding:2%;
-    background-color: #5c6bc0;
+    background-color: #00695c;
     margin-left: auto;
     margin-right: auto;
     position: absolute;
@@ -659,7 +659,7 @@
 }
 .buyNowLandingPage:hover{
   width:30%;
-  background-color:#283593;
+  background-color:#00796b;
   padding:1%;
   margin-top:5%;
  cursor: pointer;
@@ -678,7 +678,7 @@
   padding-top:1%;
   padding-bottom:0.5%;
   border: 1px solid #333;
-  background-color: #5c6bc0;
+  background-color: #00695c;
   position:fixed;
   display: flex;
   justify-content:center;
@@ -694,7 +694,7 @@
 }
 .LandingBottom{
   bottom:0;
-  background-color: #5c6bc0;
+  background-color: #00695c;
   padding:2%;
   margin-top: 2%;
 }
@@ -1064,6 +1064,24 @@
   width:20%;
   cursor: pointer;
 }
+.cartAndOrderShowDiv{
+  width:100%;
+  display: flex;
+  position:absolute;
+  flex-direction:row;
+  justify-content: flex-end;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cartAndOrderDisplay{
+  width:10%;
+  display: flex;
+  flex-direction: row;
+}
+.shopCartOrderRecieptIcon{
+  color:#004d40;
+  cursor: pointer;
+}
 }
 
 @media only screen and (min-width: 1100px) {
@@ -1076,7 +1094,7 @@
   .landingPageSpan{
       font-size:15px;
       font-weight: 500;
-      color: #283593;
+      color:#004d40;
       font-family: Georgia, serif;
       cursor: pointer;
   }
@@ -1097,7 +1115,7 @@
   .upperBodyLanding{
     width:40%;
     padding:2%;
-    background-color: #5c6bc0;
+    background-color: #00695c;
     margin-left: auto;
     margin-right: auto;
     position: absolute;
@@ -1131,7 +1149,7 @@
 }
 .buyNowLandingPage:hover{
   width:20%;
-  background-color:#283593;
+  background-color:#00796b;
   padding:1%;
   margin-top:5%;
  cursor: pointer;
@@ -1149,7 +1167,7 @@
   width:100%;
   padding-top:2%;
   padding-bottom:0.5%;
-  background-color: #5c6bc0;
+  background-color: #00695c;
   position:fixed;
   display: flex;
   justify-content:center;
@@ -1165,7 +1183,7 @@
 }
 .LandingBottom{
   bottom:0;
-  background-color: #5c6bc0;
+  background-color: #00695c;
   padding:2%;
   margin-top: 2%;
 }
@@ -1532,6 +1550,24 @@
 }
 .connectedImage{
   width:20%;
+  cursor: pointer;
+}
+.cartAndOrderShowDiv{
+  width:95%;
+  display: flex;
+  flex-direction:row;
+  justify-content: flex-end;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cartAndOrderDisplay{
+  width:4%;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+}
+.shopCartOrderRecieptIcon{
+  color:#004d40;
   cursor: pointer;
 }
 }

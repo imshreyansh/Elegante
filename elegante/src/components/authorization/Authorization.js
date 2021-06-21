@@ -12,6 +12,9 @@ import LockIcon from '@material-ui/icons/Lock';
 import EmailIcon from '@material-ui/icons/Email';
 import PhoneAndroidIcon from '@material-ui/icons/PhoneAndroid';
 import PersonPinIcon from '@material-ui/icons/PersonPin';
+import FacebookLogin from 'react-facebook-login';
+import GoogleLogin from 'react-google-login';
+
 class Authorization extends Component {
     constructor(props){
         super(props)
@@ -77,6 +80,11 @@ class Authorization extends Component {
             }
         }
     }
+
+    onSocial = () =>{
+
+    }
+    
     render(){
         return(
             <div className="AuthOne">
@@ -91,34 +99,34 @@ class Authorization extends Component {
                       <div className="AuthFive">
                         <div className="AuthSix">
                             <PersonIcon className="AuthInputIcon"/>
-                            <input type="text" className="AuthInputOne" style={{borderBottomColor:'#5c6bc0'}} placeholder="Email" value={this.state.username} onChange={(e)=>this.setState({username:e.target.value})}/>
+                            <input type="text" className="AuthInputOne" style={{borderBottomColor:'#00695c'}} placeholder="Email" value={this.state.username} onChange={(e)=>this.setState({username:e.target.value})}/>
                         </div>
                         <div className="AuthSix">
                         <LockIcon className="AuthInputIcon"/>
-                        <input type="password" className="AuthInputOne" style={{borderBottomColor:'#5c6bc0'}} placeholder="Password" value={this.state.password} onChange={(e)=>this.setState({password:e.target.value})}/>
+                        <input type="password" className="AuthInputOne" style={{borderBottomColor:'#00695c'}} placeholder="Password" value={this.state.password} onChange={(e)=>this.setState({password:e.target.value})}/>
                     </div>
                     </div>
                     :
                     <div className="AuthFive">
                          <div className="AuthSix">
                         <PersonIcon className="AuthInputIcon"/>
-                    <input type="text" className="AuthInputOne" style={{borderBottomColor:this.state.nameE ==='' ? '#5c6bc0' :'red'}} placeholder="Name" value={this.state.name} onChange={(e)=>this.setState(validation(e,'name','text',['name is reuired','ds']))}/>
+                    <input type="text" className="AuthInputOne" style={{borderBottomColor:this.state.nameE ==='' ? '#00695c' :'red'}} placeholder="Name" value={this.state.name} onChange={(e)=>this.setState(validation(e,'name','text',['name is reuired','ds']))}/>
                     </div>
                     <div className="AuthSix">
                         <EmailIcon className="AuthInputIcon"/>
-                    <input type="text" className="AuthInputOne" style={{borderBottomColor:this.state.emailE ==='' ? '#5c6bc0' :'red'}} placeholder="Email" value={this.state.email} onChange={(e)=>this.setState(validation(e,'email','email',['Email is reuired','Incorrect Email']))}/>
+                    <input type="text" className="AuthInputOne" style={{borderBottomColor:this.state.emailE ==='' ? '#00695c' :'red'}} placeholder="Email" value={this.state.email} onChange={(e)=>this.setState(validation(e,'email','email',['Email is reuired','Incorrect Email']))}/>
                     </div>
                     <div className="AuthSix">
                         <PhoneAndroidIcon className="AuthInputIcon"/>
-                    <input type="text" className="AuthInputOne" style={{borderBottomColor:this.state.mobileE ==='' ? '#5c6bc0' :'red'}} placeholder="Mobile" value={this.state.mobile} onChange={(e)=>this.setState(validation(e,'mobile','text',['Email is reuired','Incorrect Email']))}/>
+                    <input type="text" className="AuthInputOne" style={{borderBottomColor:this.state.mobileE ==='' ? '#00695c' :'red'}} placeholder="Mobile" value={this.state.mobile} onChange={(e)=>this.setState(validation(e,'mobile','text',['Email is reuired','Incorrect Email']))}/>
                     </div>
                     <div className="AuthSix">
                         <PersonPinIcon className="AuthInputIcon"/>
-                    <input type="text" className="AuthInputOne" style={{borderBottomColor:this.state.addressE ==='' ? '#5c6bc0' :'red'}} placeholder="Address" value={this.state.address} onChange={(e)=>this.setState(validation(e,'address','text',['name is reuired','ds']))}/>
+                    <input type="text" className="AuthInputOne" style={{borderBottomColor:this.state.addressE ==='' ? '#00695c' :'red'}} placeholder="Address" value={this.state.address} onChange={(e)=>this.setState(validation(e,'address','text',['name is reuired','ds']))}/>
                     </div>
                     <div className="AuthSix">
                         <LockIcon className="AuthInputIcon"/>
-                    <input type="password" className="AuthInputOne" style={{borderBottomColor:this.state.passwordSignUPE ==='' ? '#5c6bc0' :'red'}} placeholder="Password" value={this.state.passwordSignUP} onChange={(e)=>this.setState(validation(e,'passwordSignUP','text',['name is reuired','ds']))}/>
+                    <input type="password" className="AuthInputOne" style={{borderBottomColor:this.state.passwordSignUPE ==='' ? '#00695c' :'red'}} placeholder="Password" value={this.state.passwordSignUP} onChange={(e)=>this.setState(validation(e,'passwordSignUP','text',['name is reuired','ds']))}/>
                         </div>
                 </div>
     }
@@ -128,6 +136,24 @@ class Authorization extends Component {
                     <div className="AuthSeven">
                         <span className="AuthSpanTwo" onClick={()=>this.setState({display:!this.state.display})}>{this.state.display ? `Don't have an account ? Sign Up` : `Already have an account ? Login In` }</span>
                     </div>
+                  {this.state.display ?  <div className="AuthFacebookAndGoogle">
+                    <FacebookLogin
+    appId="2871980276465306"
+    autoLoad={false}
+    fields="name,email,picture"
+    callback={(res)=>this.onSocial(res)}
+  /> 
+                    </div>:null}
+                    {this.state.display ?
+                    <div className="AuthFacebookAndGoogle">
+                    <GoogleLogin
+    clientId="233567002026-16k9ev92u1rjimh61n9q3sugjpc7irbh.apps.googleusercontent.com"
+    buttonText="LOGIN WITH GOOGLE"
+    onSuccess={(res)=>this.onSocial(res)}
+    onFailure={(res)=>console.log(res)}
+  />
+                      </div>:null}
+
                         </div>
                         {/* <div className="AuthEight">
                         <div className="AuthNine">

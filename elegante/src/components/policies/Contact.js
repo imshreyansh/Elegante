@@ -85,19 +85,19 @@ Address:  Thatheri Bazar Varanasi, Uttar Pradesh.</span>
                 <div className="AuthFive">
                          <div className="AuthSix">
                         <PersonIcon className="AuthInputIcon"/>
-                    <input type="text" className="AuthInputOne" style={{borderBottomColor:this.state.nameE ==='' ? '#5c6bc0' :'red'}} placeholder="Name" value={this.state.name} onChange={(e)=>this.setState(validation(e,'name','text',['name is reuired','ds']))}/>
+                    <input type="text" className="AuthInputOne" style={{borderBottomColor:this.state.nameE ==='' ? '#00695c' :'red'}} placeholder="Name" value={this.state.name} onChange={(e)=>this.setState(validation(e,'name','text',['name is reuired','ds']))}/>
                     </div>
                     <div className="AuthSix">
                         <EmailIcon className="AuthInputIcon"/>
-                    <input type="text" className="AuthInputOne" style={{borderBottomColor:this.state.emailE ==='' ? '#5c6bc0' :'red'}} placeholder="Email" value={this.state.email} onChange={(e)=>this.setState(validation(e,'email','email',['Email is reuired','Incorrect Email']))}/>
+                    <input type="text" className="AuthInputOne" style={{borderBottomColor:this.state.emailE ==='' ? '#00695c' :'red'}} placeholder="Email" value={this.state.email} onChange={(e)=>this.setState(validation(e,'email','email',['Email is reuired','Incorrect Email']))}/>
                     </div>
                     <div className="AuthSix">
                         <PhoneAndroidIcon className="AuthInputIcon"/>
-                    <input type="text" className="AuthInputOne" style={{borderBottomColor:this.state.mobileE ==='' ? '#5c6bc0' :'red'}} placeholder="Mobile" value={this.state.mobile} onChange={(e)=>this.setState(validation(e,'mobile','text',['Email is reuired','Incorrect Email']))}/>
+                    <input type="text" className="AuthInputOne" style={{borderBottomColor:this.state.mobileE ==='' ? '#00695c' :'red'}} placeholder="Mobile" value={this.state.mobile} onChange={(e)=>this.setState(validation(e,'mobile','text',['Email is reuired','Incorrect Email']))}/>
                     </div>
                     <div className="AuthSix">
                         <RateReviewIcon className="AuthInputIcon"/>
-                    <input type="text" className="AuthInputOne" style={{borderBottomColor:this.state.descriptionE ==='' ? '#5c6bc0' :'red'}} placeholder="Description" value={this.state.description} onChange={(e)=>this.setState(validation(e,'description','text',['description is reuired','ds']))}/>
+                    <input type="text" className="AuthInputOne" style={{borderBottomColor:this.state.descriptionE ==='' ? '#00695c' :'red'}} placeholder="Description" value={this.state.description} onChange={(e)=>this.setState(validation(e,'description','text',['description is reuired','ds']))}/>
                     </div>
                 </div>
                 <div className="AuthButton" onClick={()=>this.submit()}>

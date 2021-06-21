@@ -1,0 +1,441 @@
+.Stock{
+    background-size: 100% 100%;
+    background-color:#fff;
+    margin-top:10%;
+    padding:0;
+    overflow-x:hidden;
+    height:100vh;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .StockDetailsOne{
+    margin-top:8%;
+    padding:2%;
+    width:90%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction:column;
+    justify-content:space-between;
+  }
+  .StockDetailsTwo{
+    width:80%;
+    display: flex;
+    flex-direction: row;
+  }
+  .StockDetailsImageThumb{
+    width:100%;
+    height:40vh;
+  }
+  .StockDetailsImageThumbMain{
+    width:100%;
+    height:40vh;
+  }
+  .StockDetailsSmallThumb{
+    width:40%;
+    height:40vh;
+    display: flex;
+    flex-direction: column;
+    margin-left:5%;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  .StockDetailsSmallThumbMain{
+    width:40%;
+    height:5vh;
+    margin-top: 4%;
+    padding-bottom: 5%;
+    cursor: pointer;
+  }
+  .StockDetailsThree{
+    width:90%;
+    display: flex;
+    flex-direction: column;
+  }
+  .StockDetailsStockName{
+    width:100%;
+    margin-top:5%;
+    padding-bottom: 3%;
+    border-bottom: 0.8px solid #ddd
+  }
+  .StockDetailsStockMoneyName{
+    width:100%;
+    margin-top:5%;
+  }
+  .StockDetailsStockNameSpan{
+    width:100%;
+        font-size:30px;
+         font-weight:500;
+        color:#333;
+        font-family: Georgia, serif;
+  
+  }
+  .StockDetailsStockMoney{
+    width:100%;
+    font-size:25px;
+    font-weight:500;
+        color:#333;
+        font-family: Georgia, serif;
+  }
+  .StockDetailsFour{
+    width:60%;
+    margin-top:8%;
+    display: flex;
+    flex-direction:row;
+    justify-content:space-between;
+  }
+  .StockDetailsIncrementDiv{
+    width:25%;
+    padding:2%;
+    background-color: #333;
+    
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+  .StockDetailsIncrementSpan{
+    color: #fff;
+  }
+  .StockDetailsValueSpan{
+    color: #333;
+    font-size: 20px;
+  }
+  .StockDetailsValuetDiv{
+    padding:2%;
+    background-color: #fff;
+    
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+  .StockDetailsMainBack{
+    background-color: #333;
+      width:100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:8%;
+    border-radius:8px;
+  }
+  .StockDetailsMainNameTwo{
+    font-size:15px;
+    font-weight:500;
+        color:#fff;
+        font-family: Georgia, serif;
+        cursor: pointer;
+        padding-top:3%;
+        text-align: center;
+        padding-bottom: 3%;
+  }
+  .StockDetailsDescription{
+    width:80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding:1%;
+    margin-top: 5%;
+  }
+  .StockDetailsDescriptionHeading{
+    font-size:20px;
+    font-weight:500;
+        color:#333;
+        font-family: Georgia, serif;
+  }
+  .StockDetailsDescriptionSpan{
+    font-size:12px;
+    font-weight:200;
+        color:#333;
+        font-family: Georgia, serif;
+  }
+  }
+
+  @media only screen and (min-width: 768px) {
+    .StockDetailsOne{
+      margin-top:2%;
+      padding:2%;
+      width:80%;
+      margin-left: auto;
+      margin-right: auto;
+      display: flex;
+      flex-direction:row;
+      justify-content:space-between;
+    }
+    .StockDetailsTwo{
+      width:30%;
+      display: flex;
+      flex-direction: row;
+    }
+    .StockDetailsImageThumb{
+      width:55%;
+      height:40vh;
+    }
+    .StockDetailsImageThumbMain{
+      width:100%;
+      height:40vh;
+    }
+    .StockDetailsSmallThumb{
+      width:40%;
+      height:40vh;
+      display: flex;
+      flex-direction: column;
+      margin-left:5%;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+    .StockDetailsSmallThumbMain{
+      width:30%;
+      height:5vh;
+      margin-top: 4%;
+      padding-bottom: 5%;
+      cursor: pointer;
+    }
+    .StockDetailsThree{
+      width:70%;
+      display: flex;
+      flex-direction: column;
+    }
+    .StockDetailsStockName{
+      width:100%;
+      margin-top:5%;
+    }
+    .StockDetailsStockNameSpan{
+          font-size:30px;
+           font-weight:500;
+          color:#333;
+          font-family: Georgia, serif;
+          padding-bottom: 3%;
+          border-bottom: 0.8px solid #ddd
+    }
+    .StockDetailsStockMoneyName{
+      width:100%;
+      margin-top:5%;
+    }
+    .StockDetailsStockMoney{
+      font-size:25px;
+      font-weight:500;
+          color:#333;
+          font-family: Georgia, serif;
+    }
+    .StockDetailsFour{
+      width:15%;
+      margin-top:8%;
+      display: flex;
+      flex-direction:row;
+      justify-content:space-between;
+    }
+    .StockDetailsIncrementDiv{
+      width:25%;
+      padding:2%;
+      background-color: #333;
+      
+      display: flex;
+      justify-content:center;
+      align-items:center;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+    .StockDetailsIncrementSpan{
+      color: #fff;
+    }
+    .StockDetailsValueSpan{
+      color: #333;
+      font-size: 20px;
+    }
+    .StockDetailsValuetDiv{
+      padding:2%;
+      background-color: #fff;
+      
+      display: flex;
+      justify-content:center;
+      align-items:center;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+    .StockDetailsMainBack{
+      background-color: #333;
+        width:30%;
+      display:flex;
+      align-items: center;
+      justify-content: center;
+      margin-top:5%;
+      border-radius:8px;
+    }
+    .StockDetailsMainNameTwo{
+      font-size:15px;
+      font-weight:500;
+          color:#fff;
+          font-family: Georgia, serif;
+          cursor: pointer;
+          padding-top:3%;
+          text-align: center;
+          padding-bottom: 3%;
+    }
+    .StockDetailsDescription{
+      width:80%;
+      margin-left: auto;
+      margin-right: auto;
+      padding:1%;
+    }
+    .StockDetailsDescriptionHeading{
+      font-size:35px;
+      font-weight:500;
+          color:#333;
+          font-family: Georgia, serif;
+    }
+    .StockDetailsDescriptionSpan{
+      font-size:20px;
+      font-weight:200;
+          color:#333;
+          font-family: Georgia, serif;
+    }
+    
+    }
+  
+  @media only screen and (min-width: 1100px) {
+  .StockDetailsOne{
+    margin-top:2%;
+    padding:2%;
+    width:80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction:row;
+    justify-content:space-between;
+  }
+  .StockDetailsTwo{
+    width:30%;
+    display: flex;
+    flex-direction: row;
+  }
+  .StockDetailsImageThumb{
+    width:55%;
+    height:40vh;
+  }
+  .StockDetailsImageThumbMain{
+    width:100%;
+    height:40vh;
+  }
+  .StockDetailsSmallThumb{
+    width:40%;
+    height:40vh;
+    display: flex;
+    flex-direction: column;
+    margin-left:5%;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  .StockDetailsSmallThumbMain{
+    width:30%;
+    height:5vh;
+    margin-top: 4%;
+    padding-bottom: 5%;
+    cursor: pointer;
+  }
+  .StockDetailsThree{
+    width:70%;
+    display: flex;
+    flex-direction: column;
+  }
+  .StockDetailsStockName{
+    width:100%;
+    margin-top:5%;
+  }
+  .StockDetailsStockNameSpan{
+        font-size:30px;
+         font-weight:500;
+        color:#333;
+        font-family: Georgia, serif;
+        padding-bottom: 3%;
+        border-bottom: 0.8px solid #ddd
+  }
+  .StockDetailsStockMoneyName{
+    width:100%;
+    margin-top:5%;
+  }
+  .StockDetailsStockMoney{
+    font-size:25px;
+    font-weight:500;
+        color:#333;
+        font-family: Georgia, serif;
+        
+  }
+  .StockDetailsFour{
+    width:15%;
+    margin-top:8%;
+    display: flex;
+    flex-direction:row;
+    justify-content:space-between;
+  }
+  .StockDetailsIncrementDiv{
+    width:25%;
+    padding:2%;
+    background-color: #333;
+    
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+  .StockDetailsIncrementSpan{
+    color: #fff;
+  }
+  .StockDetailsValueSpan{
+    color: #333;
+    font-size: 20px;
+  }
+  .StockDetailsValuetDiv{
+    padding:2%;
+    background-color: #fff;
+    
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+  .StockDetailsMainBack{
+    background-color: #333;
+      width:30%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:5%;
+    border-radius:8px;
+  }
+  .StockDetailsMainNameTwo{
+    font-size:15px;
+    font-weight:500;
+        color:#fff;
+        font-family: Georgia, serif;
+        cursor: pointer;
+        padding-top:3%;
+        text-align: center;
+        padding-bottom: 3%;
+  }
+  .StockDetailsDescription{
+    width:80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding:1%;
+  }
+  .StockDetailsDescriptionHeading{
+    font-size:35px;
+    font-weight:500;
+        color:#333;
+        font-family: Georgia, serif;
+  }
+  .StockDetailsDescriptionSpan{
+    font-size:20px;
+    font-weight:200;
+        color:#333;
+        font-family: Georgia, serif;
+  }
+  }
+  
+  
+  
