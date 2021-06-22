@@ -1,13 +1,13 @@
 import React,{Component,Fragment} from 'react'
 import {connect} from 'react-redux'
-import './User.css'
+import '../../user/User.css'
 import jwt from 'jsonwebtoken'
-import {getItemFromStorage} from '../utils/localStorage'
+import {getItemFromStorage} from '../../utils/localStorage'
 import {Link,withRouter} from 'react-router-dom'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-
-
-class MyOrders extends Component {
+import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
+import CheckBoxIcon from '@material-ui/icons/CheckBox';
+class AdminAllOrders extends Component {
     constructor(props){
         super(props)
         this.default={
@@ -38,6 +38,9 @@ class MyOrders extends Component {
                         </div>
                         <div className="MyOrdersEachDivDateTimeAndIconDiv">
                             <span className="MyOrdersEachDivDateAndTimeSpan">12:25</span>
+                        </div>
+                        <div className="MyOrdersEachDivDateTimeAndIconDiv">
+                            <CheckBoxIcon style={{fontSize:'30px'}} className="MyOrdersEachDivIconSpan"/>
                         </div>
                         <div className="MyOrdersEachDivDateTimeAndIconDiv">
                             <ExpandMoreIcon style={{fontSize:'40px'}} className="MyOrdersEachDivIconSpan"/>
@@ -119,4 +122,4 @@ function mapStateToProps(authedId){
     }
 }
 
-export default connect(mapStateToProps)(MyOrders)
+export default connect(mapStateToProps)(AdminAllOrders)

@@ -17,7 +17,8 @@ import Category from './components/common/category/Category'
 import CategoryDetails from './components/common/category/CategoryDetails'
 import StockDetails from './components/common/stock/StockDetails'
 import Cart from './components/common/cart/Cart'
-import MyOrder from './components/user/MyOrders'
+import MyOrders from './components/user/MyOrders'
+import AdminAllOrders from './components/admin/allOrders/AdminAllOrders'
 import {getItemFromStorage,removeItemFromStorage} from './components/utils/localStorage'
 
 class App extends Component {
@@ -47,7 +48,7 @@ loggedInUser = () => {
           <Route  path="/category" component={Category} />
           <Route  path="/categoryDetails/:id" component={CategoryDetails} />
           <Route  path="/stockDetails/:id" component={StockDetails} />
-          <Route  path="/myOrders" component={MyOrder} /> //remove
+          <Route  path="/myOrders" component={MyOrders} /> //remove
         </Switch>
         <BottomInfo/>
         </Fragment> :
