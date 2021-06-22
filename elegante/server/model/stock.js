@@ -27,7 +27,11 @@ const stock=new Schema({
         ref:'Category'
     },
 
-    thumbnail:Array
+    thumbnail:Array,
+    purchasedBy:{
+        type:Number,
+        default:0
+    }
 
 })
 

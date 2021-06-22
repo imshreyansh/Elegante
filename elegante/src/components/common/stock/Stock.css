@@ -121,13 +121,13 @@
     justify-content: center;
     margin-top:8%;
     border-radius:8px;
+    cursor: pointer;
   }
   .StockDetailsMainNameTwo{
     font-size:15px;
     font-weight:500;
         color:#fff;
         font-family: Georgia, serif;
-        cursor: pointer;
         padding-top:3%;
         text-align: center;
         padding-bottom: 3%;
@@ -263,13 +263,13 @@
       justify-content: center;
       margin-top:5%;
       border-radius:8px;
+      cursor: pointer;
     }
     .StockDetailsMainNameTwo{
       font-size:15px;
       font-weight:500;
           color:#fff;
           font-family: Georgia, serif;
-          cursor: pointer;
           padding-top:3%;
           text-align: center;
           padding-bottom: 3%;
@@ -406,13 +406,13 @@
     justify-content: center;
     margin-top:5%;
     border-radius:8px;
+    cursor: pointer;
   }
   .StockDetailsMainNameTwo{
     font-size:15px;
     font-weight:500;
         color:#fff;
         font-family: Georgia, serif;
-        cursor: pointer;
         padding-top:3%;
         text-align: center;
         padding-bottom: 3%;

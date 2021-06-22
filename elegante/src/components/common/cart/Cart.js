@@ -15,7 +15,7 @@ class Cart extends Component {
     constructor(props){
         super(props)
         this.default={
-           next:true
+           next:false
         }
         this.state = this.default
 

@@ -9,13 +9,15 @@
 .navbar{
   overflow: hidden;
   background-color: #fff;
-  padding: 1% 1%;
   transition: 0.4s;
+  padding-top: 1%;
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 99;
   border:none;
+  display: flex;
+  flex-direction:column;
 }
 
 .landingPageMenuTop{
@@ -107,23 +109,24 @@
   justify-content:center;
   align-items: center;
 }
-.buyNowText{
-  font-size:10px;
-  font-weight: 500;
-  color: #fff;
-  font-family: Georgia, serif;
-}
-.offerPermanent{
+.offerUpperPermanent{
   width:100%;
-  padding-top:2%;
-  padding-bottom:0.5%;
-  border: 1px solid #333;
-  background-color: #00695c;
-  position:fixed;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   justify-content:center;
   align-items: center;
-  margin-top:8%;
+
+}
+.offerPermanent{
+  width:100%;
+  padding-top:0%;
+  padding-bottom:0.5%;
+  background-color: #00695c;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  margin-top:1%;
 }
 .offerText{
   font-size:10px;
@@ -673,17 +676,24 @@
   color: #fff;
   font-family: Georgia, serif;
 }
-.offerPermanent{
+.offerUpperPermanent{
   width:100%;
-  padding-top:1%;
-  padding-bottom:0.5%;
-  border: 1px solid #333;
-  background-color: #00695c;
-  position:fixed;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   justify-content:center;
   align-items: center;
-  margin-top:7%;
+
+}
+.offerPermanent{
+  width:100%;
+  padding-top:0%;
+  padding-bottom:0.5%;
+  background-color: #00695c;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  margin-top:1%;
 }
 .offerText{
   font-size:15px;
@@ -1163,16 +1173,24 @@
   color: #fff;
   font-family: Georgia, serif;
 }
-.offerPermanent{
+.offerUpperPermanent{
   width:100%;
-  padding-top:2%;
-  padding-bottom:0.5%;
-  background-color: #00695c;
-  position:fixed;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   justify-content:center;
   align-items: center;
-  margin-top:5%;
+
+}
+.offerPermanent{
+  width:100%;
+  padding-top:0%;
+  padding-bottom:0.5%;
+  background-color: #00695c;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  margin-top:1%;
 }
 .offerText{
   font-size:18px;

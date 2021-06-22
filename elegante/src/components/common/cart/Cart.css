@@ -266,6 +266,9 @@
         font-size:12px;
         margin-top: 2%;
     }
+    .CartAddress::placeholder { /* Most modern browsers support this now. */
+        color:    #fff;
+     }
     .CartAddressTwo{
         width:95%;
         border: none;
@@ -278,9 +281,6 @@
         font-size:12px;
         margin-top: 2%;
     }
-    ::placeholder { /* Most modern browsers support this now. */
-        color:    #fff;
-     }
   }
 
   @media only screen and (min-width: 768px) {
@@ -535,6 +535,9 @@
         font-size:12px;
         margin-top: 2%;
     }
+    .CartAddress::placeholder { /* Most modern browsers support this now. */
+        color:    #fff;
+     }
     .CartAddressTwo{
         width:95%;
         border: none;
@@ -547,9 +550,6 @@
         font-size:12px;
         margin-top: 2%;
     }
-    ::placeholder { /* Most modern browsers support this now. */
-        color:    #fff;
-     }
     
     }
   
@@ -804,6 +804,9 @@
     font-size:15px;
     margin-top: 2%;
 }
+.CartAddress::placeholder { /* Most modern browsers support this now. */
+    color:    #fff;
+ }
 .CartAddressTwo{
     width:95%;
     border: none;
@@ -816,9 +819,6 @@
     font-size:15px;
     margin-top: 2%;
 }
-::placeholder { /* Most modern browsers support this now. */
-    color:    #fff;
- }
   }
   
   

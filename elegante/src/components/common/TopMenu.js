@@ -115,7 +115,9 @@ class TopMenu extends Component {
                               <Link to="/cart" style={{textDecoration:'none'}}>
 <ShoppingCartIcon style={{fontSize:"20px"}} className="shopCartOrderRecieptIcon"/>
 </Link>
-                   <ReceiptIcon style={{fontSize:"20px",paddingLeft:"10px"}} className="shopCartOrderRecieptIcon"/>
+<Link to="/myOrders" style={{textDecoration:'none'}}>
+<ReceiptIcon style={{fontSize:"20px",paddingLeft:"10px"}} className="shopCartOrderRecieptIcon"/>
+</Link>
                    </div> :null
                    }
                 </div>
@@ -146,8 +148,10 @@ class TopMenu extends Component {
             )
         }else{
             return(
+                <div className="offerUpperPermanent">
                 <div className="offerPermanent">
                 <span className="offerText">USE CODE "2021" AND GET 20% OFF </span>
+                </div>
                 </div>
             )
             
@@ -241,9 +245,10 @@ this.props.jwtToken.designation==='Admin' ?
 {this.renderCartAndOrder()}
 
 {this.renderMenu()}
+{this.renderOffer()}
+
         </div>
 
-        {this.renderOffer()}
 
         </div>
     )

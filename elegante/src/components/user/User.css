@@ -9,17 +9,252 @@
 
 
 @media only screen and (max-width: 768px) {
+  .MyOrdersHeadingDiv{
+    width:90%;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top: 8%;
+ }
+ .MyOrdersHeadingSpan{
+     font-size:18px;
+     font-weight:500;
+         color:#333;
+         font-family: Georgia, serif;
+         padding-bottom: 3%;
+         border-bottom: 1px solid #ddd
+ }
+ .MyOrdersMainDiv{
+  width:90%;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:2%;
+  padding:2%;
+  display: flex;
+  flex-direction:column;
+}
+.MyOrdersEachDiv{
+  width:90%;
+  border-bottom: 0.8px solid #00695c;
+  padding:1%;
+  margin-top:2%;
+  margin-left:auto;
+  margin-right:auto;
+  display: flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items: center;
+}
+.MyOrdersEachDivOrderNumberDiv{
+  width:90%;
+  padding:2%;
+  background-color: #80cbc4;
+  border-radius: 5px;
+  display: flex;
+  justify-content:center;
+  align-items:center;
+}
+.MyOrdersEachDivOrderNumberSpan{
+ font-size:18px;
+ font-weight:500;
+     color:#fff;
+     font-family: Georgia, serif;
+}
+.MyOrdersEachDivDateTimeAndIconDiv{
+ width:90%;
+ height:5vh;
+ background-color: #fff;
+ border-radius: 5px;
+ display: flex;
+ justify-content:center;
+ align-items:center;
+ margin-top: 2%;
+}
+.MyOrdersEachDivDateAndTimeSpan{
+ font-size:15px;
+ font-weight:500;
+     color:#333;
+     font-family: Georgia, serif;
+}
+.MyOrdersEachDivIconSpan{
+     color:#00695c;
+     font-family: Georgia, serif;
+     cursor: pointer;
 
+}
   }
 
   @media only screen and (min-width: 768px) {
+    .MyOrdersHeadingDiv{
+      width:30%;
+      margin-left:5%;
+      margin-top: 2%;
+   }
+   .MyOrdersHeadingSpan{
+       font-size:25px;
+       font-weight:500;
+           color:#333;
+           font-family: Georgia, serif;
+           padding-bottom: 3%;
+           border-bottom: 1px solid #ddd
+   }
+   .MyOrdersMainDiv{
+    width:80%;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:2%;
+    padding:2%;
+    display: flex;
+    flex-direction:column;
+  }
+  .MyOrdersEachDiv{
+    width:60%;
+    border-bottom: 0.8px solid #00695c;
+    padding:1%;
+    margin-top:2%;
+    margin-left:auto;
+    margin-right:auto;
+    display: flex;
+    flex-direction:row;
+    justify-content:space-between;
+  }
+  .MyOrdersEachDivOrderNumberDiv{
+    width:25%;
+    padding:1%;
+    background-color: #80cbc4;
+    border-radius: 5px;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+  }
+  .MyOrdersEachDivOrderNumberSpan{
+   font-size:15px;
+   font-weight:500;
+       color:#fff;
+       font-family: Georgia, serif;
+  }
+  .MyOrdersEachDivDateTimeAndIconDiv{
+   width:15%;
+   height:5vh;
+   background-color: #fff;
+   border-radius: 5px;
+   display: flex;
+   justify-content:center;
+   align-items:center;
+  }
+  .MyOrdersEachDivDateAndTimeSpan{
+   font-size:18px;
+   font-weight:500;
+       color:#333;
+       font-family: Georgia, serif;
+  }
+  .MyOrdersEachDivIconSpan{
+       color:#00695c;
+       font-family: Georgia, serif;
+       cursor: pointer;
 
-    
+  }
     }
   
   @media only screen and (min-width: 1100px) {
-
+    .MyOrdersHeadingDiv{
+      width:30%;
+      margin-left:5%;
+      margin-top: 2%;
+   }
+   .MyOrdersHeadingSpan{
+       font-size:25px;
+       font-weight:500;
+           color:#333;
+           font-family: Georgia, serif;
+           padding-bottom: 3%;
+           border-bottom: 1px solid #ddd
+   }
+   .MyOrdersMainDiv{
+     width:80%;
+     margin-left:auto;
+     margin-right:auto;
+     margin-top:2%;
+     padding:2%;
+     display: flex;
+     flex-direction:column;
+   }
+   .MyOrdersEachDiv{
+     width:60%;
+     border-bottom: 0.8px solid #00695c;
+     padding:1%;
+     margin-top:2%;
+     margin-left:auto;
+     margin-right:auto;
+     display: flex;
+     flex-direction:row;
+     justify-content:space-between;
+   }
+   .MyOrdersEachDivOrderNumberDiv{
+     width:15%;
+      padding:1%;
+     background-color: #80cbc4;
+     border-radius: 5px;
+     display: flex;
+     justify-content:center;
+     align-items:center;
+   }
+   .MyOrdersEachDivOrderNumberSpan{
+    font-size:18px;
+    font-weight:500;
+        color:#fff;
+        font-family: Georgia, serif;
+   }
+   .MyOrdersEachDivDateTimeAndIconDiv{
+    width:15%;
+    background-color: #fff;
+    border-radius: 5px;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+   }
+   .MyOrdersEachDivDateAndTimeSpan{
+    font-size:18px;
+    font-weight:500;
+        color:#333;
+        font-family: Georgia, serif;
+   }
+   .MyOrdersEachDivIconSpan{
+        color:#00695c;
+        font-family: Georgia, serif;
+        cursor: pointer;
+   }
+   .MyOrderDetailsDiv{
+    border:0.8px solid #80cbc4;
+    padding:1%;
+    width:60%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:2%;
+    border-radius:5px ;
+    display: flex;
+    flex-direction:column;
   }
-  
-  
-  
+  .MyOrderDetailsSpanDiv{
+    margin-top: 2%;
+    display: flex;
+    flex-direction:row;
+    justify-content:space-between;
+    width:90%;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom:0.8px solid #80cbc4;
+    padding-bottom: 1%;
+  }
+   .MyOrderDetailsSpanDivEach{
+      display: flex;
+      flex-direction:column;
+      width:30%;
+      word-wrap: break-word;      /* IE */
+    } 
+   .MyOrderDetailsSpanDivEachSpan{
+    font-size:18px;
+    font-weight:500;
+        color:#333;
+        font-family: Georgia, serif;
+   }
+  }
