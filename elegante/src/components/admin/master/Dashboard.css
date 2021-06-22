@@ -1,0 +1,681 @@
+.categoryOne{
+    background-size: 100% 100%;
+    background-color:#fff;
+    margin-top:10%;
+    padding:0;
+    overflow-x:hidden;
+    height:100vh;
+}
+.offerMain{
+        background-size: 100% 100%;
+        background-color:#fff;
+        margin-top:20%;
+        padding:0;
+        overflow-x:hidden;
+        height:100vh;
+}
+
+.categoryMenuTop{
+    width:80%;
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-end;
+    padding:2%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.categoryLogo{
+    width:5%;
+    position:absolute;
+    padding-left: 20px;
+    padding-top:5px;
+}
+
+@media only screen and (max-width: 768px) {
+    .categoryMenuItems{
+        display: flex;
+        flex-direction: row;
+        justify-content:flex-end;
+        width:100%;
+        padding-bottom: 2%;
+    }
+    .categorySpan{
+        font-size:15px;
+        font-weight: 500;
+        color: #80cbc4;
+        padding-left: 5%;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        cursor: pointer;
+    }
+    .categoryThumbnail{
+        margin-top:10%;
+        display: flex;
+        align-items: center;
+       justify-content:center;
+    }
+    .categoryThumbnailEdit{
+        color:#fff;
+        
+    }
+    .categoryThumbnailImage{
+        width:22%;
+        height:22%;
+        border:2px solid #00695c;
+        border-radius:100%;
+    }
+    .categoryThree{
+        width:100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    .categoryInputIcon{
+        margin-top: 3.5%;
+        color:#00695c;
+    }
+    .categoryInputOne{
+        width:60%;
+        margin-top: 2%;
+        border: none;
+        border-bottom: 2px solid;
+        padding:1%;
+        margin-left: 20px;;
+        text-decoration: none;
+        outline: none;
+        background-color:#fff;
+    }
+    .categoryButton{
+        width:30%;
+       padding:2%;
+       background-color: #00695c;
+       margin-left: auto;
+       margin-right: auto;
+       border-radius:8px;
+       margin-top: 5%;
+       display:flex;
+       justify-content: center;
+       align-items: center;
+       cursor: pointer;
+    }
+    .categorySpanOne{
+        font-size:15px;
+        font-weight: 500;
+        color: #fff;
+    }
+    .tableMainDiv{
+        width:90%;
+        margin-left: auto;
+        margin-right: auto;
+        overflow-x: auto;
+        margin-top:5%;
+        padding:2%;
+    }
+    .tableMainFirstTH{
+        width:100%;
+        border-bottom: 1px solid #00695c;
+        padding:1%;
+        display: flex;
+        flex-direction: row;
+        justify-content:space-between;
+    }
+    .THOneDiv{
+        width:60%;
+        padding:1%;
+        display: flex;
+        flex-direction: row;
+        justify-content:space-between;
+    }
+    .THTwoDiv{
+        width:40%;
+        padding:1%;
+        display: flex;
+        flex-direction: row;
+        justify-content:space-between;
+    }
+    .thumbTHDiv{
+        width:30%;
+        word-wrap: break-word;      /* IE */
+    }
+    .statTHDiv{
+        width:30%;
+        word-wrap: break-word; 
+        margin-top: auto;
+        margin-bottom:auto;
+    }
+    .catTHDiv{
+        width:60%;
+        word-wrap: break-word;   
+        margin-top: auto;
+        margin-bottom:auto;   /* IE */
+    }
+    .thumbTHSpan{
+        font-size:12px;
+        font-weight:500;
+            color:#333;
+            font-family: Georgia, serif; /* IE */
+           
+    }
+    .catTHSpan{
+        font-size:12px;
+    font-weight:500;
+        color:#333;
+        font-family: Georgia, serif;   /* IE */
+    }
+    .catTHImage{
+        width:60%;
+        height:5vh;
+        border-radius:50px;
+    }
+    .catoryAddCategoryInput{
+        margin-top:5%;
+        width:90%;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .stocksZero{
+        width:80%;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-direction: column;
+        padding:1%;
+        margin-top: 5%;
+    }
+    .stocksOne{
+        width:100%;
+        display: flex;
+        flex-direction: column;
+        margin-top: 5%;
+    }
+    .stocksTwo{
+        margin-top:2%;
+        width:90%;
+        display: flex;
+        flex-direction: row;
+    }
+    .stocksInputOne{
+        width:80%;
+        border: none;
+        border-bottom: 2px solid;
+        padding:2%;
+        margin-left: 20px;;
+        text-decoration: none;
+        outline: none;
+        margin-top:2%;
+
+    }
+    .stocksInputOneDrop{
+        width:85%;
+        border: none;
+        border-bottom: 2px solid #00695c;
+        padding:2%;
+        margin-left: 20px;;
+        text-decoration: none;
+        outline: none;
+        margin-top:2%;
+
+    }
+    .stocksInputLast{
+        width:80%;
+        border: none;
+        border-bottom: 2px solid #00695c;
+        padding:2%;
+        margin-left: 20px;;
+        text-decoration: none;
+        outline: none;
+        margin-top:2%;
+
+    }
+    .stocksInputOneIcon{
+        width:70%;
+        border: none;
+        padding:2%;
+        margin-left: 2px;;
+        text-decoration: none;
+        outline: none;
+        color:#00695c;
+        margin-top:2%;
+
+    }
+    .stockTable{
+        width:100%;
+        margin-top: 5%;
+    }
+    .tableStockImage{
+        width:40%;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .categoryMenuItems{
+        display: flex;
+        flex-direction: row;
+        justify-content:flex-end;
+        width:45%;
+    }
+    .categorySpan{
+        font-size:18px;
+        font-weight: 500;
+        color: #80cbc4;
+        padding-left: 8%;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        cursor: pointer;
+    }
+    .categoryThumbnail{
+        display: flex;
+        align-items: center;
+       justify-content:center;
+    }
+    .categoryThumbnailEdit{
+        color:#fff;
+    }
+    .categoryThumbnailImage{
+        width:15%;
+        height:15%;
+        border:2px solid #00695c;
+        border-radius:100%;
+    }
+    .categoryThree{
+        width:90%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    .categoryInputIcon{
+        margin-top: 3.5%;
+        color:#00695c;
+    }
+    .categoryInputOne{
+        width:60%;
+        margin-top: 2%;
+        border: none;
+        border-bottom: 2px solid;
+        padding:1%;
+        margin-left: 20px;;
+        text-decoration: none;
+        outline: none;
+        background-color:#fff;
+    }
+    .categoryButton{
+        width:30%;
+       padding:2%;
+       background-color: #00695c;
+       margin-left: auto;
+       margin-right: auto;
+       border-radius:8px;
+       margin-top: 5%;
+       display:flex;
+       justify-content: center;
+       align-items: center;
+       cursor: pointer;
+    }
+    .categorySpanOne{
+        font-size:15px;
+        font-weight: 500;
+        color: #fff;
+    }
+    .tableMainDiv{
+        width:80%;
+        margin-left: auto;
+        margin-right: auto;
+        overflow-x: auto;
+        margin-top:5%;
+        padding:2%;
+    }
+    .tableMainFirstTH{
+        width:100%;
+        border-bottom: 1px solid #00695c;
+        padding:1%;
+        display: flex;
+        flex-direction: row;
+        justify-content:space-between;
+    }
+    .THOneDiv{
+        width:70%;
+        padding:1%;
+        display: flex;
+        flex-direction: row;
+        justify-content:space-between;
+    }
+    .THTwoDiv{
+        width:30%;
+        padding:1%;
+        display: flex;
+        flex-direction: row;
+        justify-content:space-between;
+    }
+    .thumbTHDiv{
+        width:30%;
+        word-wrap: break-word;  
+        margin-top: auto; 
+        margin-bottom: auto;
+    }
+    .statTHDiv{
+        width:30%;
+        word-wrap: break-word; 
+        margin-top: auto;
+        margin-bottom:auto;
+    }
+    .catTHDiv{
+        width:60%;
+        word-wrap: break-word;
+        margin-top: auto; 
+        margin-bottom: auto;
+    }
+    .thumbTHSpan{
+        font-size:20px;
+        font-weight:500;
+            color:#333;
+            font-family: Georgia, serif; /* IE */
+    }
+    .catTHSpan{
+        font-size:20px;
+    font-weight:500;
+        color:#333;
+        font-family: Georgia, serif;   /* IE */
+    }
+    .catTHImage{
+        width:20%;
+        height: 5vh;
+        border-radius:50px;
+    }
+    .catoryAddCategoryInput{
+        margin-top:2%;
+        width:90%;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .stocksZero{
+        width:80%;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-direction: column;
+        padding:1%;
+    }
+    .stocksOne{
+        width:100%;
+        display: flex;
+        flex-direction: row;
+        justify-content:space-between;
+        margin-top: 2%;
+    }
+    .stocksTwo{
+        margin-top:2%;
+        width:30%;
+        display: flex;
+        flex-direction: row;
+    }
+    .stocksInputOne{
+        width:70%;
+        border: none;
+        border-bottom: 2px solid;
+        padding:2%;
+        margin-left: 20px;;
+        text-decoration: none;
+        outline: none;
+    }
+    .stocksInputOneDrop{
+        width:75%;
+        border: none;
+        border-bottom: 2px solid #00695c;
+        padding:2%;
+        margin-left: 20px;;
+        text-decoration: none;
+        outline: none;
+    }
+    .stocksInputLast{
+        width:75%;
+        border: none;
+        border-bottom: 2px solid #00695c;
+        padding:2%;
+        margin-left: 20px;;
+        text-decoration: none;
+        outline: none;
+    }
+    .stocksInputOneIcon{
+        width:70%;
+        border: none;
+        padding:2%;
+        margin-left: 2px;;
+        text-decoration: none;
+        outline: none;
+        color:#00695c;
+    }
+    .stockTable{
+        width:100%;
+        margin-top: 5%;
+    }
+    .tableStockImage{
+        width:20%;
+    }
+}
+
+
+@media only screen and (min-width: 1100px) {
+    .categoryMenuItems{
+        display: flex;
+        flex-direction: row;
+        justify-content:flex-end;
+        width:40%;
+    }
+    .categorySpan{
+        font-size:20px;
+        font-weight: 500;
+        color: #80cbc4;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        cursor: pointer;
+    }
+    .categoryTwo{
+        margin-top:2%;
+        width:90%;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .categoryThumbnail{
+        display: flex;
+        align-items: center;
+       justify-content:center;
+    }
+    .categoryThumbnailEdit{
+        position:absolute;
+        top:25%;
+        left:52%;
+        color:#80cbc4;
+    }
+    .categoryThumbnailImage{
+        width:15%;
+        height:15%;
+        border:2px solid #00695c;
+        border-radius:100%;
+    }
+    .catoryAddCategoryInput{
+        margin-top:2%;
+        width:90%;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .categoryThree{
+        width:90%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    .categoryInputIcon{
+        margin-top: 3%;
+        color:#00695c;
+    }
+    .categoryInputOne{
+        width:30%;
+        margin-top: 2%;
+        border: none;
+        border-bottom: 2px solid;
+        padding:1%;
+        margin-left: 20px;;
+        text-decoration: none;
+        outline: none;
+        background-color:#fff;
+    }
+    .categoryButton{
+        width:10%;
+       padding:1%;
+       background-color: #00695c;
+       margin-left: auto;
+       margin-right: auto;
+       border-radius:8px;
+       margin-top: 5%;
+       display:flex;
+       justify-content: center;
+       align-items: center;
+       cursor: pointer;
+    }
+    .categorySpanOne{
+        font-size:20px;
+        font-weight: 500;
+        color: #fff;
+    }
+    .tableMainDiv{
+        width:80%;
+        margin-left: auto;
+        margin-right: auto;
+        overflow-x: auto;
+        margin-top:5%;
+        padding:2%;
+    }
+    .tableMainFirstTH{
+        width:100%;
+        border-bottom: 1px solid #00695c;
+        padding:1%;
+        display: flex;
+        flex-direction: row;
+        justify-content:space-between;
+    }
+    .THOneDiv{
+        width:70%;
+        padding:1%;
+        display: flex;
+        flex-direction: row;
+        justify-content:space-between;
+    }
+    .THTwoDiv{
+        width:30%;
+        padding:1%;
+        display: flex;
+        flex-direction: row;
+        justify-content:space-between;
+    }
+    .thumbTHDiv{
+        width:30%;
+        word-wrap: break-word;  
+        margin-top: auto; 
+        margin-bottom: auto;
+    }
+    .statTHDiv{
+        width:30%;
+        word-wrap: break-word; 
+        margin-top: auto;
+        margin-bottom:auto;
+    }
+    .catTHDiv{
+        width:60%;
+        word-wrap: break-word;
+        margin-top: auto; 
+        margin-bottom: auto;
+    }
+    .thumbTHSpan{
+        font-size:20px;
+        font-weight:500;
+            color:#333;
+            font-family: Georgia, serif; /* IE */
+    }
+    .catTHSpan{
+        font-size:20px;
+    font-weight:500;
+        color:#333;
+        font-family: Georgia, serif;   /* IE */
+    }
+    .catTHImage{
+        width:20%;
+        height: 5vh;
+        border-radius:50px;
+    }
+    .stocksZero{
+        width:80%;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-direction: column;
+        padding:1%;
+    }
+    .stocksOne{
+        width:100%;
+        display: flex;
+        flex-direction: row;
+        justify-content:space-between;
+        margin-top: 2%;
+    }
+    .stocksTwo{
+        margin-top:2%;
+        width:30%;
+        display: flex;
+        flex-direction: row;
+    }
+    .stocksInputOne{
+        width:70%;
+        border: none;
+        border-bottom: 2px solid;
+        padding:2%;
+        margin-left: 20px;;
+        text-decoration: none;
+        outline: none;
+    }
+    .stocksInputOneDrop{
+        width:75%;
+        border: none;
+        border-bottom: 2px solid #00695c;
+        padding:2%;
+        margin-left: 20px;;
+        text-decoration: none;
+        outline: none;
+    }
+    .stocksInputLast{
+        width:75%;
+        border: none;
+        border-bottom: 2px solid #00695c;
+        padding:2%;
+        margin-left: 20px;;
+        text-decoration: none;
+        outline: none;
+    }
+    .stocksInputOneIcon{
+        width:70%;
+        border: none;
+        padding:2%;
+        margin-left: 2px;;
+        text-decoration: none;
+        outline: none;
+        color:#00695c;
+    }
+    .stockTable{
+        width:80%;
+    }
+    .tableStockImage{
+        width:10%;
+    }
+    }

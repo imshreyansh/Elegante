@@ -149,7 +149,7 @@ class Authorization extends Component {
                     <GoogleLogin
     clientId="233567002026-16k9ev92u1rjimh61n9q3sugjpc7irbh.apps.googleusercontent.com"
     buttonText="LOGIN WITH GOOGLE"
-    onSuccess={(res)=>this.onSocial(res)}
+    onSuccess={(res)=>console.log(res)}
     onFailure={(res)=>console.log(res)}
   />
                       </div>:null}

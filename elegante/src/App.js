@@ -5,8 +5,10 @@ import jwt from 'jsonwebtoken'
 import Authorization from './components/authorization/Authorization'
 import TopMenu from './components/common/TopMenu'
 import BottomInfo from './components/common/BottomInfo'
-import Categories from './components/admin/Categories'
-import Stocks from './components/admin/Stocks'
+import Categories from './components/admin/master/Categories'
+import Offers from './components/admin/master/Offers'
+import Tax from './components/admin/master/Tax'
+import Stocks from './components/admin/master/Stocks'
 import LandingPage from './components/common/LandingPage'
 import SnackBar from './components/utils/SnackBar'
 import Contact from './components/policies/Contact'
@@ -48,7 +50,6 @@ loggedInUser = () => {
           <Route  path="/category" component={Category} />
           <Route  path="/categoryDetails/:id" component={CategoryDetails} />
           <Route  path="/stockDetails/:id" component={StockDetails} />
-          <Route  path="/myOrders" component={MyOrders} /> //remove
         </Switch>
         <BottomInfo/>
         </Fragment> :

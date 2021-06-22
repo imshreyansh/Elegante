@@ -1,14 +1,14 @@
 import React,{Component} from 'react'
 import {connect} from 'react-redux'
 import './Dashboard.css'
-import {validation} from '../../utils/validation'
+import {validation} from '../../../utils/validation'
 import DeleteIcon from '@material-ui/icons/Delete';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
-import {addCurrency,getAllCurrency,deleteCurrency,setDefaultCurrency} from '../../actions/currency'
-import {handleError} from '../../actions/handleError'
+import {addCurrency,getAllCurrency,deleteCurrency,setDefaultCurrency} from '../../../actions/currency'
+import {handleError} from '../../../actions/handleError'
 
-class Formatting extends Component {
+class Currency extends Component {
     constructor(props){
         super(props)
         this.default={
@@ -80,4 +80,4 @@ function mapStateToProps(currency){
     }
 }
 
-export default connect(mapStateToProps)(Formatting)
+export default connect(mapStateToProps)(Currency)
