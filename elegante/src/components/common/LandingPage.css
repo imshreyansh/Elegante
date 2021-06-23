@@ -594,6 +594,12 @@
   color:goldenrod;
   font-weight: 800;
 }
+.buyNowText{
+  font-size:12px;
+  font-weight: 500;
+  color: #fff;
+  font-family: Georgia, serif;
+}
 }
 
 @media only screen and (min-width: 768px) {

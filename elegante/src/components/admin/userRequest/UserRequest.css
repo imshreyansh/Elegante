@@ -1,0 +1,231 @@
+.UserRequest{
+    background-size: 100% 100%;
+    background-color:#fff;
+    margin-top:10%;
+    padding:0;
+    overflow-x:hidden;
+    height:100vh;
+}
+
+  
+  @media only screen and (max-width: 768px) {
+    .UserRequestDivMain{
+        width:90%;
+        margin-left: auto;
+        margin-right: auto;
+        padding:2%;
+        margin-top:5%;
+        justify-content:center;
+        align-items:center;
+        display: flex;
+        flex-direction:column;
+    }
+    .UserRequestDivEach{
+        width:90%;
+        margin-top: 5%;
+        border-bottom: 1px solid #80cbc4;
+        display: flex;
+        flex-direction:column;
+        align-items:center;
+    }
+    .UserRequestSpanEach{
+        width:90%;
+        word-wrap: break-word;
+        margin-top: 2%;
+        display: flex;
+        justify-content:center;
+        align-items: center;
+    }
+    .UserRequestIconEach{
+        width:90%;
+        display: flex;
+        justify-content:center;
+        align-items: center;
+        margin-top: 2%;
+        cursor: pointer;
+    }
+    .UserRequestSpan{
+        font-size:12px;
+        font-weight:500;
+            color:#333;
+            font-family: Georgia, serif;
+            word-wrap: break-word;
+    }
+    .UserDescriptionMainDiv{
+        width:90%;
+        margin-top: 2%;
+        border: 1px solid #80cbc4;
+        display: flex;
+        flex-direction:column;
+        padding:1%;
+        border-radius: 3px;
+    }
+    .UserDescriptionDateDiv{
+        width:90%;
+        margin-left:2%;
+        margin-top: 2%;
+    }
+    .UserDescriptionHeadingSpan{
+        font-size:15px;
+        font-weight:500;
+            color:#333;
+            font-family: Georgia, serif;
+            word-wrap: break-word;
+    }
+    .UserDescriptionDiv{
+        width:90%;
+        margin-left:auto;
+        margin-right:auto;
+        justify-content:center;
+        align-items: center;
+        display: flex;
+        margin-top:2%;
+    }
+  }
+  
+  @media only screen and (min-width: 768px) {
+    .UserRequestDivMain{
+        width:80%;
+        margin-left: auto;
+        margin-right: auto;
+        padding:2%;
+        margin-top:2%;
+        justify-content:center;
+        align-items:center;
+        display: flex;
+        flex-direction:column;
+    }
+    .UserRequestDivEach{
+        width:80%;
+        margin-top: 5%;
+        border-bottom: 1px solid #80cbc4;
+        display: flex;
+        flex-direction:row;
+        justify-content:space-between;
+    }
+    .UserRequestSpanEach{
+        width:20%;
+        word-wrap: break-word;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+    .UserRequestIconEach{
+        width:20%;
+        display: flex;
+        justify-content:flex-end;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+    .UserRequestSpan{
+        font-size:15px;
+        font-weight:500;
+            color:#333;
+            font-family: Georgia, serif;
+            word-wrap: break-word;
+    }
+    .UserDescriptionMainDiv{
+        width:80%;
+        margin-top: 2%;
+        border: 1px solid #80cbc4;
+        display: flex;
+        flex-direction:column;
+        padding:1%;
+        border-radius: 3px;
+    }
+    .UserDescriptionDateDiv{
+        width:80%;
+        margin-left:2%;
+        margin-top: 2%;
+    }
+    .UserDescriptionHeadingSpan{
+        font-size:20px;
+        font-weight:500;
+            color:#333;
+            font-family: Georgia, serif;
+            word-wrap: break-word;
+    }
+    .UserDescriptionDiv{
+        width:80%;
+        margin-left:auto;
+        margin-right:auto;
+        justify-content:center;
+        align-items: center;
+        display: flex;
+        margin-top:2%;
+    }
+  }
+  
+  @media only screen and (min-width: 1100px) {
+.UserRequestDivMain{
+    width:80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding:2%;
+    margin-top:2%;
+    justify-content:center;
+    align-items:center;
+    display: flex;
+    flex-direction:column;
+}
+.UserRequestDivEach{
+    width:80%;
+    margin-top: 5%;
+    border-bottom: 1px solid #80cbc4;
+    display: flex;
+    flex-direction:row;
+    justify-content:space-between;
+}
+.UserRequestSpanEach{
+    width:20%;
+    word-wrap: break-word;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.UserRequestIconEach{
+    width:20%;
+    display: flex;
+    justify-content:flex-end;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.UserRequestSpan{
+    font-size:18px;
+    font-weight:500;
+        color:#333;
+        font-family: Georgia, serif;
+        word-wrap: break-word;
+}
+.UserDescriptionMainDiv{
+    width:80%;
+    margin-top: 2%;
+    border: 1px solid #80cbc4;
+    display: flex;
+    flex-direction:column;
+    padding:1%;
+    border-radius: 3px;
+}
+.UserDescriptionDateDiv{
+    width:80%;
+    margin-left:2%;
+    margin-top: 2%;
+}
+.UserDescriptionHeadingSpan{
+    font-size:25px;
+    font-weight:500;
+        color:#333;
+        font-family: Georgia, serif;
+        word-wrap: break-word;
+}
+.UserDescriptionDiv{
+    width:80%;
+    margin-left:auto;
+    margin-right:auto;
+    justify-content:center;
+    align-items: center;
+    display: flex;
+    margin-top:2%;
+}
+  }
+  
+  
+  
