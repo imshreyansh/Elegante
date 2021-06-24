@@ -24,7 +24,7 @@ import MyOrders from './components/user/MyOrders'
 import Currency from './components/admin/master/Currency'
 import AdminAllOrders from './components/admin/allOrders/AdminAllOrders'
 import {getItemFromStorage,removeItemFromStorage} from './components/utils/localStorage'
-
+import Loader from './components/common/loader/Loader'
 class App extends Component {
 
 loggedInUser = () => {
@@ -38,6 +38,7 @@ loggedInUser = () => {
   render(){
     return (
       <Router>
+        <Loader />
         <SnackBar />
         {!this.loggedInUser() ?
         <Fragment>
@@ -72,7 +73,6 @@ loggedInUser = () => {
           <Route path="/myOrders" component={AdminAllOrders} />
           <Route path="/addOffers" component={Offers} />
           <Route path="/addTax" component={Tax} />
-          {/* <Route path="/addCurrency" component={Currency} /> */}
           <Route path="/userRequest" component={UserRequest} />
           <Route  path="/stockDetails/:id" component={StockDetails} />
           <Route  path="/cart" component={Cart} />
@@ -94,20 +94,7 @@ loggedInUser = () => {
           <Route  path="/cart" component={Cart} />
         </Switch>
         </Fragment>:
-          <Fragment>
-          <TopMenu />
-                  <Switch>
-          <Route exact path="/" component={LandingPage} />
-          <Route  path="/login" component={Authorization} />
-          <Route  path="/shipping" component={Shipping} />
-          <Route  path="/terms" component={Terms} />
-          <Route  path="/contact" component={Contact} />
-          <Route  path="/policy" component={Policy} />
-          <Route  path="/category" component={Category} />
-          <Route  path="/categoryDetails/:id" component={CategoryDetails} />
-          <Route  path="/stockDetails/:id" component={StockDetails} />
-        </Switch>
-        </Fragment>
+         null
       }     
       </Router>
     );

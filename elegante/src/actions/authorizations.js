@@ -2,6 +2,7 @@ import {LOGIN_USER,SIGN_UP,LOGOUT} from './actionTypes'
 import {handleError} from './handleError'
 import {storeItem,removeItemFromStorage} from '../components/utils/localStorage'
 import {IP} from '../config/config'
+import {onLoader} from './loader'
 import axios from 'axios'
 
 export const loginUser=(data)=>dispatch=>{
@@ -20,10 +21,14 @@ export const loginUser=(data)=>dispatch=>{
 
 export const logout=()=>dispatch=>{
     removeItemFromStorage('authedId')
+    dispatch(onLoader(true))
     dispatch({
         type: LOGOUT,
         payload: {}
     })
+    setTimeout(() => {
+        dispatch(onLoader(false))
+    },2000)
 }
 
 export const signUpUser=(data)=>dispatch=>{

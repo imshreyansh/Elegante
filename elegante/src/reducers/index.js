@@ -4,11 +4,13 @@ import handleError from './handleError'
 import category from './category'
 import stocks from './stocks'
 import currency from './currency'
+import loader from './loader'
 
 export default combineReducers({
 authorization,
 handleError,
 category,
 stocks,
-currency
+currency,
+loader
 })
