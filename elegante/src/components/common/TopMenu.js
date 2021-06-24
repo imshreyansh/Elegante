@@ -4,8 +4,6 @@ import {logout} from '../../actions/authorizations'
 import './LandingPage.css'
 import sample from '../../assets/images/sample.jpeg'
 import sampleOne from '../../assets/images/sampleOne.jpeg'
-import sideOne from '../../assets/images/sideOne.png'
-import sideTwo from '../../assets/images/sideTwo.png'
 import phaseTwo from '../../assets/images/phaseTwo.jpeg'
 import MenuIcon from '@material-ui/icons/Menu';
 import Menu from '@material-ui/core/Menu';
@@ -13,19 +11,23 @@ import MenuItem from '@material-ui/core/MenuItem';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import jwt from 'jsonwebtoken'
 import {getItemFromStorage} from '../utils/localStorage'
-import logo from '../../assets/images/logo.png'
 import logoTwo from '../../assets/images/logoTwo.png'
-import logoWhite from '../../assets/images/logoWhite.png'
 import {Link,withRouter} from 'react-router-dom'
 import Drawer from '@material-ui/core/Drawer';
 import HomeIcon from '@material-ui/icons/Home';
-import PersonPinIcon from '@material-ui/icons/PersonPin';
 import VpnKeyIcon from '@material-ui/icons/VpnKey';
 import CategoryIcon from '@material-ui/icons/Category';
 import Modal from '@material-ui/core/Modal';
 import CancelIcon from '@material-ui/icons/Cancel';
 import ReceiptIcon from '@material-ui/icons/Receipt';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import ExtensionIcon from '@material-ui/icons/Extension';
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import LocalOfferIcon from '@material-ui/icons/LocalOffer';
+import LocalAtmIcon from '@material-ui/icons/LocalAtm';
+import RecordVoiceOverIcon from '@material-ui/icons/RecordVoiceOver';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+
 class TopMenu extends Component {
     constructor(props){
         super(props)
@@ -51,6 +53,10 @@ class TopMenu extends Component {
     }
 
     onLogout = ()=>{
+        this.setState({
+            menuOpen:false,
+            openDrawer:false
+        })
         this.props.dispatch(logout())
         setTimeout(() => {
             this.props.history.push('/')
@@ -62,6 +68,10 @@ class TopMenu extends Component {
     
        handleClose = () => {
         this.setState({menuOpen:false});
+      };
+
+      handleDrawerClose = () => {
+        this.setState({openDrawer:false});
       };
 
       onScrollToTop = () =>{
@@ -171,36 +181,92 @@ if(this.props.location.pathname!=='/login'){
              <Drawer anchor={'right'} open={this.state.openDrawer} onClose={()=>this.setState({openDrawer:false})} className="drawer">
              <img src={logoTwo} className="logoDrawer"/>
            {this.props.jwtToken !==null ?
+           this.props.jwtToken.designation==='Admin' ? 
            <div className="drawerUl">
+            <div className="drawerEach">
+            <AccountCircleIcon className="drawerIcon"/>
+           <span className="drawerLiName" onClick={()=>this.handleDrawerClose()}>Hey, {this.props.jwtToken.name}</span>
+           </div>
            <Link to="/" style={{textDecoration:'none'}} className="drawerEach">
                <HomeIcon className="drawerIcon"/>
-           <span className="drawerLi" onClick={()=>this.handleClose()}>Home</span>
+           <span className="drawerLi" onClick={()=>this.handleDrawerClose()}>Home</span>
+           </Link>
+           <Link to="/addCategory" style={{textDecoration:'none'}} className="drawerEach">
+               <ExtensionIcon className="drawerIcon"/>
+               <span className="drawerLi" onClick={()=>this.handleDrawerClose()}>Add Category</span>
+           </Link>
+           <Link to="/addStocks" style={{textDecoration:'none'}} className="drawerEach">
+               <AddShoppingCartIcon className="drawerIcon"/>
+               <span className="drawerLi" onClick={()=>this.handleDrawerClose()}>Add Stocks</span>
+           </Link>
+           <Link to="/addOffers" style={{textDecoration:'none'}} className="drawerEach">
+               <LocalOfferIcon className="drawerIcon"/>
+               <span className="drawerLi" onClick={()=>this.handleDrawerClose()}>Add Offers</span>
+           </Link> 
+           <Link to="/addTax" style={{textDecoration:'none'}} className="drawerEach">
+               <LocalAtmIcon className="drawerIcon"/>
+               <span className="drawerLi" onClick={()=>this.handleDrawerClose()}>Add Tax</span>
+           </Link>
+           <Link to="/userRequest" style={{textDecoration:'none'}} className="drawerEach">
+               <RecordVoiceOverIcon className="drawerIcon"/>
+               <span className="drawerLi" onClick={()=>this.handleDrawerClose()}>User Requests</span>
            </Link>
            <Link to="/category" style={{textDecoration:'none'}} className="drawerEach">
                <CategoryIcon className="drawerIcon"/>
-               <span className="drawerLi" onClick={()=>this.handleClose()}>Categories</span>
+               <span className="drawerLi" onClick={()=>this.handleDrawerClose()}>Categories</span>
            </Link>
            <Link to="/cart" style={{textDecoration:'none'}} className="drawerEach">
                <ShoppingCartIcon className="drawerIcon"/>
-               <span className="drawerLi" onClick={()=>this.handleClose()}>Cart</span>
+               <span className="drawerLi" onClick={()=>this.handleDrawerClose()}>Cart</span>
            </Link>
            <Link to="/myOrders" style={{textDecoration:'none'}} className="drawerEach">
                <ReceiptIcon className="drawerIcon"/>
-               <span className="drawerLi" onClick={()=>this.handleClose()}>My Orders</span>
+               <span className="drawerLi" onClick={()=>this.handleDrawerClose()}>My Orders</span>
            </Link>
-           <Link to="/updatePassword" style={{textDecoration:'none'}} className="drawerEach">
+           <div className="drawerEach" onClick={()=>this.onLogout()}>
+               <ExitToAppIcon className="drawerIcon"/>
+               <span className="drawerLi" onClick={()=>this.handleDrawerClose()}>Logout</span>
+           </div>
+           {/* <Link to="/updatePassword" style={{textDecoration:'none'}} className="drawerEach">
                <AccountCircleIcon className="drawerIcon"/>
-               <span className="drawerLi" onClick={()=>this.handleClose()}>Update Password</span>
+               <span className="drawerLi" onClick={()=>this.handleDrawerClose()}>Update Password</span>
+           </Link> */}
+           </div>
+           :
+           <div className="drawerUl">
+           <Link to="/" style={{textDecoration:'none'}} className="drawerEach">
+               <HomeIcon className="drawerIcon"/>
+           <span className="drawerLi" onClick={()=>this.handleDrawerClose()}>Home</span>
            </Link>
+           <Link to="/category" style={{textDecoration:'none'}} className="drawerEach">
+               <CategoryIcon className="drawerIcon"/>
+               <span className="drawerLi" onClick={()=>this.handleDrawerClose()}>Categories</span>
+           </Link>
+           <Link to="/cart" style={{textDecoration:'none'}} className="drawerEach">
+               <ShoppingCartIcon className="drawerIcon"/>
+               <span className="drawerLi" onClick={()=>this.handleDrawerClose()}>Cart</span>
+           </Link>
+           <Link to="/myOrders" style={{textDecoration:'none'}} className="drawerEach">
+               <ReceiptIcon className="drawerIcon"/>
+               <span className="drawerLi" onClick={()=>this.handleDrawerClose()}>My Orders</span>
+           </Link>
+           <div className="drawerEach" onClick={()=>this.onLogout()}>
+               <ExitToAppIcon className="drawerIcon"/>
+               <span className="drawerLi" onClick={()=>this.handleDrawerClose()}>Logout</span>
+           </div>
+           {/* <Link to="/updatePassword" style={{textDecoration:'none'}} className="drawerEach">
+               <AccountCircleIcon className="drawerIcon"/>
+               <span className="drawerLi" onClick={()=>this.handleDrawerClose()}>Update Password</span>
+           </Link> */}
            </div>
             :  <div className="drawerUl">
             <Link to="/" style={{textDecoration:'none'}} className="drawerEach">
                 <HomeIcon className="drawerIcon"/>
-            <span className="drawerLi" onClick={()=>this.handleClose()}>Home</span>
+            <span className="drawerLi" onClick={()=>this.handleDrawerClose()}>Home</span>
             </Link>
             <Link to="/category" style={{textDecoration:'none'}} className="drawerEach">
                 <CategoryIcon className="drawerIcon"/>
-                <span className="drawerLi" onClick={()=>this.handleClose()}>Categories</span>
+                <span className="drawerLi" onClick={()=>this.handleDrawerClose()}>Categories</span>
             </Link>
             <Link to="/login" style={{textDecoration:'none'}} className="drawerEach">
                 <VpnKeyIcon className="drawerIcon"/>
@@ -227,19 +293,25 @@ horizontal: 'right',
 open={this.state.menuOpen}
 onClose={()=>this.handleClose()}
 >
-{this.props.jwtToken !==null && 
+{this.props.jwtToken !==null ? 
 this.props.jwtToken.designation==='Admin' ? 
 <div>
-<Link to="/category" style={{textDecoration:'none',color: '#F4AFB3'}}><MenuItem onClick={()=>this.handleClose()}>Update Password</MenuItem></Link>
-<Link to="/category" style={{textDecoration:'none',color: '#F4AFB3'}}><MenuItem onClick={()=>this.handleClose()}>Add Category</MenuItem></Link>
-<Link to="/stocks" style={{textDecoration:'none',color: '#F4AFB3'}}><MenuItem onClick={()=>this.handleClose()}>Add Stocks</MenuItem></Link>
-<MenuItem style={{textDecoration:'none',color: '#F4AFB3'}} onClick={()=>this.onLogout()}>LOGOUT</MenuItem>
+<MenuItem style={{color:'#00695c'}} onClick={()=>this.handleClose()}>Hey, {this.props.jwtToken.name}</MenuItem>
+{/* <Link to="/category" style={{textDecoration:'none',color: '#00695c'}}><MenuItem onClick={()=>this.handleClose()}>My Profile</MenuItem></Link> */}
+<Link to="/addCategory" style={{textDecoration:'none',color: '#00695c'}}><MenuItem onClick={()=>this.handleClose()}>Add Category</MenuItem></Link>
+<Link to="/addStocks" style={{textDecoration:'none',color: '#00695c'}}><MenuItem onClick={()=>this.handleClose()}>Add Stocks</MenuItem></Link>
+<Link to="/addOffers" style={{textDecoration:'none',color: '#00695c'}}><MenuItem onClick={()=>this.handleClose()}>Add Offers</MenuItem></Link>
+<Link to="/addTax" style={{textDecoration:'none',color: '#00695c'}}><MenuItem onClick={()=>this.handleClose()}>Add Tax</MenuItem></Link>
+{/* <Link to="/addCurrency" style={{textDecoration:'none',color: '#00695c'}}><MenuItem onClick={()=>this.handleClose()}>Add Currency</MenuItem></Link> */}
+<Link to="/userRequest" style={{textDecoration:'none',color: '#00695c'}}><MenuItem onClick={()=>this.handleClose()}>User Requests</MenuItem></Link>
+<MenuItem style={{textDecoration:'none',color: '#00695c'}} onClick={()=>this.onLogout()}>LOGOUT</MenuItem>
 </div>
 :
+this.props.jwtToken.designation==='User' ? 
 <div>
 <MenuItem onClick={()=>this.handleClose()}>Update Password</MenuItem>
 <MenuItem onClick={()=>this.onLogout()}>LOGOUT</MenuItem>
-</div>
+</div> :null:null
 }
 </Menu>
 {this.renderCartAndOrder()}

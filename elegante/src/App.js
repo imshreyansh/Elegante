@@ -21,6 +21,7 @@ import CategoryDetails from './components/common/category/CategoryDetails'
 import StockDetails from './components/common/stock/StockDetails'
 import Cart from './components/common/cart/Cart'
 import MyOrders from './components/user/MyOrders'
+import Currency from './components/admin/master/Currency'
 import AdminAllOrders from './components/admin/allOrders/AdminAllOrders'
 import {getItemFromStorage,removeItemFromStorage} from './components/utils/localStorage'
 
@@ -56,6 +57,7 @@ loggedInUser = () => {
         </Fragment> :
         this.loggedInUser() && this.loggedInUser() === 'Admin' ?
         <Fragment>
+        <TopMenu />
         <Switch>
         <Route exact path="/" component={LandingPage} />
           <Route  path="/login" component={Authorization} />
@@ -65,9 +67,17 @@ loggedInUser = () => {
           <Route  path="/policy" component={Policy} />
           <Route  path="/category" component={Category} />
           <Route  path="/categoryDetails/:id" component={CategoryDetails} />
+          <Route  path="/addCategory" component={Categories} />
+          <Route  path="/addStocks" component={Stocks} />
+          <Route path="/myOrders" component={AdminAllOrders} />
+          <Route path="/addOffers" component={Offers} />
+          <Route path="/addTax" component={Tax} />
+          {/* <Route path="/addCurrency" component={Currency} /> */}
+          <Route path="/userRequest" component={UserRequest} />
           <Route  path="/stockDetails/:id" component={StockDetails} />
           <Route  path="/cart" component={Cart} />
         </Switch>
+        <BottomInfo/>
         </Fragment> :
         this.loggedInUser() && this.loggedInUser()==='User'?
         <Fragment>

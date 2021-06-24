@@ -212,7 +212,18 @@
   flex-direction: column;
 }
 .drawerLi{
-  font-size:20px;
+  font-size:18px;
+  font-weight: 500;
+  color: #fff;
+  font-family: Georgia, serif;
+  cursor: pointer;
+  margin-top: 5%;
+  margin-top: auto;
+  margin-bottom:auto;
+  margin-left:3%;
+}
+.drawerLiName{
+  font-size:12px;
   font-weight: 500;
   color: #fff;
   font-family: Georgia, serif;
