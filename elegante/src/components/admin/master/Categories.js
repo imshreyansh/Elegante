@@ -11,6 +11,8 @@ import {addCategory,editCategory,deleteCategory,getCategory} from '../../../acti
 import {Link} from 'react-router-dom'
 import categorySample from '../../../assets/images/categorySample.jpeg'
 import CategoryIcon from '@material-ui/icons/Category';
+import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
+import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import DoneIcon from '@material-ui/icons/Done';
 class Categories extends Component {
     constructor(props){
@@ -33,8 +35,11 @@ class Categories extends Component {
             const obj = {
                 category: this.state.category
             }
+            const editObj = {
+                name: this.state.category
+            }
             const formData = new FormData()
-            formData.append('data',JSON.stringify(obj))
+            formData.append('data',JSON.stringify( this.state.action === 'add' ?obj:editObj))
             formData.append('thumbnail',this.state.file)
            this.state.action === 'add' ? this.props.dispatch(addCategory(formData)) : 
            this.props.dispatch(editCategory(this.state.idUpdate,formData)) 
@@ -54,10 +59,17 @@ class Categories extends Component {
 
     updateData = (id,data)=>{
         this.setState({
-            category:data,
+            category:data.name,
             idUpdate:id,
             action:'update'
         })
+    }
+
+    status = (id,data)=>{
+       const obj ={
+           status:data.status==='Active' ? 'Inactive' : 'Active'
+       }
+      this.props.dispatch(editCategory(id,obj))
     }
 
     deleteData=(id)=>{
@@ -119,25 +131,29 @@ class Categories extends Component {
                                 </div>
                             </div>
                         </div>
-
-                        <div className="tableMainFirstTH">
+                        {this.props.categories.map((data,i)=>{
+                        return(
+                        <div key={i} className="tableMainFirstTH">
                             <div className="THOneDiv">
                                 <div className="thumbTHDiv">
-                                <img src={phaseTwo} className="catTHImage"/>                                
+                                <img src={data.thumbnail.path} className="catTHImage"/>                                
                                 </div>
                                 <div className="catTHDiv">
-                                <span className="catTHSpan">Necklace's</span>
+                                <span className="catTHSpan">{data.name}</span>
                                 </div>
                             </div>
                             <div className="THTwoDiv">
                             <div className="statTHDiv">
-                                    <span className="thumbTHSpan">Active</span>
+                                {data.status!=='Active' ?
+                                <CheckBoxOutlineBlankIcon style={{color:'grey'}} className="thumbTHSpan" onClick={()=>this.status(data._id,data)}/>
+                                 : <CheckBoxIcon style={{color:'#00695c'}} className="thumbTHSpan" onClick={()=>this.status(data._id,data)}/>}
                                 </div>
                                 <div className="statTHDiv">
-                                <EditIcon style={{fontSize:'20px'}} className="catTHSpan"/>
+                                <EditIcon onClick={()=>this.updateData(data._id,data)} style={{fontSize:'20px'}} className="catTHSpan"/>
                                 </div>
                             </div>
                         </div>
+                        )})}
                     </div>
             </div>
           

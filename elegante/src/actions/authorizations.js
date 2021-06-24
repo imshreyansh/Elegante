@@ -6,16 +6,23 @@ import {onLoader} from './loader'
 import axios from 'axios'
 
 export const loginUser=(data)=>dispatch=>{
+    dispatch(onLoader(true))
     axios.post(`${IP}/api/userAuth/loginUser`,data)
     .then(res=>{
         if(res){
             storeItem('authedId',res.data.response)
             dispatch({type: LOGIN_USER,payload:res.data.response})
+            setTimeout(() => {
+                dispatch(onLoader(false))
+            },2000)
         }
     })
     .catch(err=>
         dispatch(handleError({type:'error',error:err.message})),
-        dispatch({type: LOGIN_USER,payload:null})
+        dispatch({type: LOGIN_USER,payload:null}),
+        setTimeout(() => {
+            dispatch(onLoader(false))
+        },2000)
     )
 }
 
@@ -32,14 +39,21 @@ export const logout=()=>dispatch=>{
 }
 
 export const signUpUser=(data)=>dispatch=>{
+    dispatch(onLoader(true))
     axios.post(`${IP}/api/userAuth/createUser`,data)
     .then(res=>{
         if(res){
             dispatch(handleError({type:'success',error:'Successfully Registered'}))
+            setTimeout(() => {
+                dispatch(onLoader(false))
+            },2000)
         }
     })
     .catch(err=>
         dispatch(handleError({type:'error',error:err.message})),
-        dispatch({type: SIGN_UP,payload:null})
+        dispatch({type: SIGN_UP,payload:null}),
+        setTimeout(() => {
+            dispatch(onLoader(false))
+        },2000)
     )
 }

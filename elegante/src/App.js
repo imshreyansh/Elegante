@@ -40,7 +40,7 @@ loggedInUser = () => {
       <Router>
         <Loader />
         <SnackBar />
-        {!this.loggedInUser() ?
+        {!this.props.loader ?!this.loggedInUser() ?
         <Fragment>
           <TopMenu />
                   <Switch>
@@ -94,15 +94,16 @@ loggedInUser = () => {
           <Route  path="/cart" component={Cart} />
         </Switch>
         </Fragment>:
-         null
+         null:null
       }     
       </Router>
     );
   }
 }
 
-function mapStateToProps(){
+function mapStateToProps(load){
   return{
+    loader:load.loader,
     token:getItemFromStorage('authedId')
   }
 }

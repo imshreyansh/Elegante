@@ -60,8 +60,8 @@ class Stocks extends Component {
   }
 
   addStocks = () =>{
-      const {itemName,itemNameE,cost,costE,selling,sellingE,discount,discountE,qty,qtyE,id} = this.state
-      if(itemName!==''&&itemNameE===''&&cost!==''&&costE===''&&selling!==''&&sellingE===''&&discount!==''&&discountE===''&&qty!==''&&qtyE===''){
+      const {itemName,itemNameE,cost,costE,selling,sellingE,discount,discountE,qty,qtyE,id,thumbnail} = this.state
+      if(itemName!==''&&itemNameE===''&&cost!==''&&costE===''&&selling!==''&&sellingE===''&&discount!==''&&discountE===''&&qty!==''&&qtyE===''&&thumbnail.length>0){
           const obj={
               name:itemName,
               costPrice:cost,

@@ -175,7 +175,7 @@ class TopMenu extends Component {
       }
 
     render(){
-if(this.props.location.pathname!=='/login' && !this.props.loader){
+if(this.props.location.pathname!=='/login'){
     return(
         <div className="landingPageOne">
              <Drawer anchor={'right'} open={this.state.openDrawer} onClose={()=>this.setState({openDrawer:false})} className="drawer">
@@ -332,9 +332,7 @@ this.props.jwtToken.designation==='User' ?
 }
 
 function mapStateToProps(authedId){
-    console.log(authedId.loader)
     return{
-        loader:authedId.loader,
         authedId:authedId,
         jwtToken:jwt.decode(getItemFromStorage('authedId'))
     }
