@@ -228,7 +228,7 @@ The growth is very tremendous ! For me personally the packaging and the presenta
 
 function mapStateToProps(data){
     return{
-        allActiveCategories:data.category.state ? data.category.state.filter(d=>d.status==='Active'):data.category.filter(d=>d.status==='Active'),
+        allActiveCategories:data.category.allCategories.filter(d=>d.status==='Active'),
         authedId:data,
         jwtToken:jwt.decode(getItemFromStorage('authedId'))
     }

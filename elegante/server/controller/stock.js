@@ -5,8 +5,8 @@ exports.addStock =  (req, res)=>{
     uploadAvatar(req,res,async(error)=>{
         if(error) return errorResponseHandler(res, error, 'Error While Creating')
         try{
-            const { name,costPrice,sellingPrice,discount,qty,category} = JSON.parse(req.body.data)
-            const add = new Stock({name,costPrice,sellingPrice,discount,qty,category})
+            const { name,costPrice,sellingPrice,description,qty,category} = JSON.parse(req.body.data)
+            const add = new Stock({name,costPrice,sellingPrice,description,qty,category})
              add['thumbnail']=req.files
             await add.save()
             successResponseHandler(res,add,'Successfully Added Stock')
@@ -30,6 +30,16 @@ exports.getAllStocks = async (req,res)=>{
 exports.getStockByCategory = async (req,res)=>{
     try{
         const all = await Stock.find({category:req.params.id}).populate('category')
+        successResponseHandler(res,all,'Successfully Got all Stock')
+    }
+    catch(error){
+        errorResponseHandler(res, error,'Error While getting stocks')
+    }
+}
+
+exports.getStockById = async (req,res)=>{
+    try{
+        const all = await Stock.find({_id:req.params.id}).populate('category')
         successResponseHandler(res,all,'Successfully Got all Stock')
     }
     catch(error){

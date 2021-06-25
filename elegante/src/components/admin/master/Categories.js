@@ -163,7 +163,7 @@ class Categories extends Component {
 
 function mapStateToProps(data){
     return {
-        categories:data.category.state ? data.category.state.filter(d=>d.status==='Active'):data.category.filter(d=>d.status==='Active'),
+        categories:data.category.allCategories,
     }
 }
 

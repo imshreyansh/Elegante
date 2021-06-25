@@ -7,6 +7,8 @@ import phaseTwo from '../../../assets/images/phaseTwo.png'
 import sample from '../../../assets/images/sample.jpeg'
 import RemoveIcon from '@material-ui/icons/Remove';
 import AddIcon from '@material-ui/icons/Add';
+import {getStockById} from '../../../actions/stocks'
+
 class StockDetails extends Component {
     constructor(props){
         super(props)
@@ -14,7 +16,7 @@ class StockDetails extends Component {
            
         }
         this.state = this.default
-
+        this.props.dispatch(getStockById(this.props.match.params.id))
     }
 
     componentDidMount() {
@@ -88,9 +90,10 @@ For vertical scrollable bar use the x and y axis. Set the overflow-x:hidden; and
     }
 }
 
-function mapStateToProps(authedId){
+function mapStateToProps(data){
     return{
-        authedId:authedId,
+        stocks:data.stocks.stockById && data.stocks.stockById,
+        authedId:data,
     }
 }
 

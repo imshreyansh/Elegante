@@ -1,4 +1,4 @@
-import {ADD_STOCK,GET_STOCK,EDIT_STOCK,DELETE_STOCK,GET_STOCK_BY_CATEGORY} from './actionTypes'
+import {ADD_STOCK,GET_STOCK,EDIT_STOCK,DELETE_STOCK,GET_STOCK_BY_CATEGORY,GET_STOCK_BY_ID} from './actionTypes'
 import {handleError} from './handleError'
 import {IP} from '../config/config'
 import axios from 'axios'
@@ -41,6 +41,17 @@ export const getStockByCategory = (id)=>dispatch=>{
     .catch(err=>
         dispatch(handleError({type:'error',error:err.message})),
         dispatch({type: GET_STOCK_BY_CATEGORY,payload:null})
+    )
+}
+
+export const getStockById = (id)=>dispatch=>{
+    axios.get(`${IP}/api/stock/getStockById/${id}`)
+    .then(res=>{
+        dispatch({type: GET_STOCK_BY_ID,payload:res.data.response})
+    })
+    .catch(err=>
+        dispatch(handleError({type:'error',error:err.message})),
+        dispatch({type: GET_STOCK_BY_ID,payload:null})
     )
 }
 

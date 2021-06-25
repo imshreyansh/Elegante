@@ -1,4 +1,4 @@
-const { addStock,editStock,deleteStock,getAllStocks,getStockByCategory } = require('../controller/stock')
+const { addStock,editStock,deleteStock,getAllStocks,getStockByCategory,getStockById } = require('../controller/stock')
 
 exports.routes = (express, app) => {
 
@@ -13,6 +13,8 @@ exports.routes = (express, app) => {
     router.get('/getAllStocks', getAllStocks)
 
     router.get('/getStockByCategory/:id', getStockByCategory)
+
+    router.get('/getStockById/:id', getStockById)
 
 
     app.use('/api/stock/', router);

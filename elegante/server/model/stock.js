@@ -18,8 +18,8 @@ const stock=new Schema({
         type: Number
     },
 
-    discount:{
-        type: Number
+    description:{
+        type: String
     },
 
     category:{

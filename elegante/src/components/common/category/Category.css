@@ -84,7 +84,7 @@
         height:50vh;
         border-radius: 8px;
         cursor: pointer;
-        object-fit: stretch;
+        object-fit: fill;
       }
       .categoryDetailsMainName{
         font-size:20px;
@@ -219,7 +219,7 @@
         height:50vh;
         border-radius: 8px;
         cursor: pointer;
-        object-fit: stretch;
+        object-fit: fill;
       }
       .categoryDetailsMainName{
         font-size:20px;
@@ -356,7 +356,7 @@
     height:50vh;
     border-radius: 8px;
     cursor: pointer;
-    object-fit: stretch;
+    object-fit: fill;
   }
   .categoryDetailsMainName{
     font-size:20px;

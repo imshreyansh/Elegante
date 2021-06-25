@@ -21,7 +21,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+import DescriptionIcon from '@material-ui/icons/Description';
 import './Dashboard.css'
 
 class Stocks extends Component {
@@ -36,8 +36,8 @@ class Stocks extends Component {
             costE:'',
             selling:'',
             sellingE:'',
-            discount:'',
-            discountE:'',
+            description:'',
+            descriptionE:'',
             qty:'',
             qtyE:'',
             category:'',
@@ -60,13 +60,13 @@ class Stocks extends Component {
   }
 
   addStocks = () =>{
-      const {itemName,itemNameE,cost,costE,selling,sellingE,discount,discountE,qty,qtyE,id,thumbnail} = this.state
-      if(itemName!==''&&itemNameE===''&&cost!==''&&costE===''&&selling!==''&&sellingE===''&&discount!==''&&discountE===''&&qty!==''&&qtyE===''&&thumbnail.length>0){
+      const {itemName,itemNameE,cost,costE,selling,sellingE,description,descriptionE,qty,qtyE,id,thumbnail} = this.state
+      if(itemName!==''&&itemNameE===''&&cost!==''&&costE===''&&selling!==''&&sellingE===''&&description!==''&&descriptionE===''&&qty!==''&&qtyE===''&&thumbnail.length>0){
           const obj={
               name:itemName,
               costPrice:cost,
               sellingPrice:selling,
-              discount,
+              description,
               qty,
               category:this.state.category ==='' ? this.props.categories[0]._id : this.state.category
           }
@@ -84,8 +84,8 @@ class Stocks extends Component {
             costE:'',
             selling:'',
             sellingE:'',
-            discount:'',
-            discountE:'',
+            description:'',
+            descriptionE:'',
             qty:'',
             qtyE:'',
             category:'',
@@ -106,7 +106,7 @@ class Stocks extends Component {
         thumbnail:d.thumbnail,
         cost:d.costPrice,
         selling:d.sellingPrice,
-        discount:d.discount,
+        description:d.description,
         qty:d.qty,
         category:d.category._id,
         state:'edit',
@@ -143,19 +143,19 @@ class Stocks extends Component {
                         <input type="number" className="stocksInputOne" placeholder="Quantity" value={this.state.qty}  style={{borderBottomColor:this.state.qtyE ==='' ? '#00695c' :'red'}} onChange={(e)=>this.setState(validation(e,'qty','text',['name is reuired','ds']))}/>
                 </div>
                 <div className="stocksTwo">
-                <MoneyOffIcon className="stocksInputOneIcon"/>
-                        <input type="number" className="stocksInputOne" placeholder="Discount Percentage" value={this.state.discount}  style={{borderBottomColor:this.state.discountE ==='' ? '#00695c' :'red'}} onChange={(e)=>this.setState(validation(e,'discount','text',['name is reuired','ds']))}/>
+                <DescriptionIcon className="stocksInputOneIcon"/>
+                        <input type="text" className="stocksInputOne" placeholder="Description" value={this.state.description}  style={{borderBottomColor:this.state.descriptionE ==='' ? '#00695c' :'red'}} onChange={(e)=>this.setState(validation(e,'description','text',['name is reuired','ds']))}/>
                 </div>
                 <div className="stocksTwo">
                 <CategoryIcon className="stocksInputOneIcon"/>
                     <select className="stocksInputOneDrop" onChange={(e)=>this.setState({
                         category:e.target.value
                     })}>
-                        {this.props.categories.map((data,id)=>{
+                        {this.props.categories!==undefined ? this.props.categories.map((data,id)=>{
                             return(
                              <option key={id} value={data._id}>{data.name}</option>
                             )
-                        })}
+                        }):null}
                     </select> 
                 </div>
                 
@@ -182,13 +182,12 @@ class Stocks extends Component {
             <TableCell align="right">Cost</TableCell>
             <TableCell align="right">Selling</TableCell>
             <TableCell align="right">QTY</TableCell>
-            <TableCell align="right">Discount</TableCell>
             <TableCell align="right">Edit</TableCell>
             <TableCell align="right">Delete</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-        {this.props.stocks.map((d,i)=>{
+        {this.props.stocks!==undefined ? this.props.stocks.map((d,i)=>{
             return(
                 <TableRow key={i}>
                 <TableCell component="th" scope="row" >
@@ -199,12 +198,11 @@ class Stocks extends Component {
                 <TableCell align="right">{d.costPrice}</TableCell>
                 <TableCell align="right">{d.sellingPrice}</TableCell>
                  <TableCell align="right">{d.qty}</TableCell>
-                 <TableCell align="right">{d.discount}</TableCell>
                 <TableCell align="right" ><EditIcon onClick={()=>this.onEdit(d)}/></TableCell>
               <TableCell align="right"><DeleteIcon onClick={()=>this.onDelete(d._id)}/></TableCell>
               </TableRow>
             )
-        })}
+        }):null}
         </TableBody>
       </Table>
     </TableContainer>
@@ -214,10 +212,11 @@ class Stocks extends Component {
 }
 
 function mapStateToProps(data){
+    console.log(data.stocks.state)
     return {
         data,
-        categories:data.category.state ? data.category.state:data.category,
-        stocks: data.stocks.state ? data.stocks.state:data.stocks
+        categories:data.category.allCategories,
+        stocks: data.stocks.allStocks
     }
 }
 

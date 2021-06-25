@@ -27,7 +27,7 @@ class CategoryDetails extends Component {
         return(
             <div className="categoryMainDiv">
                 <div className="headingCategory">
-                    <span className="categorySpanHeadingCommon">{this.props.category.categoryName && this.props.category.categoryName.name}</span>
+                    <span className="categorySpanHeadingCommon">{this.props.category.name}</span>
                 </div>
                 <div className="categoryCommonOne">
             {this.props.stocks!==undefined ?this.props.stocks.map((d,i)=>{
@@ -58,8 +58,8 @@ class CategoryDetails extends Component {
 
 function mapStateToProps(data){
     return{
-        stocks:data.stocks.stockByCategory && data.stocks.stockByCategory,
-        category:data.category,
+        stocks:data.stocks.stockByCategory,
+        category:data.category.categoryName,
         authedId:data,
     }
 }

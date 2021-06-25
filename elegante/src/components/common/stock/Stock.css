@@ -31,6 +31,7 @@
   .StockDetailsImageThumbMain{
     width:100%;
     height:40vh;
+    object-fit: fill;
   }
   .StockDetailsSmallThumb{
     width:40%;
@@ -176,6 +177,8 @@
     .StockDetailsImageThumbMain{
       width:100%;
       height:40vh;
+      object-fit: fill;
+
     }
     .StockDetailsSmallThumb{
       width:40%;
@@ -318,6 +321,8 @@
   .StockDetailsImageThumbMain{
     width:100%;
     height:40vh;
+    object-fit: fill;
+
   }
   .StockDetailsSmallThumb{
     width:40%;
