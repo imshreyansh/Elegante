@@ -1,6 +1,7 @@
-import {ADD_STOCK,GET_STOCK,EDIT_STOCK,DELETE_STOCK} from '../actions/actionTypes'
+import {ADD_STOCK,GET_STOCK,EDIT_STOCK,DELETE_STOCK,GET_STOCK_BY_CATEGORY} from '../actions/actionTypes'
 
-export default function stocks(state=null,action){
+const initialState=[]
+export default function stocks(state=initialState,action){
     const {type,payload} = action
     switch (type){
         case ADD_STOCK:
@@ -11,6 +12,11 @@ export default function stocks(state=null,action){
         case GET_STOCK:
             if(payload !==null){
                 return payload
+            }
+
+        case GET_STOCK_BY_CATEGORY:
+            if(payload !==null){
+                return {stockByCategory:payload,state}
             }
 
         case EDIT_STOCK:

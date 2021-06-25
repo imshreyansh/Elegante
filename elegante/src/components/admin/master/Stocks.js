@@ -177,6 +177,7 @@ class Stocks extends Component {
         <TableHead>
           <TableRow>
             <TableCell>Thumbnail</TableCell>
+            <TableCell align="right">Category</TableCell>
             <TableCell align="right">Item Name</TableCell>
             <TableCell align="right">Cost</TableCell>
             <TableCell align="right">Selling</TableCell>
@@ -193,6 +194,7 @@ class Stocks extends Component {
                 <TableCell component="th" scope="row" >
                 {d.thumbnail.length>0? <img src={d.thumbnail[0].path} className="tableStockImage"/> : <img src={phaseTwo} className="tableStockImage"/>}
                 </TableCell>
+                <TableCell align="right">{d.category.name}</TableCell>
                 <TableCell align="right">{d.name}</TableCell>
                 <TableCell align="right">{d.costPrice}</TableCell>
                 <TableCell align="right">{d.sellingPrice}</TableCell>
@@ -214,8 +216,8 @@ class Stocks extends Component {
 function mapStateToProps(data){
     return {
         data,
-        categories: data.category ? data.category :[],
-        stocks: data.stocks  ? data.stocks :[]
+        categories:data.category.state ? data.category.state:data.category,
+        stocks: data.stocks.state ? data.stocks.state:data.stocks
     }
 }
 

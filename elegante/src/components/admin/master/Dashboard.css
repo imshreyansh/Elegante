@@ -248,6 +248,7 @@
     }
     .tableStockImage{
         width:40%;
+        object-fit: contain;
     }
 }
 
@@ -457,6 +458,7 @@
     }
     .tableStockImage{
         width:20%;
+        object-fit: contain;
     }
 }
 
@@ -677,5 +679,6 @@
     }
     .tableStockImage{
         width:5%;
+        object-fit: contain;
     }
     }

@@ -27,6 +27,16 @@ exports.getAllStocks = async (req,res)=>{
     }
 }
 
+exports.getStockByCategory = async (req,res)=>{
+    try{
+        const all = await Stock.find({category:req.params.id}).populate('category')
+        successResponseHandler(res,all,'Successfully Got all Stock')
+    }
+    catch(error){
+        errorResponseHandler(res, error,'Error While getting stocks')
+    }
+}
+
 exports.deleteStock = async(req,res)=>{
     try{
         const deleteItem = await Stock.findOneAndDelete({_id:req.params.id})

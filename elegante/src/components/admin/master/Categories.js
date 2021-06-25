@@ -161,9 +161,9 @@ class Categories extends Component {
     }
 }
 
-function mapStateToProps(ref){
+function mapStateToProps(data){
     return {
-        categories:ref.category !==null ? ref.category : []
+        categories:data.category.state ? data.category.state.filter(d=>d.status==='Active'):data.category.filter(d=>d.status==='Active'),
     }
 }
 
