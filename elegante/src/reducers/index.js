@@ -6,6 +6,7 @@ import stocks from './stocks'
 import currency from './currency'
 import offer from './offer'
 import tax from './tax'
+import memberCart from './memberCart'
 import loader from './loader'
 
 export default combineReducers({
@@ -16,5 +17,6 @@ stocks,
 currency,
 loader,
 offer,
-tax
+tax,
+memberCart
 })

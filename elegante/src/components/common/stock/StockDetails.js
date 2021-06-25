@@ -1,28 +1,69 @@
 import React,{Component,Fragment} from 'react'
 import {connect} from 'react-redux'
 import './Stock.css'
-import jwt from 'jsonwebtoken'
 import {Link,withRouter} from 'react-router-dom'
 import phaseTwo from '../../../assets/images/phaseTwo.png'
 import sample from '../../../assets/images/sample.jpeg'
 import RemoveIcon from '@material-ui/icons/Remove';
 import AddIcon from '@material-ui/icons/Add';
 import {getStockById} from '../../../actions/stocks'
-
+import {addToCart,getMemberCart} from '../../../actions/memberCart'
+import jwt from 'jsonwebtoken'
+import {getItemFromStorage} from '../../utils/localStorage'
 class StockDetails extends Component {
     constructor(props){
         super(props)
         this.default={
-           
+           qty:1,
+           thumbnail:[],
+           mainThumb:'',
+           isThere:true
         }
         this.state = this.default
         this.props.dispatch(getStockById(this.props.match.params.id))
+        this.props.dispatch(getMemberCart(this.props.jwtToken.id))
     }
 
-    componentDidMount() {
-       
+    componentWillReceiveProps(nextProps){
+        this.setState({
+            thumbnail: nextProps.stocks.thumbnail && nextProps.stocks.thumbnail.length>0 ? nextProps.stocks.thumbnail : [],
+            mainThumb:nextProps.stocks.thumbnail && nextProps.stocks.thumbnail.length>0 ? nextProps.stocks.thumbnail[0]:[],
+            isThere:nextProps.cart.filter(d=>d.stock._id===nextProps.match.params.id).length>0?true:false
+        })
+ 
     }
 
+
+    onChangeImage = (i)=>{
+        this.setState({
+            mainThumb:this.state.thumbnail[i]
+        })
+    }
+
+    onAddToCart =()=> {
+        const obj={
+            qty:this.state.qty,
+            stock:this.props.match.params.id,
+            user:this.props.jwtToken.id
+        }
+        this.props.dispatch(addToCart(obj))
+    }
+
+    onPressIncrement = (quantity)=>{
+        if(this.state.qty<quantity){
+            this.setState({
+                qty:this.state.qty+1
+            })
+        }
+    }
+
+    onPressDecrement = ()=>{
+        if(this.state.qty>1){
+            this.setState({
+                qty:this.state.qty-1
+            })
+        }
+    }
 
     render(){
         return(
@@ -30,58 +71,51 @@ class StockDetails extends Component {
               <div className="StockDetailsOne">
                 <div className="StockDetailsTwo">
                     <div className="StockDetailsImageThumb">
-                        <img src={phaseTwo} className="StockDetailsImageThumbMain"/>
+                        <img src={this.state.mainThumb.path} className="StockDetailsImageThumbMain"/>
                     </div>
                     <div className="StockDetailsSmallThumb">
-                    <img src={phaseTwo} className="StockDetailsSmallThumbMain"/>
-                    <img src={phaseTwo} className="StockDetailsSmallThumbMain"/>
-                    <img src={phaseTwo} className="StockDetailsSmallThumbMain"/>
-                    <img src={phaseTwo} className="StockDetailsSmallThumbMain"/>
-                    <img src={phaseTwo} className="StockDetailsSmallThumbMain"/>
-                    <img src={phaseTwo} className="StockDetailsSmallThumbMain"/>
-                    <img src={phaseTwo} className="StockDetailsSmallThumbMain"/>
-                    <img src={phaseTwo} className="StockDetailsSmallThumbMain"/>
-                    <img src={phaseTwo} className="StockDetailsSmallThumbMain"/>
-                    <img src={phaseTwo} className="StockDetailsSmallThumbMain"/>
-                    <img src={phaseTwo} className="StockDetailsSmallThumbMain"/>
-                    <img src={phaseTwo} className="StockDetailsSmallThumbMain"/>
-                    <img src={phaseTwo} className="StockDetailsSmallThumbMain"/>
-                    <img src={phaseTwo} className="StockDetailsSmallThumbMain"/>
-                    <img src={phaseTwo} className="StockDetailsSmallThumbMain"/>
-
+                    {this.state.thumbnail.map((d,i)=>{
+                        return(
+                            <img onClick={()=>this.onChangeImage(i)} key={i} src={d.path} className="StockDetailsSmallThumbMain"/>
+                        )
+                    })}
                     </div>
                 </div>
                 <div className="StockDetailsThree">
                      <div className="StockDetailsStockName">
-                     <span className="StockDetailsStockNameSpan">Vintage Handwritten letter</span>
+                     <span className="StockDetailsStockNameSpan">{this.props.stocks.name}</span>
                      </div>
                      <div className="StockDetailsStockMoneyName">
-                     <span className="StockDetailsStockMoney">Rs 250.00</span>
+                     <span className="StockDetailsStockMoney">Rs {this.props.stocks.sellingPrice ?(this.props.stocks.sellingPrice).toFixed(2):0.00}</span>
                     </div>
                     <div className="StockDetailsFour">
-                        <div className="StockDetailsIncrementDiv">
+                        <div onClick={()=>this.onPressDecrement()} className="StockDetailsIncrementDiv">
                             <RemoveIcon style={{fontSize:"25px"}} className="StockDetailsIncrementSpan" />
                         </div>
                         <div className="StockDetailsValuetDiv">
-                            <span className="StockDetailsValueSpan">1</span>
+                        <span className="StockDetailsValueSpan">{this.state.qty}</span>
                         </div>
-                        <div className="StockDetailsIncrementDiv">
+                        <div onClick={()=>this.onPressIncrement(this.props.stocks.qty)} className="StockDetailsIncrementDiv">
                             <AddIcon style={{fontSize:"25px"}} className="StockDetailsIncrementSpan" />
                         </div>
                     </div>
-                    <div className="StockDetailsMainBack">
-                <span className="StockDetailsMainNameTwo">Add to Cart</span>
-                </div>
+                    {this.props.stocks.qty===0 ?
+                  <div style={{backgroundColor:'#ddd'}} className="StockDetailsMainBack">
+                  <span className="StockDetailsMainNameTwo">Out of Stock</span>
+                  </div>
+                   : this.state.isThere ?
+                   <div style={{backgroundColor:'#ddd'}} onClick={()=>this.onAddToCart()} className="StockDetailsMainBack">
+                    <span className="StockDetailsMainNameTwo">Added to Cart</span>
+                    </div> :<div onClick={()=>this.onAddToCart()} className="StockDetailsMainBack">
+                    <span className="StockDetailsMainNameTwo">Add to Cart</span>
+                    </div>}
                 </div>
               </div>
               <div className="StockDetailsDescription">
                     <span className="StockDetailsDescriptionHeading">Description</span>
               </div>
               <div className="StockDetailsDescription">
-                    <span className="StockDetailsDescriptionSpan">Making a div vertically scrollable is easy by using CSS overflow property. There are different values in overflow property. For example: overflow:auto; and the axis hiding procedure like overflow-x:hidden; and overflow-y:auto;. It will make vertical and horizontal scrollable bar and the auto will make only vertically scrollable bar.
-For vertical scrollable bar use the x and y axis. Set the overflow-x:hidden; and overflow-y:auto; that will automatically hide the horizontal scroll bar and present only vertical scrollbar. Here the scroll div will be vertically scrollable.
-
-</span>
+                    <span className="StockDetailsDescriptionSpan">{this.props.stocks.description}</span>
               </div>
               
             </div>
@@ -92,8 +126,10 @@ For vertical scrollable bar use the x and y axis. Set the overflow-x:hidden; and
 
 function mapStateToProps(data){
     return{
-        stocks:data.stocks.stockById && data.stocks.stockById,
+        stocks:data.stocks.stockById && data.stocks.stockById.length>0 ? data.stocks.stockById[0]:{},
         authedId:data,
+        jwtToken:jwt.decode(getItemFromStorage('authedId')),
+        cart:data.memberCart
     }
 }
 
