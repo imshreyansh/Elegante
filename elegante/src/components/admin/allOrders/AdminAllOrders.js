@@ -81,6 +81,14 @@ class AdminAllOrders extends Component {
                                 <span className="MyOrderDetailsSpanDivEachSpan">Pin</span>
                                 <span className="MyOrderDetailsSpanDivEachSpan">221001</span>
                             </div>
+                            <div className="MyOrderDetailsSpanDivEach">
+                                <span className="MyOrderDetailsSpanDivEachSpan">Service</span>
+                                <span className="MyOrderDetailsSpanDivEachSpan">ECom Express</span>
+                            </div>
+                            <div className="MyOrderDetailsSpanDivEach">
+                                <span className="MyOrderDetailsSpanDivEachSpan">Tracking Id</span>
+                                <span className="MyOrderDetailsSpanDivEachSpan">110297236767</span>
+                            </div>
                         </div>
                          <div className="MyOrderDetailsItemsDiv">
                             <div className="MyOrderDetailsItemsEach">

@@ -18,6 +18,8 @@ import SpaIcon from '@material-ui/icons/Spa';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import insta from '../../assets/images/insta.png'
 import email from '../../assets/images/email.png'
+import {getCategory} from '../../actions/category'
+import {landingPage} from '../utils/pagination'
 class LandingPage extends Component {
     constructor(props){
         super(props)
@@ -26,10 +28,17 @@ class LandingPage extends Component {
             slideImage:'',
             indexImage:0,
             mobile:true,
-            categories:[1,2,3,4,5,6,7]
+            categories:[1,2,3,4,5,6,7],
+            CatPn:1,
+            countData:3,
+            activePagesCat:1
         }
         this.state = this.default
+        this.props.dispatch(getCategory())
+    }
 
+    componentWillReceiveProps(props){
+        this.getScreenSize(props.allActiveCategories)
     }
 
     componentDidMount() {
@@ -42,13 +51,57 @@ class LandingPage extends Component {
                })
            })
         },5000)
+    }
+
+    getScreenSize = (allActiveCategories)=>{
         if(window.matchMedia("(max-width: 768px)").matches){
-        this.setState({
-            mobile:true
-        })
-        }else{
             this.setState({
-                mobile:false
+                mobile:true,
+                countData:3,
+                activePagesCat:Math.ceil((allActiveCategories.length)/3)
+            })
+            }else{
+                this.setState({
+                    mobile:false,
+                    countData:4,
+                    activePagesCat:Math.ceil((allActiveCategories.length)/4)
+                })
+            }
+    }
+
+    renderAllActiveCategory = ()=>{
+        return(
+            landingPage(this.state.CatPn,this.props.allActiveCategories,this.state.countData).map((d,i)=>{
+                return(
+            <Link key={i} to={{pathname:`/categoryDetails/${d._id}`}} style={{textDecoration:'none'}} className="categoryItems">
+             <div className="categoryItemsEach">
+             <img src={d.thumbnail.path} className="landingCategoryImage"/>
+             <div className="LandingCategoryBack">
+             <span className="landingCategoryName">{d.name}</span>
+             </div>
+             </div>
+         </Link>
+                )
+            })
+        )
+    }
+
+    onIncrementCategory = () =>{
+        if(this.state.CatPn<this.state.activePagesCat){
+        this.setState({
+            CatPn:this.state.CatPn+1
+        },()=>{
+            this.renderAllActiveCategory()
+        })
+        }
+    }
+
+    onDecrementCategory = () =>{
+        if(this.state.CatPn>1){
+            this.setState({
+                CatPn:this.state.CatPn-1
+            },()=>{
+                this.renderAllActiveCategory()
             })
         }
     }
@@ -84,20 +137,14 @@ class LandingPage extends Component {
             <span className="headingLanding">Categories</span>
        </div>
        <div className="categoryItemsDiv">
-            <div className="categoryItems">
-                <div className="categoryItemsEach">
-                <img src={sample} className="landingCategoryImage"/>
-                <div className="LandingCategoryBack">
-                <span className="landingCategoryName">Necklaces</span>
-                </div>
-                </div>
-            </div>
+       {this.renderAllActiveCategory()}
+
             </div>
             <div className="arrowForLandingCategory">
             <div className="arrowForLandingCategoryTwo">
-<SkipPreviousIcon style={{fontSize:'30px'}} className="arrowIconOne"/>
-<span className="arrowSpan">1</span>
-<SkipNextIcon style={{fontSize:'30px'}} className="arrowIconTwo"/>
+<SkipPreviousIcon onClick={()=>this.onDecrementCategory()} style={{fontSize:'30px'}} className="arrowIconOne"/>
+        <span className="arrowSpan">{this.state.CatPn}</span>
+<SkipNextIcon onClick={()=>this.onIncrementCategory()} style={{fontSize:'30px'}} className="arrowIconTwo"/>
             </div>
             </div>
        </div>
@@ -179,9 +226,10 @@ The growth is very tremendous ! For me personally the packaging and the presenta
     }
 }
 
-function mapStateToProps(authedId){
+function mapStateToProps(data){
     return{
-        authedId:authedId,
+        allActiveCategories:data.category.state ? data.category.state.filter(d=>d.status==='Active'):data.category.filter(d=>d.status==='Active'),
+        authedId:data,
         jwtToken:jwt.decode(getItemFromStorage('authedId'))
     }
 }

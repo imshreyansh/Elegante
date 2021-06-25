@@ -4,6 +4,7 @@ import './Category.css'
 import jwt from 'jsonwebtoken'
 import {Link,withRouter} from 'react-router-dom'
 import phaseTwo from '../../../assets/images/phaseTwo.png'
+import {getCategory} from '../../../actions/category'
 
 
 class Category extends Component {
@@ -13,9 +14,9 @@ class Category extends Component {
            
         }
         this.state = this.default
-
+        this.props.dispatch(getCategory())
     }
-
+    
     componentDidMount() {
         window.scrollTo({top: 0, behavior: 'smooth'})
 
@@ -29,12 +30,16 @@ class Category extends Component {
                     <span className="categorySpanHeadingCommon">Categories</span>
                 </div>
                 <div className="categoryCommonOne">
-                   <Link to={{pathname:`/categoryDetails/${1234}`}} style={{textDecoration:'none'}} className="categoryCardMain">
-                        <img className="categoryImageCommon" src={phaseTwo} />
-                        <div className="categoryNameSpanCommon">
-                            <span className="categoryNameSpanName">Necklace</span>
-                        </div>
-                    </Link>
+                    {this.props.allActiveCategories.map((d,i)=>{
+                        return(
+                   <Link key={i} to={{pathname:`/categoryDetails/${d._id}`}} style={{textDecoration:'none'}} className="categoryCardMain">
+                   <img className="categoryImageCommon" src={d.thumbnail.path} />
+                   <div className="categoryNameSpanCommon">
+                       <span className="categoryNameSpanName">{d.name}</span>
+                   </div>
+               </Link>
+                        )
+                    })}
                 </div>
             </div>
         )
@@ -42,9 +47,10 @@ class Category extends Component {
     }
 }
 
-function mapStateToProps(authedId){
+function mapStateToProps(data){
     return{
-        authedId:authedId,
+        allActiveCategories:data.category.state ? data.category.state.filter(d=>d.status==='Active'):data.category.filter(d=>d.status==='Active'),
+        authedId:data,
     }
 }
 

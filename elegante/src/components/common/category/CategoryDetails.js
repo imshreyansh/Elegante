@@ -5,7 +5,7 @@ import jwt from 'jsonwebtoken'
 import {Link,withRouter} from 'react-router-dom'
 import phaseTwo from '../../../assets/images/phaseTwo.png'
 import sample from '../../../assets/images/sample.jpeg'
-
+import {getCategoryById} from '../../../actions/category'
 
 class CategoryDetails extends Component {
     constructor(props){
@@ -14,11 +14,11 @@ class CategoryDetails extends Component {
            
         }
         this.state = this.default
-
+        this.props.dispatch(getCategoryById(this.props.match.params.id))
     }
 
     componentDidMount() {
-       
+
     }
 
 
@@ -26,7 +26,7 @@ class CategoryDetails extends Component {
         return(
             <div className="categoryMainDiv">
                 <div className="headingCategory">
-                    <span className="categorySpanHeadingCommon">Necklace</span>
+                    <span className="categorySpanHeadingCommon">{this.props.category.categoryName && this.props.category.categoryName.name}</span>
                 </div>
                 <div className="categoryCommonOne">
             
@@ -48,9 +48,11 @@ class CategoryDetails extends Component {
     }
 }
 
-function mapStateToProps(authedId){
+function mapStateToProps(data){
+    console.log(data.category)
     return{
-        authedId:authedId,
+        category:data.category,
+        authedId:data,
     }
 }
 

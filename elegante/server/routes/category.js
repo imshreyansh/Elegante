@@ -1,4 +1,4 @@
-const { addCategory,editCategory,deleteCategory,getAllCategory } = require('../controller/category')
+const { addCategory,editCategory,deleteCategory,getAllCategory,getCategoryById } = require('../controller/category')
 
 exports.routes = (express, app) => {
 
@@ -11,6 +11,9 @@ exports.routes = (express, app) => {
     router.post('/deleteCategory/:id', deleteCategory)
 
     router.get('/getAllCategory', getAllCategory)
+
+    router.get('/getCategoryById/:id', getCategoryById)
+
 
 
     app.use('/api/category/', router);

@@ -1,4 +1,4 @@
-import {ADD_CATEGORIES,EDIT_CATEGORIES,GET_CATEGORIES,DELETE_CATEGORIES} from './actionTypes'
+import {ADD_CATEGORIES,EDIT_CATEGORIES,GET_CATEGORIES,DELETE_CATEGORIES,GET_CATEGORY_BY_ID} from './actionTypes'
 import {handleError} from './handleError'
 import {IP} from '../config/config'
 import axios from 'axios'
@@ -35,6 +35,19 @@ export const getCategory = ()=>dispatch=>{
     .catch(err=>
         dispatch(handleError({type:'error',error:err.message})),
         dispatch({type: GET_CATEGORIES,payload:null})
+    )
+}
+
+export const getCategoryById = (id)=>dispatch=>{
+    axios.get(`${IP}/api/category/getCategoryById/${id}`)
+    .then(res=>{
+        if(res){
+        dispatch({type: GET_CATEGORY_BY_ID,payload:res.data.response})
+        }
+    })
+    .catch(err=>
+        dispatch(handleError({type:'error',error:err.message})),
+        dispatch({type: GET_CATEGORY_BY_ID,payload:null})
     )
 }
 

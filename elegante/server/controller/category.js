@@ -25,6 +25,7 @@ exports.editCategory = async (req,res)=>{
                 const data=JSON.parse(req.body.data)
                 const getCategory = await Category.findOneAndUpdate({_id:req.params.id},data,{new: true})
                 getCategory['thumbnail'] = req.files[0]
+                await getCategory.save()
                 successResponseHandler(res,getCategory,'Successfully added category')
                 }else{
                         const getCategory = await Category.findOneAndUpdate({_id:req.params.id},req.body,{new: true})
@@ -50,6 +51,16 @@ exports.deleteCategory = async (req,res)=>{
 exports.getAllCategory = async (req, res)=>{
     try{
         const getCategory = await Category.find()
+        successResponseHandler(res,getCategory,'Successfully deleted category')
+    }
+    catch(error){
+        errorResponseHandler(res, error,'Error While getting stocks')
+    }
+}
+
+exports.getCategoryById = async (req, res)=>{
+    try{
+        const getCategory = await Category.findOne({_id:req.params.id})
         successResponseHandler(res,getCategory,'Successfully deleted category')
     }
     catch(error){

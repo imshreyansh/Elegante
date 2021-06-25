@@ -317,6 +317,8 @@
 .landingCategoryImage{
   width:100%;
   border-radius:2%;
+  height:10vh;
+  object-fit: contain;
 }
 .landingCategoryName{
   font-size:12px;
@@ -845,6 +847,8 @@
 .landingCategoryImage{
   width:100%;
   border-radius:2%;
+  height:15vh;
+  object-fit: contain;
 }
 .landingCategoryName{
   font-size:18px;
@@ -1342,6 +1346,8 @@
 .landingCategoryImage{
   width:100%;
   border-radius:2%;
+  height:20vh;
+  object-fit: contain;
 }
 .landingCategoryName{
   font-size:22px;

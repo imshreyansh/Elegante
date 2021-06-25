@@ -1,6 +1,7 @@
-import {ADD_CATEGORIES,EDIT_CATEGORIES,GET_CATEGORIES,DELETE_CATEGORIES} from '../actions/actionTypes'
+import {ADD_CATEGORIES,EDIT_CATEGORIES,GET_CATEGORIES,DELETE_CATEGORIES,GET_CATEGORY_BY_ID} from '../actions/actionTypes'
 
-export default function category(state=null,action){
+const initialState=[]
+export default function category(state=initialState,action){
     const {type,payload} = action
     switch (type){
         case ADD_CATEGORIES:
@@ -11,6 +12,11 @@ export default function category(state=null,action){
         case GET_CATEGORIES:
             if(payload !==null){
                 return payload
+            }
+
+        case GET_CATEGORY_BY_ID:
+            if(payload !==null){
+                return {categoryName:payload,state}
             }
         
         case EDIT_CATEGORIES:
