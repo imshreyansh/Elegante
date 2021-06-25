@@ -1,16 +1,16 @@
-import {GET_ALL_OFFERS,GET_ALL_ACTIVE_OFFERS,ADD_OFFER,EDIT_OFFER} from './actionTypes'
+import {GET_ALL_TAX,GET_ALL_ACTIVE_TAX,ADD_TAX,EDIT_TAX} from './actionTypes'
 import {handleError} from './handleError'
 import {IP} from '../config/config'
 import axios from 'axios'
 import {onLoader} from './loader'
 
 
-export const addOffer = (data)=>dispatch=>{
+export const addTax = (data)=>dispatch=>{
     dispatch(onLoader(true))
-    axios.post(`${IP}/api/offer/addOffer`,data)
+    axios.post(`${IP}/api/tax/addTax`,data)
     .then(res=>{
     if(res){
-        dispatch({type: ADD_OFFER,payload:res.data.response})
+        dispatch({type: ADD_TAX,payload:res.data.response})
         setTimeout(() => {
             dispatch(onLoader(false))
         },2000)
@@ -18,18 +18,18 @@ export const addOffer = (data)=>dispatch=>{
     })
     .catch(err=>
         dispatch(handleError({type:'error',error:err.message})),
-        dispatch({type: ADD_OFFER,payload:null}),
+        dispatch({type: ADD_TAX,payload:null}),
         setTimeout(() => {
             dispatch(onLoader(false))
         },2000)
     )
 }
 
-export const getAllOffer = ()=>dispatch=>{
-    axios.get(`${IP}/api/offer/getAllOffer`)
+export const getAllTax = ()=>dispatch=>{
+    axios.get(`${IP}/api/tax/getAllTax`)
     .then(res=>{
         if(res){
-            dispatch({type: GET_ALL_OFFERS,payload:res.data.response})
+            dispatch({type: GET_ALL_TAX,payload:res.data.response})
             setTimeout(() => {
                 dispatch(onLoader(false))
             },2000)
@@ -37,19 +37,19 @@ export const getAllOffer = ()=>dispatch=>{
         })
         .catch(err=>
             dispatch(handleError({type:'error',error:err.message})),
-            dispatch({type: GET_ALL_OFFERS,payload:null}),
+            dispatch({type: GET_ALL_TAX,payload:null}),
             setTimeout(() => {
                 dispatch(onLoader(false))
             },2000)
         )
 }
 
-export const editOffer = (id,data)=>dispatch=>{
+export const editTax = (id,data)=>dispatch=>{
     dispatch(onLoader(true))
-    axios.post(`${IP}/api/offer/updateOffer/${id}`,data)
+    axios.post(`${IP}/api/tax/updateTax/${id}`,data)
     .then(res=>{
     if(res){
-        dispatch({type: EDIT_OFFER,payload:res.data.response})
+        dispatch({type: EDIT_TAX,payload:res.data.response})
         setTimeout(() => {
             dispatch(onLoader(false))
         },2000)
@@ -57,18 +57,18 @@ export const editOffer = (id,data)=>dispatch=>{
     })
     .catch(err=>
         dispatch(handleError({type:'error',error:err.message})),
-        dispatch({type: EDIT_OFFER,payload:null}),
+        dispatch({type: EDIT_TAX,payload:null}),
         setTimeout(() => {
             dispatch(onLoader(false))
         },2000)
     )
 }
 
-export const getActiveOffer = ()=>dispatch=>{
-    axios.get(`${IP}/api/offer/getActiveOffer`)
+export const getActiveTax = ()=>dispatch=>{
+    axios.get(`${IP}/api/tax/getActiveTax`)
     .then(res=>{
         if(res){
-            dispatch({type: GET_ALL_ACTIVE_OFFERS,payload:res.data.response})
+            dispatch({type: GET_ALL_ACTIVE_TAX,payload:res.data.response})
             setTimeout(() => {
                 dispatch(onLoader(false))
             },2000)
@@ -76,7 +76,7 @@ export const getActiveOffer = ()=>dispatch=>{
         })
         .catch(err=>
             dispatch(handleError({type:'error',error:err.message})),
-            dispatch({type: GET_ALL_ACTIVE_OFFERS,payload:null}),
+            dispatch({type: GET_ALL_ACTIVE_TAX,payload:null}),
             setTimeout(() => {
                 dispatch(onLoader(false))
             },2000)

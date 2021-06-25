@@ -10,7 +10,7 @@ import LocalOfferIcon from '@material-ui/icons/LocalOffer';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import LoyaltyIcon from '@material-ui/icons/Loyalty';
-import {addOffer,getAllOffer} from '../../../actions/offer'
+import {addOffer,getAllOffer,editOffer} from '../../../actions/offer'
 class Offers extends Component {
     constructor(props){
         super(props)
@@ -18,7 +18,9 @@ class Offers extends Component {
         offerName:'',
         offerPercentage:'',
         offerNameE:'',
-        offerPercentageE:''
+        offerPercentageE:'',
+        edit:false,
+        id:''
         }
         this.state = this.default
         this.props.dispatch(getAllOffer())
@@ -29,11 +31,29 @@ class Offers extends Component {
            offer:this.state.offerName,
            percentage:this.state.offerPercentage
        }
-       this.props.dispatch(addOffer(obj))
+       this.state.edit ? this.props.dispatch(editOffer(this.state.id,obj)) :this.props.dispatch(addOffer(obj))
+       this.setState({
+           offerName:'',
+           offerPercentage:'',
+           id:'',
+           edit:false
+       })
     }
 
-    updateOffer = ()=>{
-       
+    updateOffer = (id,data)=>{
+       this.setState({
+        offerName:data.offer,
+        offerPercentage:data.percentage,
+           id,
+           edit:true
+       })
+    }
+
+    status = (id,data)=>{
+        const obj={
+            status:data.status==='Active' ? 'Inactive' : 'Active'
+        }
+        this.props.dispatch(editOffer(id,obj))
     }
      
     render(){
@@ -87,12 +107,12 @@ class Offers extends Component {
                             <div className="THTwoDiv">
                             <div className="statTHDiv">
                                 {d.status==='Active' ? 
-                                <CheckBoxIcon style={{fontSize:'20px',color:'green'}} className="catTHSpan"/>
-                                  :<CheckBoxOutlineBlankIcon style={{fontSize:'20px',color:'green'}} className="catTHSpan"/>
+                                <CheckBoxIcon onClick={()=>this.status(d._id,d)} style={{fontSize:'20px',color:'green'}} className="catTHSpan"/>
+                                  :<CheckBoxOutlineBlankIcon onClick={()=>this.status(d._id,d)} style={{fontSize:'20px',color:'green'}} className="catTHSpan"/>
                                       }
                                 </div>
                                 <div className="statTHDiv">
-                                <EditIcon style={{fontSize:'20px'}} className="catTHSpan"/>
+                                <EditIcon onClick={()=>this.updateOffer(d._id,d)} style={{fontSize:'20px'}} className="catTHSpan"/>
                                 </div>
                             </div>
                         </div>

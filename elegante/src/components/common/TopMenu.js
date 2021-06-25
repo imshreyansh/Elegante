@@ -27,6 +27,7 @@ import LocalOfferIcon from '@material-ui/icons/LocalOffer';
 import LocalAtmIcon from '@material-ui/icons/LocalAtm';
 import RecordVoiceOverIcon from '@material-ui/icons/RecordVoiceOver';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import {getAllOffer} from '../../actions/offer'
 
 class TopMenu extends Component {
     constructor(props){
@@ -41,7 +42,7 @@ class TopMenu extends Component {
             modalOffer:false
         }
         this.state = this.default
-
+        this.props.dispatch(getAllOffer())
     }
 
     componentDidMount() {
@@ -138,34 +139,37 @@ class TopMenu extends Component {
       
 
       renderOffer = () => {
-        if(window.matchMedia("(max-width: 768px)").matches){
-            return (
-                <Modal
-                open={this.state.modalOffer}
-                onClose={()=>this.setState({modalOffer:false})}
-              >
-                  <div className="offerDivModal">
-                      <div className="closeModalCross">
-<CancelIcon className="closeModalCrossIcon"  onClick={()=>this.setState({modalOffer:false})}/>
+          if(this.props.offer){
+            if(window.matchMedia("(max-width: 768px)").matches){
+                return (
+                    <Modal
+                    open={this.state.modalOffer}
+                    onClose={()=>this.setState({modalOffer:false})}
+                  >
+                      <div className="offerDivModal">
+                          <div className="closeModalCross">
+    <CancelIcon className="closeModalCrossIcon"  onClick={()=>this.setState({modalOffer:false})}/>
+                          </div>
+                        <div className="offerDivModalInside">
+                            <span className="offerSpanText">Use Code</span>
+                <span className="offerSpanTextTwo">"{(this.props.offer.offer).toUpperCase()}"</span>
+                            <span className="offerSpanText">And Get {this.props.offer.percentage}% Off</span>
+                        </div>
                       </div>
-                    <div className="offerDivModalInside">
-                        <span className="offerSpanText">Use Code</span>
-                        <span className="offerSpanTextTwo">"2021"</span>
-                        <span className="offerSpanText">And Get 10% Off</span>
+                </Modal>
+                )
+            }else{
+                return(
+                    <div className="offerUpperPermanent">
+                    <div className="offerPermanent">
+                    <span className="offerText">USE CODE "{(this.props.offer.offer).toUpperCase()}" AND GET {this.props.offer.percentage}% OFF </span>
                     </div>
-                  </div>
-            </Modal>
-            )
-        }else{
-            return(
-                <div className="offerUpperPermanent">
-                <div className="offerPermanent">
-                <span className="offerText">USE CODE "2021" AND GET 20% OFF </span>
-                </div>
-                </div>
-            )
-            
-        }
+                    </div>
+                )
+                
+            }
+          }
+
     }
 
       handleDrawer = ()=>{
@@ -331,9 +335,10 @@ this.props.jwtToken.designation==='User' ?
     }
 }
 
-function mapStateToProps(authedId){
+function mapStateToProps(info){
     return{
-        authedId:authedId,
+        authedId:info,
+        offer:info.offer.filter(d=>d.status==='Active')[0],
         jwtToken:jwt.decode(getItemFromStorage('authedId'))
     }
 }
