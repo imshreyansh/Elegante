@@ -8,7 +8,7 @@ exports.routes = (express, app) => {
 
     router.get(`/getMemberCart/:id`,getMemberCart)
     
-    router.get(`/removeCart/:id`,removeCart)
+    router.post(`/removeCart/:id`,removeCart)
 
 
     app.use('/api/cart/', router);

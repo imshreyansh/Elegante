@@ -23,14 +23,16 @@ export const addToCart = (data)=>dispatch=>{
 }
 
 export const getMemberCart = (id)=>dispatch=>{
-    axios.get(`${IP}/api/cart/getMemberCart/${id}`)
-    .then(res=>{
-        dispatch({type: GET_MEMBER_CART,payload:res.data.response})
-    })
-    .catch(err=>
-        dispatch(handleError({type:'error',error:err.message})),
-        dispatch({type: GET_MEMBER_CART,payload:null})
-    )
+    if(id!==''){
+        axios.get(`${IP}/api/cart/getMemberCart/${id}`)
+        .then(res=>{
+            dispatch({type: GET_MEMBER_CART,payload:res.data.response})
+        })
+        .catch(err=>
+            dispatch(handleError({type:'error',error:err.message})),
+            dispatch({type: GET_MEMBER_CART,payload:null})
+        )
+    }
 }
 
 export const removeCart = (id)=>dispatch=>{

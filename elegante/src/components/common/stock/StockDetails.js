@@ -21,14 +21,14 @@ class StockDetails extends Component {
         }
         this.state = this.default
         this.props.dispatch(getStockById(this.props.match.params.id))
-        this.props.dispatch(getMemberCart(this.props.jwtToken.id))
+       this.props.dispatch(getMemberCart(this.props.jwtToken!==null ? this.props.jwtToken.id:''))
     }
 
     componentWillReceiveProps(nextProps){
         this.setState({
             thumbnail: nextProps.stocks.thumbnail && nextProps.stocks.thumbnail.length>0 ? nextProps.stocks.thumbnail : [],
             mainThumb:nextProps.stocks.thumbnail && nextProps.stocks.thumbnail.length>0 ? nextProps.stocks.thumbnail[0]:[],
-            isThere:nextProps.cart.filter(d=>d.stock._id===nextProps.match.params.id).length>0?true:false
+            isThere:this.props.jwtToken!==null ? nextProps.cart.filter(d=>d.stock._id===nextProps.match.params.id).length>0?true:false:false
         })
  
     }
@@ -106,9 +106,12 @@ class StockDetails extends Component {
                    : this.state.isThere ?
                    <div style={{backgroundColor:'#ddd'}} onClick={()=>this.onAddToCart()} className="StockDetailsMainBack">
                     <span className="StockDetailsMainNameTwo">Added to Cart</span>
-                    </div> :<div onClick={()=>this.onAddToCart()} className="StockDetailsMainBack">
+                    </div> :this.props.jwtToken!==null ? <div onClick={()=>this.onAddToCart()} className="StockDetailsMainBack">
                     <span className="StockDetailsMainNameTwo">Add to Cart</span>
-                    </div>}
+                    </div>:
+                     <Link to="/login" style={{textDecoration:'none'}} className="StockDetailsMainBack">
+                    <span className="StockDetailsMainNameTwo">Add to Cart</span>
+                    </Link>}
                 </div>
               </div>
               <div className="StockDetailsDescription">

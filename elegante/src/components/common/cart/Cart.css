@@ -281,6 +281,11 @@
         font-size:12px;
         margin-top: 2%;
     }
+    .emptyCart{
+        width:100%;
+        margin-left:auto;
+        margin-right:auto;
+    }
   }
 
   @media only screen and (min-width: 768px) {
@@ -550,7 +555,11 @@
         font-size:12px;
         margin-top: 2%;
     }
-    
+    .emptyCart{
+        width:100%;
+        margin-left:auto;
+        margin-right:auto;
+    }
     }
   
   @media only screen and (min-width: 1100px) {
@@ -818,6 +827,11 @@
     color:#fff;
     font-size:15px;
     margin-top: 2%;
+}
+.emptyCart{
+    width:100%;
+    margin-left:auto;
+    margin-right:auto;
 }
   }
   

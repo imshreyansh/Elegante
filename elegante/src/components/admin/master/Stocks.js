@@ -101,6 +101,7 @@ class Stocks extends Component {
   }
 
   onEdit = (d) =>{
+    window.scrollTo({top: 0, behavior: 'smooth'})
       this.setState({
         itemName:d.name,
         thumbnail:d.thumbnail,

@@ -42,7 +42,7 @@ export default function stocks(state=initialState,action){
                 const filterData = state.allStocks.filter(d=>d._id !== payload._id)
                 return {
                     ...state,
-                    allStocks:[...filterData.allStocks,payload]
+                    allStocks:[...filterData,payload]
                 } 
             }
 
