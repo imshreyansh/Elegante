@@ -213,7 +213,6 @@ class Stocks extends Component {
 }
 
 function mapStateToProps(data){
-    console.log(data.stocks.state)
     return {
         data,
         categories:data.category.allCategories,

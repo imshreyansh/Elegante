@@ -28,6 +28,7 @@ const stock=new Schema({
     },
 
     thumbnail:Array,
+    
     purchasedBy:{
         type:Number,
         default:0

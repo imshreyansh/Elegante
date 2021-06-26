@@ -16,18 +16,33 @@ import {getMemberCart,removeCart} from '../../../actions/memberCart'
 import {getAllTax} from '../../../actions/tax'
 import {handleError} from '../../../actions/handleError'
 import emptyCart from '../../../assets/images/emptyCart.png'
+import {purchaseOrder} from '../../../actions/order'
 class Cart extends Component {
     constructor(props){
         super(props)
         this.default={
            next:false,
            discount:0,
-           coupon:''
+           coupon:'',
+           name:'',
+           nameE:'',
+           mobile:'',
+           mobileE:'',
+           email:'',
+           emailE:'',
+           address:'',
+           addressE:'',
+           pin:'',
+           pinE:'',
+           state:state[0].name,
+           city:'',
+           cityE:''
         }
         this.state = this.default
         this.props.dispatch(getMemberCart(this.props.jwtToken.id))
         this.props.dispatch(getAllTax())
     }
+
 
     componentDidMount() {
         window.scrollTo({top: 0, behavior: 'smooth'})
@@ -50,6 +65,42 @@ class Cart extends Component {
             }
             this.props.dispatch(handleError(obj))
         }
+    }
+
+    onPurchase = (total,subTotal) => {
+        const stock=[]
+        this.props.cart.forEach(d=>{
+            stock.push({qty:d.qty,stockId:d.stock._id,amount:d.qty*d.stock.sellingPrice})
+        })
+        const obj={
+            user:this.props.jwtToken.id,
+            total,
+            subTotal,
+            discount:this.state.discount,
+            tax:this.props.tax._id,
+            name:this.state.name,
+            email:this.state.email,
+            mobile:this.state.mobile,
+            address:this.state.address,
+            state:this.state.state,
+            city:this.state.city,
+            pin:this.state.pin,
+            service:'',
+            trackingId:'',
+            stock
+        }
+        
+        this.props.dispatch(purchaseOrder(obj))
+        this.setState({
+            discount:0,
+            name:'',
+            email:'',
+            mobile:'',
+            address:'',
+            state:state[0].name,
+            city:'',
+            pin:'',
+        })
     }
 
     renderView = (subTotal,Total) =>{
@@ -119,7 +170,7 @@ class Cart extends Component {
                               <input className="CartAddress" style={{placeholderTextColor:'#fff'}} placeholder="Pin Code" value={this.state.pin} onChange={(e)=>this.setState({pin:e.target.value})}/>
                               </div>
                               <div className="MoneyCartGoNextDivOne">
-                                  <div className="MoneyCartGoNextDivTwo">
+                                  <div className="MoneyCartGoNextDivTwo" onClick={()=>this.onPurchase(Total,subTotal)}>
                                   <ArrowForwardIosIcon className="MoneyCartGoNextIcon" />
                                   </div>
                               </div>

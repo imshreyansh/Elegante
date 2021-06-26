@@ -48,7 +48,6 @@ class Category extends Component {
 }
 
 function mapStateToProps(data){
-    console.log(data.category)
     return{
         allActiveCategories:data.category.allCategories.filter(d=>d.status==='Active'),
         authedId:data,
