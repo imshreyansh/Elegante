@@ -7,6 +7,10 @@ const userPurchase=new Schema({
         ref:'UserAuth'
     },
 
+    orderId:{
+        type:String,
+    },
+
     date:{
         type:Date,
         default:new Date()
@@ -14,7 +18,7 @@ const userPurchase=new Schema({
 
     time:{
         type:Date,
-        default:new Date().getTime()
+        default:Date.now
     },
 
     status:{

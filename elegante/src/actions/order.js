@@ -9,6 +9,7 @@ export const purchaseOrder = (data)=>dispatch=>{
     axios.post(`${IP}/api/order/purchaseCartOrder`,data)
     .then(res=>{
         dispatch({type:PURCHASE_ORDER,payload:res.data.response})
+        dispatch(handleError({type:'success',error:'Order Placed Successfully, Check Your Order History'}))
         setTimeout(() => {
             dispatch(onLoader(false))
         },2000)
@@ -22,4 +23,14 @@ export const purchaseOrder = (data)=>dispatch=>{
     )
 }
 
+export const getAllOrder = ()=>dispatch=>{
+    axios.get(`${IP}/api/order/getAllOrder`)
+    .then(res=>{
+        dispatch({type:GET_ALL_ORDER,payload:res.data.response})
+    })
+    .catch(err=>
+        dispatch(handleError({type:'error',error:err.message})),
+        dispatch({type: GET_ALL_ORDER,payload:null}),
+    )
+}
 

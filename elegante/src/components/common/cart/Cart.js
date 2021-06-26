@@ -43,7 +43,6 @@ class Cart extends Component {
         this.props.dispatch(getAllTax())
     }
 
-
     componentDidMount() {
         window.scrollTo({top: 0, behavior: 'smooth'})
 
