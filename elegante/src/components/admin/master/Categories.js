@@ -14,6 +14,9 @@ import CategoryIcon from '@material-ui/icons/Category';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import DoneIcon from '@material-ui/icons/Done';
+import {getPageWiseData} from '../../utils/pagination'
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 class Categories extends Component {
     constructor(props){
         super(props)
@@ -23,12 +26,40 @@ class Categories extends Component {
          idUpdate:'',
          action:'add',
          file:'',
-         imagePreviewUrl:''
+         imagePreviewUrl:'',
+         allCategoriesData:[],
+         pn:1
         }
         this.state = this.default
         this.handleChange = this.handleChange.bind(this)
         this.props.dispatch(getCategory())
     }
+
+    componentWillReceiveProps(props){
+        this.setState({
+          allCategoriesData:props.categories,
+        })
+    }
+  
+      reversePage = () => {
+        if(this.state.pn>1){
+          this.setState({
+            pn:this.state.pn-1
+          },()=>{
+            getPageWiseData(this.state.pn,this.state.allCategoriesData,3)
+          })
+        }
+      }
+    
+      forwardPage = () =>{
+        if(this.state.pn>=1 && this.state.pn < this.state.allCategoriesData.length){
+          this.setState({
+            pn:this.state.pn+1
+          },()=>{
+            getPageWiseData(this.state.pn,this.state.allCategoriesData,3)
+          })
+        }
+      }
 
     addCategory = () =>{
         if(this.state.category !=='' && this.state.file!==''){
@@ -131,7 +162,7 @@ class Categories extends Component {
                                 </div>
                             </div>
                         </div>
-                        {this.props.categories.map((data,i)=>{
+                        {getPageWiseData(this.state.pn,this.state.allCategoriesData,3).map((data,i)=>{
                         return(
                         <div key={i} className="tableMainFirstTH">
                             <div className="THOneDiv">
@@ -155,6 +186,12 @@ class Categories extends Component {
                         </div>
                         )})}
                     </div>
+                    <div className="paginationButtonsDiv">
+    <div className="paginationInside">
+        <ArrowBackIosIcon style={{cursor:'pointer'}} onClick={()=>this.reversePage()}/>
+        <ArrowForwardIosIcon style={{cursor:'pointer'}}  onClick={()=>this.forwardPage()}/>
+    </div>
+    </div>
             </div>
           
         )

@@ -11,6 +11,9 @@ import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import LocalAtmIcon from '@material-ui/icons/LocalAtm';
 import {addTax,getAllTax,editTax} from '../../../actions/tax'
+import {getPageWiseData} from '../../utils/pagination'
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 class Tax extends Component {
     constructor(props){
         super(props)
@@ -20,11 +23,40 @@ class Tax extends Component {
         taxNameE:'',
         taxPercentageE:'',
         edit:false,
-        id:''
+        id:'',
+        allTaxData:[],
+        pn:1
         }
         this.state = this.default
         this.props.dispatch(getAllTax())
     }
+
+    componentWillReceiveProps(props){
+        this.setState({
+          allTaxData:props.tax,
+        })
+    }
+  
+      reversePage = () => {
+        if(this.state.pn>1){
+          this.setState({
+            pn:this.state.pn-1
+          },()=>{
+            getPageWiseData(this.state.pn,this.state.allTaxData,3)
+          })
+        }
+      }
+    
+      forwardPage = () =>{
+        if(this.state.pn>=1 && this.state.pn < this.state.allTaxData.length){
+          this.setState({
+            pn:this.state.pn+1
+          },()=>{
+            getPageWiseData(this.state.pn,this.state.allTaxData,3)
+          })
+        }
+      }
+
 
     addTax = () =>{
         const obj={
@@ -93,7 +125,7 @@ class Tax extends Component {
                                 </div>
                             </div>
                         </div>
-{this.props.tax.map((d,i)=>{
+{getPageWiseData(this.state.pn,this.state.allTaxData,3).map((d,i)=>{
     return(
         <div key={i} className="tableMainFirstTH">
         <div className="THOneDiv">
@@ -119,6 +151,12 @@ class Tax extends Component {
     )
 })}
             </div>
+            <div className="paginationButtonsDiv">
+    <div className="paginationInside">
+        <ArrowBackIosIcon style={{cursor:'pointer'}} onClick={()=>this.reversePage()}/>
+        <ArrowForwardIosIcon style={{cursor:'pointer'}}  onClick={()=>this.forwardPage()}/>
+    </div>
+    </div>
             </div>
         )
     }

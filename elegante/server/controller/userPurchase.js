@@ -1,8 +1,8 @@
 const {UserPurchase}= require('../model/userPurchase')
 const {UserCart}= require('../model/userCart')
 const {Stock} =require('../model/stock')
-const { handler: { errorResponseHandler, successResponseHandler }} = require('../config')
-
+const {UserAuth} =require('../model/userAuth')
+const { handler: { errorResponseHandler, successResponseHandler },sendEmail:{sendEmail}} = require('../config')
 exports.purchaseCartOrder = async (req,res)=>{
     try{
         const purchase = new UserPurchase(req.body)
@@ -28,5 +28,25 @@ exports.getAllOrder = async (req,res)=>{
     }
     catch(error){
         errorResponseHandler(res, error,'Error While getting orders')
+    }
+}
+
+
+exports.updateOrder = async (req,res)=>{
+    try{
+       const update = await UserPurchase.findOneAndUpdate({_id:req.params.id},req.body.objMain,{new:true})
+       const user = await UserAuth.findOne({_id:req.body.user})
+       const obj = {
+        to: user.email, 
+        from: 'elegantebymegha@gmail.com', 
+        dynamic_template_data:{  "service":update.service,
+        "trackingId":update.trackingId},
+        template_id: "d-ee3a3ba72269457fa280f01d5154e58d" 
+    }
+       sendEmail(obj)
+       successResponseHandler(res,update,'Successfully got all orders')
+    }
+    catch(error){
+        errorResponseHandler(res, error,'Error While updating orders')
     }
 }

@@ -23,8 +23,8 @@ export const addToCart = (data)=>dispatch=>{
 }
 
 export const getMemberCart = (id)=>dispatch=>{
-    dispatch(onLoader(true))
     if(id!==''){
+    dispatch(onLoader(true))
         axios.get(`${IP}/api/cart/getMemberCart/${id}`)
         .then(res=>{
             dispatch({type: GET_MEMBER_CART,payload:res.data.response})

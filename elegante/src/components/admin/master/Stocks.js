@@ -14,7 +14,8 @@ import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
 import FormatListNumberedIcon from '@material-ui/icons/FormatListNumbered';
 import MoneyOffIcon from '@material-ui/icons/MoneyOff';
 import CategoryIcon from '@material-ui/icons/Category';
-
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -22,6 +23,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import DescriptionIcon from '@material-ui/icons/Description';
+import {getPageWiseData} from '../../utils/pagination'
 import './Dashboard.css'
 
 class Stocks extends Component {
@@ -42,11 +44,38 @@ class Stocks extends Component {
             qtyE:'',
             category:'',
             id:'',
-            rows:[1,2,3,4,5,6]
+            rows:[1,2,3,4,5,6],
+            pn:1,
+            allStocksData:[],
         }
         this.state = this.default
         this.props.dispatch(getCategory())
         this.props.dispatch(getStock())
+    }
+    componentWillReceiveProps(props){
+      this.setState({
+        allStocksData:props.stocks,
+      })
+  }
+
+    reversePage = () => {
+      if(this.state.pn>1){
+        this.setState({
+          pn:this.state.pn-1
+        },()=>{
+          getPageWiseData(this.state.pn,this.state.allStocksData,3)
+        })
+      }
+    }
+  
+    forwardPage = () =>{
+      if(this.state.pn>=1 && this.state.pn < this.state.allStocksData.length){
+        this.setState({
+          pn:this.state.pn+1
+        },()=>{
+          getPageWiseData(this.state.pn,this.state.allStocksData,3)
+        })
+      }
     }
 
     onImage=(e)=>{
@@ -118,7 +147,7 @@ class Stocks extends Component {
   onDelete = (id)=>{
     this.props.dispatch(deleteStock(id))
   }
-   
+
     render(){
         return(
             <div className="categoryOne"> 
@@ -188,7 +217,7 @@ class Stocks extends Component {
           </TableRow>
         </TableHead>
         <TableBody>
-        {this.props.stocks!==undefined ? this.props.stocks.map((d,i)=>{
+        {getPageWiseData(this.state.pn,this.state.allStocksData,3).map((d,i)=>{
             return(
                 <TableRow key={i}>
                 <TableCell component="th" scope="row" >
@@ -203,10 +232,16 @@ class Stocks extends Component {
               <TableCell align="right"><DeleteIcon onClick={()=>this.onDelete(d._id)}/></TableCell>
               </TableRow>
             )
-        }):null}
+        })}
         </TableBody>
       </Table>
     </TableContainer>
+    <div className="paginationButtonsDiv">
+    <div className="paginationInside">
+        <ArrowBackIosIcon style={{cursor:'pointer'}} onClick={()=>this.reversePage()}/>
+        <ArrowForwardIosIcon style={{cursor:'pointer'}}  onClick={()=>this.forwardPage()}/>
+    </div>
+    </div>
            </div>
         )
     }

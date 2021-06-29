@@ -23,7 +23,7 @@ export default function stocks(state=initialState,action){
         case UPDATE_ORDER:
             if(payload !==null){
                 const filterData = state.filter(d=>d._id !== payload._id)
-                return [...filterData,payload]
+                return [payload,...filterData]
             }
         
         default:

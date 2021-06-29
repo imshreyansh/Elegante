@@ -34,3 +34,23 @@ export const getAllOrder = ()=>dispatch=>{
     )
 }
 
+export const updateOrderStatus = (id,data)=>dispatch=>{
+    dispatch(onLoader(true))
+    axios.post(`${IP}/api/order/updateOrder/${id}`,data)
+    .then(res=>{
+    if(res){
+        dispatch({type: UPDATE_ORDER,payload:res.data.response})
+        setTimeout(() => {
+            dispatch(onLoader(false))
+        },2000)
+        }
+    })
+    .catch(err=>
+        dispatch(handleError({type:'error',error:err.message})),
+        dispatch({type: UPDATE_ORDER,payload:null}),
+        setTimeout(() => {
+            dispatch(onLoader(false))
+        },2000)
+    )
+}
+

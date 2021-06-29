@@ -135,6 +135,63 @@
    justify-content:space-between;
    word-wrap: break-word;      /* IE */
  }
+ .ServiceDiv{
+  width:100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:40vh;
+  margin-bottom: 50vh;
+  height:100vh;
+  justify-content:center;
+  align-items: center;
+ }
+ .ServiceDivOne{
+   width:80%;
+   background-color: #fff;
+   padding:1%;
+   padding-bottom: 2%;
+   margin-left: auto;
+   margin-right: auto;
+   border-radius: 5px;
+   flex-direction:column;
+ }
+ .courierAndTracking{
+   width:100%;
+   margin-top: 2%;
+   justify-content:center;
+   align-items:center;
+   display:flex;
+ }
+ .ServiceDivInputOne{
+   width:90%;
+     margin-top: 2%;
+     border: none;
+     border-bottom: 2px solid;
+     padding:1%;
+     margin-left: 20px;;
+     text-decoration: none;
+     outline: none;
+     background-color:#fff;
+     font-size:14px ;
+ }
+ .ServiceDivMainDiv{
+   width:50%;
+   padding:5;
+   background-color: #00695c;
+   margin-left: auto;
+   margin-right: auto;
+   border-radius:8px;
+   margin-top: 5%;
+   display:flex;
+   justify-content: center;
+   align-items: center;
+   cursor: pointer;
+ }
+ .ServiceDivButton{
+   font-size:18px;
+   font-weight: 500;
+   color: #fff;
+ }
   }
 
   @media only screen and (min-width: 768px) {
@@ -261,6 +318,63 @@
      justify-content:space-between;
      word-wrap: break-word;      /* IE */
    }
+   .ServiceDiv{
+    width:80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:40vh;
+    margin-bottom: 50vh;
+    height:100vh;
+    justify-content:center;
+    align-items: center;
+   }
+   .ServiceDivOne{
+     width:50%;
+     background-color: #fff;
+     padding:1%;
+     padding-bottom: 2%;
+     margin-left: auto;
+     margin-right: auto;
+     border-radius: 5px;
+     flex-direction:column;
+   }
+   .courierAndTracking{
+     width:100%;
+     margin-top: 2%;
+     justify-content:center;
+     align-items:center;
+     display:flex;
+   }
+   .ServiceDivInputOne{
+     width:90%;
+       margin-top: 2%;
+       border: none;
+       border-bottom: 2px solid;
+       padding:1%;
+       margin-left: 20px;;
+       text-decoration: none;
+       outline: none;
+       background-color:#fff;
+       font-size:18px ;
+   }
+   .ServiceDivMainDiv{
+     width:30%;
+     padding:1.5%;
+     background-color: #00695c;
+     margin-left: auto;
+     margin-right: auto;
+     border-radius:8px;
+     margin-top: 5%;
+     display:flex;
+     justify-content: center;
+     align-items: center;
+     cursor: pointer;
+   }
+   .ServiceDivButton{
+     font-size:20px;
+     font-weight: 500;
+     color: #fff;
+   }
     }
   
   @media only screen and (min-width: 1100px) {
@@ -385,5 +499,61 @@
      justify-content:space-between;
      word-wrap: break-word;      /* IE */
    }
-  
+   .ServiceDiv{
+     width:80%;
+     margin-left: auto;
+     margin-right: auto;
+     margin-top:40vh;
+     margin-bottom: 50vh;
+     height:100vh;
+     justify-content:center;
+     align-items: center;
+    }
+    .ServiceDivOne{
+      width:50%;
+      background-color: #fff;
+      padding:1%;
+      padding-bottom: 2%;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 5px;
+      flex-direction:column;
+    }
+    .courierAndTracking{
+      width:100%;
+      margin-top: 2%;
+      justify-content:center;
+      align-items:center;
+      display:flex;
+    }
+    .ServiceDivInputOne{
+      width:90%;
+        margin-top: 2%;
+        border: none;
+        border-bottom: 2px solid;
+        padding:1%;
+        margin-left: 20px;;
+        text-decoration: none;
+        outline: none;
+        background-color:#fff;
+        font-size:18px ;
+    }
+    .ServiceDivMainDiv{
+      width:30%;
+      padding:1.5%;
+      background-color: #00695c;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius:8px;
+      margin-top: 5%;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+    .ServiceDivButton{
+      font-size:20px;
+      font-weight: 500;
+      color: #fff;
+    }
   }

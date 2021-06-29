@@ -11,6 +11,10 @@ import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import LoyaltyIcon from '@material-ui/icons/Loyalty';
 import {addOffer,getAllOffer,editOffer} from '../../../actions/offer'
+import {getPageWiseData} from '../../utils/pagination'
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+
 class Offers extends Component {
     constructor(props){
         super(props)
@@ -20,11 +24,39 @@ class Offers extends Component {
         offerNameE:'',
         offerPercentageE:'',
         edit:false,
-        id:''
+        id:'',
+        allOffersData:[],
+        pn:1
         }
         this.state = this.default
         this.props.dispatch(getAllOffer())
     }
+
+    componentWillReceiveProps(props){
+        this.setState({
+          allOffersData:props.offer,
+        })
+    }
+  
+      reversePage = () => {
+        if(this.state.pn>1){
+          this.setState({
+            pn:this.state.pn-1
+          },()=>{
+            getPageWiseData(this.state.pn,this.state.allOffersData,3)
+          })
+        }
+      }
+    
+      forwardPage = () =>{
+        if(this.state.pn>=1 && this.state.pn < this.state.allOffersData.length){
+          this.setState({
+            pn:this.state.pn+1
+          },()=>{
+            getPageWiseData(this.state.pn,this.state.allOffersData,3)
+          })
+        }
+      }
 
     addOffer = () =>{
        const obj={
@@ -93,7 +125,7 @@ class Offers extends Component {
                                 </div>
                             </div>
                         </div>
-                {this.props.offer.map((d,i)=>{
+                {getPageWiseData(this.state.pn,this.state.allOffersData,3).map((d,i)=>{
                     return(
                         <div className="tableMainFirstTH">
                             <div className="THOneDiv">
@@ -120,6 +152,12 @@ class Offers extends Component {
                 })}
 
                     </div>
+                    <div className="paginationButtonsDiv">
+    <div className="paginationInside">
+        <ArrowBackIosIcon style={{cursor:'pointer'}} onClick={()=>this.reversePage()}/>
+        <ArrowForwardIosIcon style={{cursor:'pointer'}}  onClick={()=>this.forwardPage()}/>
+    </div>
+    </div>
             </div>
         )
     }

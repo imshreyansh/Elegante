@@ -7,7 +7,7 @@ import {Link,withRouter} from 'react-router-dom'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
-import {getAllOrder} from '../../../actions/order'
+import {getAllOrder,updateOrderStatus} from '../../../actions/order'
 import {getDate,getTime} from '../../utils/dateAndTime'
 import { Modal } from '@material-ui/core';
 
@@ -15,14 +15,28 @@ class AdminAllOrders extends Component {
     constructor(props){
         super(props)
         this.default={
-           index:''
+           index:'',
+           modalService:false,
+           courier:'',
+           tracking:'',
+           data:''
         }
         this.state = this.default
         this.props.dispatch(getAllOrder())
     }
 
-    componentDidMount() {
-       
+    packedOrder = ()=>{
+        if(this.state.courier !==''&&this.state.tracking!==''){
+        const obj = {
+            user:this.state.data.user,
+            objMain:{
+            status:true,
+            trackingId:this.state.tracking,
+            service:this.state.courier
+            }
+        }
+        this.props.dispatch(updateOrderStatus(this.state.data._id,obj))
+        }
     }
 
 
@@ -114,6 +128,25 @@ class AdminAllOrders extends Component {
             <div className="MyOrdersHeadingDiv">
                     <span className="MyOrdersHeadingSpan">My Order's</span>
                 </div>
+                <Modal
+                    open={this.state.modalService}
+                    onClose={()=>this.setState({modalService:false})}
+                  >
+                     <div className="ServiceDiv">
+                        <div className="ServiceDivOne">
+                        <div className="courierAndTracking">
+                        <input type="text" className="ServiceDivInputOne" placeholder="Courier Service" value={this.state.courier}  style={{borderBottomColor:'#333'}} onChange={(e)=>this.setState({courier: e.target.value})}/>
+                    </div>
+                    <div className="courierAndTracking">
+                        <input type="text" className="ServiceDivInputOne" placeholder="Tracking ID" value={this.state.tracking}  style={{borderBottomColor:'#333'}} onChange={(e)=>this.setState({tracking: e.target.value})}/>
+                    </div>
+                    <div className="ServiceDivMainDiv" onClick={()=>this.packedOrder()}>
+                    <span className="ServiceDivButton">Submit</span>
+                    </div>
+                        </div>
+                        
+                     </div>
+                </Modal>
                 {this.props.orders.map((d,i)=>{
                     return(
                         <div className="MyOrdersMainDiv">
@@ -131,7 +164,7 @@ class AdminAllOrders extends Component {
                                 <CheckBoxIcon  style={{fontSize:'30px'}} className="MyOrdersEachDivIconSpan"/>
                             </div> : 
                             <div className="MyOrdersEachDivDateTimeAndIconDiv">
-                            <CheckBoxOutlineBlankIcon  style={{fontSize:'30px'}} className="MyOrdersEachDivIconSpan"/>
+                            <CheckBoxOutlineBlankIcon onClick={()=>this.setState({modalService:true,data:d})}  style={{fontSize:'30px'}} className="MyOrdersEachDivIconSpan"/>
                         </div>
                             }
                             <div className="MyOrdersEachDivDateTimeAndIconDiv">
