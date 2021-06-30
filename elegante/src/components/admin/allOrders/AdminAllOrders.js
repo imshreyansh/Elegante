@@ -87,6 +87,20 @@ class AdminAllOrders extends Component {
                        <span className="MyOrderDetailsSpanDivEachSpan">{d.trackingId==='' ? 'Yet to dispatch' : d.trackingId}</span>
                    </div>
                </div>
+               <div className="MyOrderDetailsSpanDiv">
+                   <div className="MyOrderDetailsSpanDivEach">
+                       <span className="MyOrderDetailsSpanDivEachSpan">Ordered By</span>
+                       <span className="MyOrderDetailsSpanDivEachSpan">{d.user.name}</span>
+                   </div>
+                   <div className="MyOrderDetailsSpanDivEach">
+                       <span className="MyOrderDetailsSpanDivEachSpan">Email</span>
+                       <span className="MyOrderDetailsSpanDivEachSpan">{d.user.email}</span>
+                   </div>
+                   <div className="MyOrderDetailsSpanDivEach">
+                       <span className="MyOrderDetailsSpanDivEachSpan">Mobile</span>
+                       <span className="MyOrderDetailsSpanDivEachSpan">{d.user.mobile}</span>
+                   </div>
+                </div>
                {d.stock.map((data,id)=>{
                    return(
                     <div className="MyOrderDetailsItemsDiv">
@@ -112,6 +126,10 @@ class AdminAllOrders extends Component {
                    <div className="MyOrderDetailsItemsEach">
                    <span className="MyOrderDetailsSpanDivEachSpan">{d.tax.tax}</span>
                    <span className="MyOrderDetailsSpanDivEachSpan">{d.tax.percentage}%</span>
+                   </div>
+                   <div className="MyOrderDetailsItemsEach">
+                   <span className="MyOrderDetailsSpanDivEachSpan">Shipping</span>
+                   <span className="MyOrderDetailsSpanDivEachSpan">Rs {(d.shipping).toFixed(2)}</span>
                    </div>
                    <div className="MyOrderDetailsItemsEach">
                    <span className="MyOrderDetailsSpanDivEachSpan">Total</span>

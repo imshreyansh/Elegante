@@ -22,7 +22,7 @@ exports.purchaseCartOrder = async (req,res)=>{
 
 exports.getAllOrder = async (req,res)=>{
     try{
-        const getAll = await UserPurchase.find({}).populate({path:'stock',populate:{path:'stockId',model:'Stock'}}).populate('tax')
+        const getAll = await UserPurchase.find({}).populate({path:'stock',populate:{path:'stockId',model:'Stock'}}).populate('tax').populate('user')
         successResponseHandler(res,getAll,'Successfully got all orders')
 
     }

@@ -66,7 +66,9 @@ class Cart extends Component {
         }
     }
 
-    onPurchase = (total,subTotal) => {
+    onPurchase = (total,subTotal,shipping) => {
+        if(this.state.name !=='' && this.state.mobile !=='' && this.state.email!==''&&this.state.address!==''&& this.state.pin!==''){
+
         const stock=[]
         this.props.cart.forEach(d=>{
             stock.push({qty:d.qty,stockId:d.stock._id,amount:d.qty*d.stock.sellingPrice})
@@ -75,6 +77,7 @@ class Cart extends Component {
             user:this.props.jwtToken.id,
             total,
             subTotal,
+            shipping,
             discount:this.state.discount,
             tax:this.props.tax._id,
             name:this.state.name,
@@ -100,9 +103,10 @@ class Cart extends Component {
             city:'',
             pin:'',
         })
+        }
     }
 
-    renderView = (subTotal,Total) =>{
+    renderView = (subTotal,Total,shipping) =>{
         if(this.props.cart.length>0){
             return(
                 <div className="CartMainDiv">
@@ -169,7 +173,7 @@ class Cart extends Component {
                               <input className="CartAddress" style={{placeholderTextColor:'#fff'}} placeholder="Pin Code" value={this.state.pin} onChange={(e)=>this.setState({pin:e.target.value})}/>
                               </div>
                               <div className="MoneyCartGoNextDivOne">
-                                  <div className="MoneyCartGoNextDivTwo" onClick={()=>this.onPurchase(Total,subTotal)}>
+                                  <div className="MoneyCartGoNextDivTwo" onClick={()=>this.onPurchase(Total,subTotal,shipping)}>
                                   <ArrowForwardIosIcon className="MoneyCartGoNextIcon" />
                                   </div>
                               </div>
@@ -202,6 +206,10 @@ class Cart extends Component {
                       <span className="MoneyCartSpanTwo">{this.props.tax&&this.props.tax.percentage}%</span>
                       </div>
                       <div className="MoneyCartDiv">
+                      <span className="MoneyCartSpan">Shipping</span>
+                      <span className="MoneyCartSpanTwo">Rs {(shipping).toFixed(2)}</span>
+                      </div>
+                      <div className="MoneyCartDiv">
                       <span className="MoneyCartSpan">Total</span>
                       <span className="MoneyCartSpanTwo">Rs {(Total).toFixed(2)}</span>
                       </div>
@@ -227,13 +235,24 @@ class Cart extends Component {
         this.props.cart.forEach(d=>{
             subTotal+=d.qty*d.stock.sellingPrice
         })
-        let Total =(subTotal*(this.props.tax&&this.props.tax.percentage/100)+subTotal)-(subTotal*(this.state.discount/100))
+        let itemQty=0
+        this.props.cart.forEach(d=>{
+            itemQty+=d.qty
+        })
+
+        let shipping=40
+            if(itemQty>=6){
+                for(let i=6;i<=itemQty;i++){
+                    shipping+=4
+                }
+            }
+        let Total =(subTotal*(this.props.tax&&this.props.tax.percentage/100)+subTotal+(shipping>60 ? 60 : shipping))-(subTotal*(this.state.discount/100))
         return(
             <div className="CartMain">
                 <div className="shoppingCartHeading">
                     <span className="shoppingCartHeadingSpan">Shopping Cart</span>
                 </div>
-                {this.renderView(subTotal,Total)}
+                {this.renderView(subTotal,Total,shipping)}
             </div>
         )
         

@@ -98,6 +98,10 @@ class MyOrders extends Component {
                    <span className="MyOrderDetailsSpanDivEachSpan">{d.tax.percentage}%</span>
                    </div>
                    <div className="MyOrderDetailsItemsEach">
+                   <span className="MyOrderDetailsSpanDivEachSpan">Shipping</span>
+                   <span className="MyOrderDetailsSpanDivEachSpan">Rs {(d.shipping).toFixed(2)}</span>
+                   </div>
+                   <div className="MyOrderDetailsItemsEach">
                    <span className="MyOrderDetailsSpanDivEachSpan">Total</span>
                    <span className="MyOrderDetailsSpanDivEachSpan">Rs {(d.total).toFixed(2)}</span>
                    </div>

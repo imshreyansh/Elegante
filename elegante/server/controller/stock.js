@@ -79,7 +79,7 @@ exports.getTopSellerStocks = async(req,res)=>{
         let totalNumberOfStocks = 0
         allStocks.forEach((d,i)=>{
             purchasedByCount+=d.purchasedBy
-            totalNumberOfStocks+=i
+            totalNumberOfStocks+=(i+1)
         })
         const average = Math.ceil(purchasedByCount/totalNumberOfStocks)
         const topSellers = await Stock.find({"purchasedBy"  : {$gte : average}})

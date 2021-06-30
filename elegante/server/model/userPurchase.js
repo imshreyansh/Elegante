@@ -43,6 +43,10 @@ const userPurchase=new Schema({
         ref:'Tax'
     },
 
+    shipping:{
+        type:Number
+    },
+
     name:{
         type:String
     },
