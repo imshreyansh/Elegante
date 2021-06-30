@@ -1,4 +1,4 @@
-const {purchaseCartOrder,getAllOrder,updateOrder} = require('../controller/userPurchase')
+const {purchaseCartOrder,getAllOrder,updateOrder,getOrderByUserId} = require('../controller/userPurchase')
 
 exports.routes = (express, app) => {
 
@@ -9,6 +9,9 @@ exports.routes = (express, app) => {
     router.get('/getAllOrder', getAllOrder)
 
     router.post('/updateOrder/:id', updateOrder)
+
+    router.get('/getOrderByUserId/:id', getOrderByUserId)
+
 
 
     app.use('/api/order/', router);

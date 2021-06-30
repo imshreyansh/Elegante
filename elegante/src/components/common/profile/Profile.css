@@ -1,0 +1,145 @@
+.profileMain{
+    background-size: 100% 100%;
+    background-color:#fff;
+    margin-top:10%;
+    padding:0;
+    overflow-x:hidden;
+    height:100vh;
+}
+
+  
+  @media only screen and (max-width: 768px) {
+    .UserProfileDiv{
+        width:90%;
+        margin-left:auto;
+        margin-right:auto;
+        margin-top: 8%;
+     }
+     .UserProfileHeadingSpan{
+         font-size:18px;
+         font-weight:500;
+         color:#333;
+         font-family: Georgia, serif;
+         padding-bottom: 3%;
+         border-bottom: 1px solid #ddd
+     }
+     .inputDivForgot{
+        margin-top:8%;
+        width:90%;
+        margin-left: auto;
+        margin-right: auto;
+     }
+     .ProfileDivOne{
+        width:90%;
+        margin-left:auto;
+        margin-right:auto;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    .changePasswordButton{
+        width:80%;
+        padding:1%;
+        background-color: #00695c;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius:8px;
+        margin-top: 5%;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+  }
+  
+  @media only screen and (min-width: 768px) {
+    .UserProfileDiv{
+        width:30%;
+        margin-left:5%;
+        margin-top: 2%;
+     }
+     .UserProfileHeadingSpan{
+         font-size:25px;
+         font-weight:500;
+         color:#333;
+         font-family: Georgia, serif;
+         padding-bottom: 3%;
+         border-bottom: 1px solid #ddd
+     }
+     .inputDivForgot{
+        margin-top:5%;
+        width:90%;
+        margin-left: auto;
+        margin-right: auto;
+     }
+     .ProfileDivOne{
+        width:50%;
+        margin-left:auto;
+        margin-right:auto;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    .changePasswordButton{
+        width:10%;
+        padding:1%;
+        background-color: #00695c;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius:8px;
+        margin-top: 5%;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+  }
+  
+  @media only screen and (min-width: 1100px) {
+    .UserProfileDiv{
+        width:30%;
+        margin-left:5%;
+        margin-top: 2%;
+     }
+     .UserProfileHeadingSpan{
+         font-size:25px;
+         font-weight:500;
+             color:#333;
+             font-family: Georgia, serif;
+             padding-bottom: 3%;
+             border-bottom: 1px solid #ddd
+     }
+     .inputDivForgot{
+        margin-top:5%;
+        width:90%;
+        margin-left: auto;
+        margin-right: auto;
+     }
+     .ProfileDivOne{
+        width:50%;
+        margin-left:auto;
+        margin-right:auto;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    .changePasswordButton{
+        width:10%;
+        padding:1%;
+        background-color: #00695c;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius:8px;
+        margin-top: 5%;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+  }
+  
+  
+  

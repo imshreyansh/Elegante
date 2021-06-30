@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import './Authorization.css'
 import logo from "../../assets/images/logo.png"
 import developerLogo from "../../assets/images/developerLogo.png"
-import {loginUser,signUpUser} from '../../actions/authorizations'
+import {loginUser,signUpUser,updatePassword} from '../../actions/authorizations'
 import {handleError} from '../../actions/handleError'
 import {validation} from '../../utils/validation'
 import {storeItem} from '../utils/localStorage'
@@ -14,6 +14,8 @@ import PhoneAndroidIcon from '@material-ui/icons/PhoneAndroid';
 import PersonPinIcon from '@material-ui/icons/PersonPin';
 import FacebookLogin from 'react-facebook-login';
 import GoogleLogin from 'react-google-login';
+import { Modal } from '@material-ui/core';
+import CancelIcon from '@material-ui/icons/Cancel';
 
 class Authorization extends Component {
     constructor(props){
@@ -31,7 +33,10 @@ class Authorization extends Component {
             emailE:'',
             mobileE:'',
             addressE:'',
-            passwordSignUPE:''
+            passwordSignUPE:'',
+            modalPassword:false,
+            forgotMail:'',
+            forgotMailE:''
         }
         this.state = this.default
 
@@ -53,12 +58,12 @@ class Authorization extends Component {
            
         }else{
             const {email, passwordSignUP,mobile,address,name}=this.state
-            if(name!==''&&email!==''&&mobile!==''&&address!==''&&passwordSignUP!==''){
+            if(name!==''&&email!==''&&mobile!==''&&passwordSignUP!==''){
                 const obj={
                     name:this.state.name,
                     email:this.state.email,
                     mobile:this.state.mobile,
-                    address:this.state.address,
+                    address:'',
                     password:this.state.passwordSignUP,
                     designation:'User'
                 }
@@ -81,13 +86,54 @@ class Authorization extends Component {
         }
     }
 
-    onSocial = () =>{
-
+    onSocial = (res) =>{
+        console.log(res)
     }
     
+    forgotMailPass = () =>{
+        if(this.state.forgotMail!==''){
+            const obj={
+                email:this.state.forgotMail
+            }
+            this.props.dispatch(updatePassword(obj))
+            this.setState({
+                modalPassword:false,
+                forgotMail:'',
+                forgotMailE:''
+            })
+        }else{
+            const obj={
+                error:'Some fields are empty',
+                type:'error'
+            }
+            this.props.dispatch(handleError(obj))
+        }
+    }
+
     render(){
         return(
             <div className="AuthOne">
+                          <Modal
+                    open={this.state.modalPassword}
+                    onClose={()=>this.setState({modalPassword:false})}
+                  >
+                    <div className="forgotPasswordDivOne">
+                    <div className="forgotPasswordDivTwo">
+                        <div className="closeModalForPassword">
+                            <CancelIcon style={{cursor:'pointer',color:'#00695c'}} onClick={()=>this.setState({modalPassword:false})} />
+                        </div>
+                        <div className="inputForgotPassword">
+                        <div className="AuthSix">
+                        <EmailIcon className="AuthInputIcon"/>
+                    <input type="text" className="AuthInputOne" style={{borderBottomColor:this.state.forgotMailE ==='' ? '#00695c' :'red'}} placeholder="Email" value={this.state.forgotMail} onChange={(e)=>this.setState(validation(e,'forgotMail','email',['Email is reuired','Incorrect Email']))}/>
+                    </div>
+                        </div>
+                        <div className="AuthButton" onClick={()=>this.forgotMailPass()}>
+                        <span className="AuthSpanOne">Send</span>
+                    </div>
+                    </div>
+                    </div>
+                </Modal>
                 <div className="AuthTwo">
                     <div className="AuthThree">
 
@@ -105,6 +151,9 @@ class Authorization extends Component {
                         <LockIcon className="AuthInputIcon"/>
                         <input type="password" className="AuthInputOne" style={{borderBottomColor:'#00695c'}} placeholder="Password" value={this.state.password} onChange={(e)=>this.setState({password:e.target.value})}/>
                     </div>
+                    <div className="AuthForgot">
+                    <span style={{cursor:'pointer'}} onClick={()=>this.setState({modalPassword:true})} className="AuthSpanTwo">Forgot Password ?</span>
+                    </div>
                     </div>
                     :
                     <div className="AuthFive">
@@ -120,10 +169,10 @@ class Authorization extends Component {
                         <PhoneAndroidIcon className="AuthInputIcon"/>
                     <input type="text" className="AuthInputOne" style={{borderBottomColor:this.state.mobileE ==='' ? '#00695c' :'red'}} placeholder="Mobile" value={this.state.mobile} onChange={(e)=>this.setState(validation(e,'mobile','text',['Email is reuired','Incorrect Email']))}/>
                     </div>
-                    <div className="AuthSix">
+                    {/* <div className="AuthSix">
                         <PersonPinIcon className="AuthInputIcon"/>
                     <input type="text" className="AuthInputOne" style={{borderBottomColor:this.state.addressE ==='' ? '#00695c' :'red'}} placeholder="Address" value={this.state.address} onChange={(e)=>this.setState(validation(e,'address','text',['name is reuired','ds']))}/>
-                    </div>
+                    </div> */}
                     <div className="AuthSix">
                         <LockIcon className="AuthInputIcon"/>
                     <input type="password" className="AuthInputOne" style={{borderBottomColor:this.state.passwordSignUPE ==='' ? '#00695c' :'red'}} placeholder="Password" value={this.state.passwordSignUP} onChange={(e)=>this.setState(validation(e,'passwordSignUP','text',['name is reuired','ds']))}/>
@@ -136,7 +185,7 @@ class Authorization extends Component {
                     <div className="AuthSeven">
                         <span className="AuthSpanTwo" onClick={()=>this.setState({display:!this.state.display})}>{this.state.display ? `Don't have an account ? Sign Up` : `Already have an account ? Login In` }</span>
                     </div>
-                  {this.state.display ?  <div className="AuthFacebookAndGoogle">
+                  {/* {this.state.display ?  <div className="AuthFacebookAndGoogle">
                     <FacebookLogin
     appId="2871980276465306"
     autoLoad={false}
@@ -149,10 +198,10 @@ class Authorization extends Component {
                     <GoogleLogin
     clientId="233567002026-16k9ev92u1rjimh61n9q3sugjpc7irbh.apps.googleusercontent.com"
     buttonText="LOGIN WITH GOOGLE"
-    onSuccess={(res)=>console.log(res)}
+    onSuccess={(res)=>this.onSocial(res)}
     onFailure={(res)=>console.log(res)}
   />
-                      </div>:null}
+                      </div>:null} */}
 
                         </div>
                         {/* <div className="AuthEight">

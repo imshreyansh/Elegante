@@ -34,6 +34,17 @@ export const getAllOrder = ()=>dispatch=>{
     )
 }
 
+export const getOrderByUserId = (id)=>dispatch=>{
+    axios.get(`${IP}/api/order/getOrderByUserId/${id}`)
+    .then(res=>{
+        dispatch({type:GET_ORDER_BY_ID,payload:res.data.response})
+    })
+    .catch(err=>
+        dispatch(handleError({type:'error',error:err.message})),
+        dispatch({type: GET_ORDER_BY_ID,payload:null}),
+    )
+}
+
 export const updateOrderStatus = (id,data)=>dispatch=>{
     dispatch(onLoader(true))
     axios.post(`${IP}/api/order/updateOrder/${id}`,data)

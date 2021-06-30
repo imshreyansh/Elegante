@@ -19,6 +19,7 @@ import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import insta from '../../assets/images/insta.png'
 import email from '../../assets/images/email.png'
 import {getCategory} from '../../actions/category'
+import {getTopSellerStocks} from '../../actions/stocks'
 import {landingPage} from '../utils/pagination'
 class LandingPage extends Component {
     constructor(props){
@@ -31,14 +32,19 @@ class LandingPage extends Component {
             categories:[1,2,3,4,5,6,7],
             CatPn:1,
             countData:3,
-            activePagesCat:1
+            activePagesCat:1,
+            stockPn:1,
+            countStocks:1,
+            topSellerStocksAcive:1
+
         }
         this.state = this.default
         this.props.dispatch(getCategory())
+        this.props.dispatch(getTopSellerStocks())
     }
 
     componentWillReceiveProps(props){
-        this.getScreenSize(props.allActiveCategories)
+        this.getScreenSize(props.allActiveCategories,props.topSellers)
     }
 
     componentDidMount() {
@@ -53,18 +59,22 @@ class LandingPage extends Component {
         },5000)
     }
 
-    getScreenSize = (allActiveCategories)=>{
+    getScreenSize = (allActiveCategories,topSellers)=>{
         if(window.matchMedia("(max-width: 768px)").matches){
             this.setState({
                 mobile:true,
                 countData:3,
-                activePagesCat:Math.ceil((allActiveCategories.length)/3)
+                activePagesCat:Math.ceil((allActiveCategories.length)/3),
+                countStocks:1,
+                topSellerStocksAcive:Math.ceil((topSellers.length)/1)
             })
             }else{
                 this.setState({
                     mobile:false,
                     countData:4,
-                    activePagesCat:Math.ceil((allActiveCategories.length)/4)
+                    activePagesCat:Math.ceil((allActiveCategories.length)/4),
+                    countStocks:4,
+                    topSellerStocksAcive:Math.ceil((topSellers.length)/4)
                 })
             }
     }
@@ -86,6 +96,28 @@ class LandingPage extends Component {
         )
     }
 
+    renderAllTopSellers = ()=>{
+        return(
+            landingPage(this.state.stockPn,this.props.topSellers,this.state.countStocks).map((d,i)=>{
+                return(
+                    <Link key={i} to={{pathname:`/stockDetails/${d._id}`}} style={{textDecoration:'none'}} className="topSellersItems">
+                    <div className="topSellersItemsEach">
+                    <div className="topSellersTag">
+                    <span className="topSellersNameFour">Top Seller's</span>
+                    </div>
+                    <img src={d.thumbnail[0].path} className="topSellersImage"/>
+                    <span className="topSellersName">{d.name}</span>
+                    <span className="topSellersNameThree">Rs {(d.sellingPrice).toFixed(2)}</span>
+                    <div className="topSellersBack">
+                    <span className="topSellersNameTwo">Add to Cart</span>
+                    </div>
+                    </div>
+                </Link>
+                )
+            })
+        )
+    }
+
     onIncrementCategory = () =>{
         if(this.state.CatPn<this.state.activePagesCat){
         this.setState({
@@ -102,6 +134,26 @@ class LandingPage extends Component {
                 CatPn:this.state.CatPn-1
             },()=>{
                 this.renderAllActiveCategory()
+            })
+        }
+    }
+
+    onIncrementStock = () =>{
+        if(this.state.stockPn<this.state.topSellerStocksAcive){
+        this.setState({
+            stockPn:this.state.stockPn+1
+        },()=>{
+            this.renderAllTopSellers()
+        })
+        }
+    }
+
+    onDecrementStock = () =>{
+        if(this.state.stockPn>1){
+            this.setState({
+                stockPn:this.state.stockPn-1
+            },()=>{
+                this.renderAllTopSellers()
             })
         }
     }
@@ -154,25 +206,13 @@ class LandingPage extends Component {
        </div>
        </div>
        <div className="topSellersDiv">
-            <div className="topSellersItems">
-                <div className="topSellersItemsEach">
-                <div className="topSellersTag">
-                <span className="topSellersNameFour">Top Seller's</span>
-                </div>
-                <img src={sample} className="topSellersImage"/>
-                <span className="topSellersName">Vintage Handwritten letter</span>
-                <span className="topSellersNameThree">Rs 250.00</span>
-                <div className="topSellersBack">
-                <span className="topSellersNameTwo">Add to Cart</span>
-                </div>
-                </div>
-            </div>
+            {this.renderAllTopSellers()}
             </div>
             <div className="arrowForLandingCategory">
             <div className="arrowForLandingCategoryTwo">
-<SkipPreviousIcon style={{fontSize:'30px'}} className="arrowIconOne"/>
-<span className="arrowSpan">1</span>
-<SkipNextIcon style={{fontSize:'30px'}} className="arrowIconTwo"/>
+<SkipPreviousIcon onClick={()=>this.onDecrementStock()} style={{fontSize:'30px'}} className="arrowIconOne"/>
+        <span className="arrowSpan">{this.state.stockPn}</span>
+<SkipNextIcon onClick={()=>this.onIncrementStock()} style={{fontSize:'30px'}} className="arrowIconTwo"/>
             </div>
             </div>
        <div className="categoriesLandingOne">
@@ -230,7 +270,8 @@ function mapStateToProps(data){
     return{
         allActiveCategories:data.category.allCategories.filter(d=>d.status==='Active'),
         authedId:data,
-        jwtToken:jwt.decode(getItemFromStorage('authedId'))
+        jwtToken:jwt.decode(getItemFromStorage('authedId')),
+        topSellers:data.stocks.stockTopSellers
     }
 }
 

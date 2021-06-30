@@ -574,6 +574,7 @@
   margin-right: auto;
   background-color: #fff;
   border:5px solid goldenrod;
+  outline: none;
   border-radius:2px;
 }
 .closeModalCross{
@@ -594,6 +595,7 @@
   justify-content:center;
   align-items:center;
   display: flex;
+  outline: none;
   flex-direction:column;
   margin-top:5%
 }

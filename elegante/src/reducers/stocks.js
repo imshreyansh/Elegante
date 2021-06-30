@@ -1,6 +1,6 @@
-import {ADD_STOCK,GET_STOCK,EDIT_STOCK,DELETE_STOCK,GET_STOCK_BY_CATEGORY,GET_STOCK_BY_ID} from '../actions/actionTypes'
+import {ADD_STOCK,GET_STOCK,EDIT_STOCK,DELETE_STOCK,GET_STOCK_BY_CATEGORY,GET_STOCK_BY_ID,GET_TOP_SELLERS} from '../actions/actionTypes'
 
-const initialState={allStocks:[],stockByCategory:[],stockById:{}}
+const initialState={allStocks:[],stockByCategory:[],stockById:{},stockTopSellers:[]}
 export default function stocks(state=initialState,action){
     const {type,payload} = action
     switch (type){
@@ -17,6 +17,14 @@ export default function stocks(state=initialState,action){
                 return {
                     ...state,
                     ...{allStocks:payload}
+                }
+            }
+
+        case GET_TOP_SELLERS:
+            if(payload !==null){
+                return {
+                    ...state,
+                    ...{stockTopSellers:payload}
                 }
             }
 

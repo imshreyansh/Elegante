@@ -1,4 +1,4 @@
-import {ADD_STOCK,GET_STOCK,EDIT_STOCK,DELETE_STOCK,GET_STOCK_BY_CATEGORY,GET_STOCK_BY_ID} from './actionTypes'
+import {ADD_STOCK,GET_STOCK,EDIT_STOCK,DELETE_STOCK,GET_STOCK_BY_CATEGORY,GET_STOCK_BY_ID,GET_TOP_SELLERS} from './actionTypes'
 import {handleError} from './handleError'
 import {IP} from '../config/config'
 import axios from 'axios'
@@ -88,5 +88,16 @@ export const editStock = (id,data)=>dispatch=>{
         setTimeout(() => {
             dispatch(onLoader(false))
         },2000)
+    )
+}
+
+export const getTopSellerStocks = ()=>dispatch=>{
+    axios.get(`${IP}/api/stock/getTopSellerStocks`)
+    .then(res=>{
+        dispatch({type: GET_TOP_SELLERS,payload:res.data.response})
+    })
+    .catch(err=>
+        dispatch(handleError({type:'error',error:err.message})),
+        dispatch({type: GET_TOP_SELLERS,payload:null})
     )
 }

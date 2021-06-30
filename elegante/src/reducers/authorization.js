@@ -1,4 +1,4 @@
-import {LOGIN_USER,SIGN_UP,LOGOUT} from '../actions/actionTypes'
+import {LOGIN_USER,SIGN_UP,LOGOUT,UPDATE_PASSWORD} from '../actions/actionTypes'
 
 export default function authorization(state=null,action){
     const {type,payload} = action
@@ -12,6 +12,9 @@ export default function authorization(state=null,action){
         case SIGN_UP:
             return payload
                 
+        case UPDATE_PASSWORD:
+            return payload
+            
         default:
             return state
     }

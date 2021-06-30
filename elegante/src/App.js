@@ -25,6 +25,7 @@ import Currency from './components/admin/master/Currency'
 import AdminAllOrders from './components/admin/allOrders/AdminAllOrders'
 import {getItemFromStorage,removeItemFromStorage} from './components/utils/localStorage'
 import Loader from './components/common/loader/Loader'
+import ChangePassword from './components/common/profile/ChangePassword'
 class App extends Component {
 
 loggedInUser = () => {
@@ -76,11 +77,13 @@ loggedInUser = () => {
           <Route path="/userRequest" component={UserRequest} />
           <Route  path="/stockDetails/:id" component={StockDetails} />
           <Route  path="/cart" component={Cart} />
+          <Route  path="/profile" component={ChangePassword} />
         </Switch>
         <BottomInfo/>
         </Fragment> :
         this.loggedInUser() && this.loggedInUser()==='User'?
         <Fragment>
+        <TopMenu />
           <Switch>
           <Route exact path="/" component={LandingPage} />
           <Route  path="/login" component={Authorization} />
@@ -92,6 +95,8 @@ loggedInUser = () => {
           <Route  path="/categoryDetails/:id" component={CategoryDetails} />
           <Route  path="/stockDetails/:id" component={StockDetails} />
           <Route  path="/cart" component={Cart} />
+          <Route  path="/profile" component={ChangePassword} />
+          <Route path="/myOrders" component={MyOrders} />
         </Switch>
         </Fragment>:
          null:null

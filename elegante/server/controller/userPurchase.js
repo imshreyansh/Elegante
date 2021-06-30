@@ -31,6 +31,16 @@ exports.getAllOrder = async (req,res)=>{
     }
 }
 
+exports.getOrderByUserId = async (req,res)=>{
+    try{
+        const getAll = await UserPurchase.find({user:req.params.id}).populate({path:'stock',populate:{path:'stockId',model:'Stock'}}).populate('tax')
+        successResponseHandler(res,getAll,'Successfully got all orders')
+
+    }
+    catch(error){
+        errorResponseHandler(res, error,'Error While getting orders')
+    }
+}
 
 exports.updateOrder = async (req,res)=>{
     try{

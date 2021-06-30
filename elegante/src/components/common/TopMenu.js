@@ -28,7 +28,7 @@ import LocalAtmIcon from '@material-ui/icons/LocalAtm';
 import RecordVoiceOverIcon from '@material-ui/icons/RecordVoiceOver';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import {getAllOffer} from '../../actions/offer'
-
+import AccountBoxIcon from '@material-ui/icons/AccountBox';
 class TopMenu extends Component {
     constructor(props){
         super(props)
@@ -195,6 +195,10 @@ if(this.props.location.pathname!=='/login'){
                <HomeIcon className="drawerIcon"/>
            <span className="drawerLi" onClick={()=>this.handleDrawerClose()}>Home</span>
            </Link>
+           <Link to="/profile" style={{textDecoration:'none'}} className="drawerEach">
+               <AccountBoxIcon className="drawerIcon"/>
+               <span className="drawerLi" onClick={()=>this.handleDrawerClose()}>Profile</span>
+           </Link>
            <Link to="/addCategory" style={{textDecoration:'none'}} className="drawerEach">
                <ExtensionIcon className="drawerIcon"/>
                <span className="drawerLi" onClick={()=>this.handleDrawerClose()}>Add Category</span>
@@ -238,9 +242,17 @@ if(this.props.location.pathname!=='/login'){
            </div>
            :
            <div className="drawerUl">
+                <div className="drawerEach">
+            <AccountCircleIcon className="drawerIcon"/>
+           <span className="drawerLiName" onClick={()=>this.handleDrawerClose()}>Hey, {this.props.jwtToken.name}</span>
+           </div>
            <Link to="/" style={{textDecoration:'none'}} className="drawerEach">
                <HomeIcon className="drawerIcon"/>
            <span className="drawerLi" onClick={()=>this.handleDrawerClose()}>Home</span>
+           </Link>
+           <Link to="/profile" style={{textDecoration:'none'}} className="drawerEach">
+               <AccountBoxIcon className="drawerIcon"/>
+               <span className="drawerLi" onClick={()=>this.handleDrawerClose()}>Profile</span>
            </Link>
            <Link to="/category" style={{textDecoration:'none'}} className="drawerEach">
                <CategoryIcon className="drawerIcon"/>
@@ -301,7 +313,7 @@ onClose={()=>this.handleClose()}
 this.props.jwtToken.designation==='Admin' ? 
 <div>
 <MenuItem style={{color:'#00695c'}} onClick={()=>this.handleClose()}>Hey, {this.props.jwtToken.name}</MenuItem>
-{/* <Link to="/category" style={{textDecoration:'none',color: '#00695c'}}><MenuItem onClick={()=>this.handleClose()}>My Profile</MenuItem></Link> */}
+<Link to="/profile" style={{textDecoration:'none',color: '#00695c'}}><MenuItem onClick={()=>this.handleClose()}>Profile</MenuItem></Link>
 <Link to="/addCategory" style={{textDecoration:'none',color: '#00695c'}}><MenuItem onClick={()=>this.handleClose()}>Add Category</MenuItem></Link>
 <Link to="/addStocks" style={{textDecoration:'none',color: '#00695c'}}><MenuItem onClick={()=>this.handleClose()}>Add Stocks</MenuItem></Link>
 <Link to="/addOffers" style={{textDecoration:'none',color: '#00695c'}}><MenuItem onClick={()=>this.handleClose()}>Add Offers</MenuItem></Link>
@@ -313,8 +325,9 @@ this.props.jwtToken.designation==='Admin' ?
 :
 this.props.jwtToken.designation==='User' ? 
 <div>
-<MenuItem onClick={()=>this.handleClose()}>Update Password</MenuItem>
-<MenuItem onClick={()=>this.onLogout()}>LOGOUT</MenuItem>
+<MenuItem style={{color:'#00695c'}} onClick={()=>this.handleClose()}>Hey, {this.props.jwtToken.name}</MenuItem>
+<Link to="/profile" style={{textDecoration:'none',color: '#00695c'}}><MenuItem onClick={()=>this.handleClose()}>Profile</MenuItem></Link>
+<MenuItem style={{textDecoration:'none',color: '#00695c'}} onClick={()=>this.onLogout()}>LOGOUT</MenuItem>
 </div> :null:null
 }
 </Menu>

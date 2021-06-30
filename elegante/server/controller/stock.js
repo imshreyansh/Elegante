@@ -71,3 +71,21 @@ exports.editStock = (req,res)=>{
         }
     })
 }
+
+exports.getTopSellerStocks = async(req,res)=>{
+    try{
+        const allStocks = await Stock.find({})
+        let purchasedByCount = 0
+        let totalNumberOfStocks = 0
+        allStocks.forEach((d,i)=>{
+            purchasedByCount+=d.purchasedBy
+            totalNumberOfStocks+=i
+        })
+        const average = Math.ceil(purchasedByCount/totalNumberOfStocks)
+        const topSellers = await Stock.find({"purchasedBy"  : {$gte : average}})
+        successResponseHandler(res,topSellers,'Successfully got top sellers')
+    }
+    catch(error){
+        errorResponseHandler(res, error,'Error While getting stocks')
+    }
+}
