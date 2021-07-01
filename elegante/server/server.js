@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const http = require('http');
 const app = express();
 const cors = require('cors');
 const morgan = require("morgan");
@@ -35,6 +36,6 @@ mongoose.connect('mongodb://localhost/elegante',
 
 const port = process.env.PORT || 3000
 
-app.listen(port, () => {
-    console.log('listening on port ', port)
-})
+let httpServer;
+httpServer = http.createServer(app);
+  httpServer.listen(port, () => console.info(`welcome to elegante :)  visit http://localhost:${port}`))
