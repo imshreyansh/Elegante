@@ -313,8 +313,9 @@
        margin-top:1%;
    }
    .AuthDevLogoDivOne{
-       width:90%;
-       margin-top: 5%;
+       width:60%;
+       position:fixed;
+       bottom:0;
        display: flex;
        justify-content: flex-end;
        flex-direction: column;
