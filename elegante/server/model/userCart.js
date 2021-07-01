@@ -19,6 +19,10 @@ dateOfPurchase:{
 
 qty:{
     type:Number
+},
+created_at: {
+    type: Date,
+    default: new Date()
 }
 })
 

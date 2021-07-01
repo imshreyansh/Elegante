@@ -9,7 +9,7 @@ import tax from './tax'
 import memberCart from './memberCart'
 import order from './order'
 import loader from './loader'
-
+import userRequest from './userRequest'
 export default combineReducers({
 authorization,
 handleError,
@@ -20,5 +20,6 @@ loader,
 offer,
 tax,
 memberCart,
-order
+order,
+userRequest
 })

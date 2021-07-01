@@ -214,7 +214,7 @@
 .drawerLi{
   font-size:18px;
   font-weight: 500;
-  color: #fff;
+  color:#004d40;
   font-family: Georgia, serif;
   cursor: pointer;
   margin-top: 5%;
@@ -225,7 +225,7 @@
 .drawerLiName{
   font-size:12px;
   font-weight: 500;
-  color: #fff;
+  color:#004d40;
   font-family: Georgia, serif;
   cursor: pointer;
   margin-top: 5%;
@@ -242,7 +242,8 @@
 .drawerEach{
   display: flex;
   flex-direction: row;
-  background-color: #00796b;
+  background-color: #fff;
+  border-bottom:0.5px solid #004d40;
   padding:2%;
   margin-top:5%;
 }
@@ -250,7 +251,7 @@
   margin-left:5%;
   margin-top: auto;
   margin-bottom:auto;
-  color:#fff;
+  color:#004d40;
   font-size:20px;
 }
 .MuiDrawer-paperAnchorRight{

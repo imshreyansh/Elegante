@@ -94,7 +94,11 @@ const userPurchase=new Schema({
         amount:{
             type:Number
         }
-    }]
+    }],
+    created_at: {
+        type: Date,
+        default: new Date()
+    }
 })
 
 const UserPurchase = mongoose.model('UserPurchase',userPurchase)

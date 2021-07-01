@@ -204,14 +204,17 @@ class Authorization extends Component {
                       </div>:null} */}
 
                         </div>
-                        {/* <div className="AuthEight">
-                        <div className="AuthNine">
-                        <span className="AuthSpanThree">Powered By</span>
-                            <img src={developerLogo} className="developerLogo"/>
-                        </div>
-                        </div> */}
+                        <div className="AuthDevLogoDivOne">
+                      <div className="AuthDevLogoDivTwo">
+                        <span className="AuthDevLogoSpan">Powered By:</span>
+                      </div>
+                      <div className="AuthDevLogoDivThree">
+                        <img src={developerLogo} className="AuthDevLogo" />
+                      </div>
+                </div>
                     </div>
                 </div>
+               
             </div>
         )
     }

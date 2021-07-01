@@ -28,8 +28,8 @@
        align-items: center;
    } 
    .AuthLogo{
-       width:30%;
-       margin-top: 2%;
+       width:40%;
+       margin-top: 5%;
    }
    .loginAuthForm{
        width:80%;
@@ -103,23 +103,6 @@
        color: #00695c;
        font-family: Georgia, serif;
    }
-   .AuthEight{
-       margin-top: 30px;
-  width:100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-   }
-   .AuthSpanThree{
-    font-size:12px;
-    font-weight: 500;
-    color: #333;
-    font-family: Georgia, serif;
-   }
-   .AuthNine{
-    display: flex;
-    flex-direction: column;
-   }
    .AuthForgot{
     margin-top:5%;
     width:90%;
@@ -160,6 +143,37 @@
 }
 .inputForgotPassword{
    margin-top:1%;
+}
+.AuthDevLogoDivOne{
+    width:90%;
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.AuthDevLogoDivTwo{
+    width:100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+}
+.AuthDevLogoDivThree{
+ width:100%;
+ justify-content: center;
+     align-items: center;
+ display: flex;
+
+}
+.AuthDevLogoSpan{
+ font-size:10px;
+ font-weight: 500;
+ color: #333;
+ font-family: Georgia, serif;
+}
+.AuthDevLogo{
+ width:50%;
 }
 }
 
@@ -258,29 +272,6 @@
        color: #00695c;
        font-family: Georgia, serif;
    }
-   .AuthEight{
-    position:absolute;
-    bottom:0;
-  width:60%;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-   }
-   .AuthSpanThree{
-    font-size:12px;
-    font-weight: 500;
-    color: #333;
-    width:40%;
-    margin-top: 5%;
-    font-family: Georgia, serif;
-   }
-   .AuthNine{
-    display: flex;
-    flex-direction: row;
-   }
-   .developerLogo{
-       width:90%
-   }
    .AuthForgot{
        margin-top:5%;
        width:80%;
@@ -321,4 +312,33 @@
    .inputForgotPassword{
        margin-top:1%;
    }
+   .AuthDevLogoDivOne{
+       width:90%;
+       margin-top: 5%;
+       display: flex;
+       justify-content: flex-end;
+       flex-direction: column;
    }
+   .AuthDevLogoDivTwo{
+       width:90%;
+       justify-content: flex-end;
+       display: flex;
+
+   }
+   .AuthDevLogoDivThree{
+    width:100%;
+    justify-content: flex-end;
+    display: flex;
+
+}
+.AuthDevLogoSpan{
+    font-size:10px;
+    font-weight: 500;
+    color: #333;
+    font-family: Georgia, serif;
+}
+.AuthDevLogo{
+    width:15%;
+}
+   }
+   

@@ -6,67 +6,76 @@ import {getItemFromStorage} from '../../utils/localStorage'
 import {Link,withRouter} from 'react-router-dom'
 import {handleError} from '../../../actions/handleError'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-
+import {getUserRequest} from '../../../actions/userRequest'
 class UserRequest extends Component {
     constructor(props){
         super(props)
         this.default={
-       
+       index:'',
+       data:''
         }
         this.state = this.default
-
+        this.props.dispatch(getUserRequest())
     }
 
     componentDidMount() {
        
     }
 
-
-    render(){
-        return(
-            <div className="UserRequest">
-              <div className="UserRequestDivMain">
-                <div className="UserRequestDivEach">
-                    <div className="UserRequestSpanEach">
-                        <span className="UserRequestSpan">Shreyansh Upadhyay</span>
-                    </div>
-                    <div className="UserRequestSpanEach">
-                        <span className="UserRequestSpan">+919926551579</span>
-                    </div>
-                    <div className="UserRequestSpanEach">
-                        <span className="UserRequestSpan">shreyu.upadhyay13@gmail.com</span>
-                    </div>
-                    <div className="UserRequestIconEach">
-                    <ExpandMoreIcon style={{fontSize:'40px',color:'#80cbc4'}} className="UserRequestSpan"/>
-                    </div>
-                </div>
+    renderView = (d,i)=>{
+        if(this.state.index===i){
+            return(
                 <div className="UserDescriptionMainDiv">
                     <div className="UserDescriptionDateDiv">
-                        <span className="UserRequestSpan">Date: 29/12/2021</span>
+                        <span className="UserRequestSpan">Date: {new Date(d.created_at).getDate()}/{new Date(d.created_at).getMonth()+1}/{new Date(d.created_at).getFullYear()}</span>
                     </div>
                     <div className="UserDescriptionDateDiv">
                     <span className="UserDescriptionHeadingSpan">Description</span>
                     </div>
                     <div className="UserDescriptionDiv">
-                    <span className="UserRequestSpan">When you purchase something from our store, as part of the buying and selling process, we collect the personal information you give us such as your name, address and email address.
-
-
-When you browse our store, we also automatically receive your computer’s internet protocol (IP) address in order to provide us with information that helps us learn about your browser and operating system.
-
-
-Email marketing (if applicable): With your permission, we m</span>
+                    <span className="UserRequestSpan">{d.description}</span>
                     </div>
                 </div>
+            )
+        }
+    }
+
+    render(){
+        return(
+            <div className="UserRequest">
+                               {
+                   this.props.userRequest.map((d,i)=>{
+                       return(
+              <div className="UserRequestDivMain">
+                        <div key={i} className="UserRequestDivEach">
+                    <div className="UserRequestSpanEach">
+                        <span className="UserRequestSpan">{d.name}</span>
+                    </div>
+                    <div className="UserRequestSpanEach">
+                        <span className="UserRequestSpan">{d.mobile}</span>
+                    </div>
+                    <div className="UserRequestSpanEach">
+                        <span className="UserRequestSpan">{d.email}</span>
+                    </div>
+                    <div className="UserRequestIconEach">
+                    <ExpandMoreIcon onClick={()=>this.setState({index:i})} style={{fontSize:'40px',color:'#80cbc4'}} className="UserRequestSpan"/>
+                    </div>
+                </div>
+                   {this.renderView(d,i)}
               </div>
+                  )
+                })
+            } 
             </div>
         )
         
     }
 }
 
-function mapStateToProps(authedId){
+function mapStateToProps(data){
     return{
-        authedId:authedId,
+        authedId:data,
+        userRequest:data.userRequest,
         jwtToken:jwt.decode(getItemFromStorage('authedId'))
     }
 }

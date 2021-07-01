@@ -12,7 +12,7 @@ import PhoneAndroidIcon from '@material-ui/icons/PhoneAndroid';
 import PersonPinIcon from '@material-ui/icons/PersonPin';
 import RateReviewIcon from '@material-ui/icons/RateReview';
 import {handleError} from '../../actions/handleError'
-
+import {postUserRequest} from '../../actions/userRequest'
 class Contact extends Component {
     constructor(props){
         super(props)
@@ -43,6 +43,7 @@ class Contact extends Component {
                     mobile:this.state.mobile,
                     description:this.state.description,
                 }
+                this.props.dispatch(postUserRequest(obj))
                 this.setState({
                     name:'',
                     email:'',
