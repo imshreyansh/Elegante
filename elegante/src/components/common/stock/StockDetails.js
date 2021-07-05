@@ -25,6 +25,7 @@ class StockDetails extends Component {
     }
 
     componentWillReceiveProps(nextProps){
+        console.log(nextProps)
         this.setState({
             thumbnail: nextProps.stocks.thumbnail && nextProps.stocks.thumbnail.length>0 ? nextProps.stocks.thumbnail : [],
             mainThumb:nextProps.stocks.thumbnail && nextProps.stocks.thumbnail.length>0 ? nextProps.stocks.thumbnail[0]:[],

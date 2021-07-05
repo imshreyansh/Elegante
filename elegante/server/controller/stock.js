@@ -1,21 +1,68 @@
 const {Stock} =require('../model/stock')
-const { handler: { errorResponseHandler, successResponseHandler }, upload: { uploadAvatar } } = require('../config')
+const { handler: { errorResponseHandler, successResponseHandler }, upload: { uploadAvatar }} = require('../config')
+var multiparty = require('multiparty');
+var cloudinary = require('cloudinary').v2;
 
-exports.addStock =  (req, res)=>{
-    uploadAvatar(req,res,async(error)=>{
-        if(error) return errorResponseHandler(res, error, 'Error While Creating')
-        try{
-            const { name,costPrice,sellingPrice,description,qty,category} = JSON.parse(req.body.data)
-            const add = new Stock({name,costPrice,sellingPrice,description,qty,category})
-             add['thumbnail']=req.files
-            await add.save()
-            successResponseHandler(res,add,'Successfully Added Stock')
-        }
-        catch(error){
-            errorResponseHandler(res, error, 'Error While Adding Stock')
-        }
-    })
+exports.addStock = async (req,res)=>{
+    try{
+        var form = new multiparty.Form()
+        form.parse(req,  (error, fields, files)=> {
+            if(error) return errorResponseHandler(res, error, 'Error While Creating')
+                    try{
+                        const { name,costPrice,sellingPrice,description,qty,category} = JSON.parse(fields.data)
+                        const add = new Stock({name,costPrice,sellingPrice,description,qty,category})
+                        let arr=[]
+                        files.thumbnail.map(d=>{
+                            cloudinary.uploader.upload(d.path,async (err, result)=> {
+                                try{
+                                    arr.push({fieldname : result.original_filename,
+                                        originalname : result.original_filename,
+                                        encoding : "7bit",
+                                        mimetype : `${result.resource_type}/${result.format}`,
+                                        destination : result.url,
+                                        filename : result.original_filename,
+                                        path : result.url,
+                                        size : result.bytes})
+                                    if(arr.length === files.thumbnail.length){
+                                add['thumbnail']=arr
+                                await add.save()
+                                const newResponse = await Stock.findOne({_id:add._id}).populate('category')
+                                successResponseHandler(res,newResponse,'Successfully Added Stock')
+                                    }
+                                }catch(err){
+                                    errorResponseHandler(res, err, 'Error While Adding Stock')
+                                }
+                                   
+                            })
+                        })
+                    }
+                    catch(error){
+                        errorResponseHandler(res, error, 'Error While Adding Stock')
+                    }       
+        })
+    }
+    catch(error){
+        errorResponseHandler(res, error, 'Error While Adding Stock')
+    }
 }
+
+
+// exports.addStock =  (req, res)=>{
+//     uploadAvatar(req,res,async(error)=>{
+//         if(error) return errorResponseHandler(res, error, 'Error While Creating')
+//         try{
+//             const { name,costPrice,sellingPrice,description,qty,category} = JSON.parse(req.body.data)
+//             const add = new Stock({name,costPrice,sellingPrice,description,qty,category})
+//              add['thumbnail']=req.files
+//             await add.save()
+//             successResponseHandler(res,add,'Successfully Added Stock')
+//         }
+//         catch(error){
+//             errorResponseHandler(res, error, 'Error While Adding Stock')
+//         }
+//     })
+// }
+
 
 exports.getAllStocks = async (req,res)=>{
     try{

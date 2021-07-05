@@ -6,8 +6,13 @@ const app = express();
 const cors = require('cors');
 const morgan = require("morgan");
 const { mountRoutes } = require("./routes")
+var cloudinary = require('cloudinary').v2;
 
-
+cloudinary.config({
+    cloud_name: 'df38lorgo', 
+    api_key: '497247786712524', 
+    api_secret: '1RKntM35ppDra7AzV-JibLOebB4'
+})
 app.use(morgan("dev"));
 app.use(function (req, res, next) {
     let origin = req.headers.origin;
