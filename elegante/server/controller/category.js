@@ -2,6 +2,8 @@ const {Category} = require('../model/category')
 const { handler: { errorResponseHandler, successResponseHandler }, upload: { uploadAvatar } } = require('../config')
 var multiparty = require('multiparty');
 var cloudinary = require('cloudinary').v2;
+
+
 exports.addCategory = async (req,res)=>{
     try{
         var form = new multiparty.Form()
