@@ -15,12 +15,12 @@ exports.addStock = async (req,res)=>{
                         files.thumbnail.map(d=>{
                             cloudinary.uploader.upload(d.path,async (err, result)=> {
                                 try{
-                                    arr.push({fieldname : result.original_filename,
-                                        originalname : result.original_filename,
+                                    arr.push({fieldname : result.public_id,
+                                        originalname : result.public_id,
                                         encoding : "7bit",
                                         mimetype : `${result.resource_type}/${result.format}`,
                                         destination : result.url,
-                                        filename : result.original_filename,
+                                        filename : result.public_id,
                                         path : result.url,
                                         size : result.bytes})
                                     if(arr.length === files.thumbnail.length){
@@ -96,8 +96,22 @@ exports.getStockById = async (req,res)=>{
 
 exports.deleteStock = async(req,res)=>{
     try{
-        const deleteItem = await Stock.findOneAndDelete({_id:req.params.id})
-        successResponseHandler(res,deleteItem,'Successfully Deleted Stock')
+        const getDelete = await Stock.findOne({_id:req.params.id})
+        let arr=[]
+        getDelete.thumbnail.map(d=>{
+            cloudinary.uploader.destroy(d.filename,async (err,result)=>{
+                try{
+                    arr.push(result)
+                    if(getDelete.thumbnail.length ===arr.length){
+                        const deleteItem = await Stock.findOneAndDelete({_id:req.params.id})
+                        successResponseHandler(res,deleteItem,'Successfully Deleted Stock')
+                    }
+                }
+                catch(error){
+                    errorResponseHandler(res, error,'Error While getting stocks')
+                }
+            })
+        })
     }
     catch(error){
         errorResponseHandler(res, error,'Error While getting stocks')
