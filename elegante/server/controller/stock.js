@@ -104,20 +104,72 @@ exports.deleteStock = async(req,res)=>{
     }
 }
 
-exports.editStock = (req,res)=>{
-    uploadAvatar(req,res,async(err)=>{
-        if(err) return errorResponseHandler(res,err,'Error while updating stock')
-        try{
-            const data = JSON.parse(req.body.data)
-            const find = await Stock.findOneAndUpdate({_id:req.params.id},data,{new:true})
-            find['thumbnail'] = req.files
-            successResponseHandler(res,find,'Successfully Updated Stock')
-        }
-        catch(error){
-            errorResponseHandler(res, error,'Error While getting stocks')
-        }
-    })
+exports.editStock =  (req,res)=>{
+    try{
+        var form = new multiparty.Form()
+        form.parse(req,  async(error, fields, files)=> {
+            if(error) return errorResponseHandler(res, error, 'Error While Updating')
+                    try{
+                        if(files && files.thumbnail && files.thumbnail.length >0){
+                            const data = JSON.parse(fields.data)
+                            const find = await Stock.findOneAndUpdate({_id:req.params.id},data,{new:true})
+                           let arr=[]
+                               files.thumbnail.map(d=>{
+                                   cloudinary.uploader.upload(d.path,async (err, result)=> {
+                                       try{
+                                           arr.push({fieldname : result.original_filename,
+                                               originalname : result.original_filename,
+                                               encoding : "7bit",
+                                               mimetype : `${result.resource_type}/${result.format}`,
+                                               destination : result.url,
+                                               filename : result.original_filename,
+                                               path : result.url,
+                                               size : result.bytes})
+                                           if(arr.length === files.thumbnail.length){
+                                       find['thumbnail'] = arr
+                                       await find.save()
+                                       const newResponse = await Stock.findOne({_id:find._id}).populate('category')
+                                      successResponseHandler(res,newResponse,'Successfully Updated Stock')
+                                           }
+                                       }catch(err){
+                                           errorResponseHandler(res, err, 'Error While Updating Stock')
+                                       }
+                                          
+                                   })
+                               })
+                        }else{
+                            const data = JSON.parse(fields.data)
+                            const find = await Stock.findOneAndUpdate({_id:req.params.id},data,{new:true})
+                            const newResponse = await Stock.findOne({_id:find._id}).populate('category')
+                            successResponseHandler(res,newResponse,'Successfully Updated Stock')
+                        }
+                      
+                    }
+                    catch(error){
+                        errorResponseHandler(res, error, 'Error While Updating Stock')
+                    }       
+        })
+    }
+    catch(error){
+        errorResponseHandler(res, error, 'Error While Adding Stock')
+    }
 }
+
+// exports.editStock = (req,res)=>{
+//     uploadAvatar(req,res,async(err)=>{
+//         if(err) return errorResponseHandler(res,err,'Error while updating stock')
+//         try{
+//             const data = JSON.parse(req.body.data)
+//             const find = await Stock.findOneAndUpdate({_id:req.params.id},data,{new:true})
+//             find['thumbnail'] = req.files
+                //await find.save()
+//             successResponseHandler(res,find,'Successfully Updated Stock')
+//         }
+//         catch(error){
+//             errorResponseHandler(res, error,'Error While getting stocks')
+//         }
+//     })
+// }
 
 exports.getTopSellerStocks = async(req,res)=>{
     try{
